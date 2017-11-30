@@ -1,0 +1,4 @@
+2017-11-22 18:22:05,063 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-22 18:22:05,099 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "POST /steward/user/add HTTP/1.1" 302 154
+2017-11-22 18:22:05,101 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-22 18:22:05,671 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/user/add HTTP/1.1" 200 None

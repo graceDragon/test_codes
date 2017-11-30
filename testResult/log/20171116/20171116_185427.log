@@ -1,0 +1,14 @@
+2017-11-16 18:54:27,638 runAll.py[line:72] INFO ********测试 开始！********
+2017-11-16 18:54:27,650 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-16 18:54:27,674 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/common/login?encrypt=DES&param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFo%2B95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV%2BKfZMwnvEA%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-16 18:54:27,676 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-16 18:54:28,306 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/common/login?encrypt=DES&param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFo%2B95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV%2BKfZMwnvEA%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None
+2017-11-16 18:54:28,332 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-16 18:54:28,361 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/common/getSmsCode?encrypt=DES&param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF2UUit9h%2BdlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJunORAjGPQxo&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-16 18:54:28,365 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-16 18:54:29,114 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/common/getSmsCode?encrypt=DES&param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF2UUit9h%2BdlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJunORAjGPQxo&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None
+2017-11-16 18:54:29,236 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-16 18:54:29,266 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecMnyJF4jC3z5%2FWcpyR3UveLJ64mM5FoCdU51o9hS7X9HJQY80phGvySnPIwGC1BC83c3%2BpPhs6hrbMQAXYIoGon8z%2BkMjAQCfvjidrcaGIvpFeuIVxn%2FrGVOdOsPRW54JNvTOvR69HDmGBiA7sT2h9PjGgi22XYZOE%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-16 18:54:29,269 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-16 18:54:29,561 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecMnyJF4jC3z5%2FWcpyR3UveLJ64mM5FoCdU51o9hS7X9HJQY80phGvySnPIwGC1BC83c3%2BpPhs6hrbMQAXYIoGon8z%2BkMjAQCfvjidrcaGIvpFeuIVxn%2FrGVOdOsPRW54JNvTOvR69HDmGBiA7sT2h9PjGgi22XYZOE%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None
+2017-11-16 18:54:29,571 runAll.py[line:81] INFO *********测试 结束！*********

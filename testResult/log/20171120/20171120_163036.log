@@ -1,0 +1,4 @@
+2017-11-20 16:30:36,223 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-20 16:30:36,252 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/account/version?encrypt=DES&param=PawnCmfK%2BrKCBXE0KrEHFv7eFm3ZJgSkAk7253f5b5M%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-20 16:30:36,253 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-20 16:30:36,913 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/account/version?encrypt=DES&param=PawnCmfK%2BrKCBXE0KrEHFv7eFm3ZJgSkAk7253f5b5M%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 500 None

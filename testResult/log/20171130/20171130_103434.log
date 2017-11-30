@@ -1,0 +1,2 @@
+2017-11-30 10:34:35,026 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-30 10:34:35,180 connectionpool.py[line:396] DEBUG http://t.efang100.cc:80 "POST /steward/subscribe/doHandle HTTP/1.1" 200 None

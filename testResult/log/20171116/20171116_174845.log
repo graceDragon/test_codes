@@ -1,0 +1,13 @@
+2017-11-16 17:48:45,460 runAll.py[line:72] INFO ********测试 开始！********
+2017-11-16 17:48:45,474 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-16 17:48:45,502 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/common/login?encrypt=DES&param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFo%2B95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV%2BKfZMwnvEA%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-16 17:48:45,505 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-16 17:48:46,157 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/common/login?encrypt=DES&param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFo%2B95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV%2BKfZMwnvEA%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None
+2017-11-16 17:48:46,177 Log.py[line:84] INFO 测试结果：test_login_01 - Code:0 - msg:success
+2017-11-16 17:48:46,272 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-16 17:48:46,296 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecMMad3o9YkLl999mwlyyp5%2FCAMaov%2BpHLGLnyKQY99AoPSlmjBZTsWwK6aR3Iro6dwYjb7%2BWXpV2IfNO22t7HzXBibg%2B88QtchYZgXhBd0%2BTB8azCvi7E8kxG%2BjqEFVSLApAJVLqwT1DK0XZuYe%2BczSN3YIobgvy6k%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-16 17:48:46,298 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-16 17:48:46,536 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecMMad3o9YkLl999mwlyyp5%2FCAMaov%2BpHLGLnyKQY99AoPSlmjBZTsWwK6aR3Iro6dwYjb7%2BWXpV2IfNO22t7HzXBibg%2B88QtchYZgXhBd0%2BTB8azCvi7E8kxG%2BjqEFVSLApAJVLqwT1DK0XZuYe%2BczSN3YIobgvy6k%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None
+2017-11-16 17:48:46,543 Log.py[line:84] INFO 测试结果：test_modify_pwd_01 - Code:1009 - msg:短信验证码已过期
+2017-11-16 17:48:46,546 runAll.py[line:81] INFO *********测试 结束！*********
+2017-11-16 17:48:46,546 runAll.py[line:87] INFO 不需要发动邮件给任何人！

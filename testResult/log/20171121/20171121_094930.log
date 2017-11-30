@@ -1,0 +1,13 @@
+2017-11-21 09:49:31,144 runAll.py[line:70] INFO ********测试 开始！********
+2017-11-21 09:49:31,161 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,190 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,191 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,207 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,207 configDB.py[line:43] ERROR (2003, "Can't connect to MySQL server on '47.93.32.103' ([Errno 10051] )")
+2017-11-21 09:49:31,223 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,223 configDB.py[line:43] ERROR (2003, "Can't connect to MySQL server on '47.93.32.103' ([Errno 10051] )")
+2017-11-21 09:49:31,239 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,269 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,286 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,301 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-21 09:49:31,301 runAll.py[line:79] INFO *********测试 结束！*********

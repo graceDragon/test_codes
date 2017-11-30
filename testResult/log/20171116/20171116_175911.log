@@ -1,0 +1,7 @@
+2017-11-16 17:59:12,052 runAll.py[line:72] INFO ********测试 开始！********
+2017-11-16 17:59:12,154 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-16 17:59:12,193 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecMMad3o9YkLl999mwlyyp5%2FCAMaov%2BpHLGLnyKQY99AoPSlmjBZTsWwK6aR3Iro6dwYjb7%2BWXpV2IfNO22t7HzXBibg%2B88QtchYZgXhBd0%2BTB8azCvi7E8kxG%2BjqEFVSLApAJVLqwT1DK0XZuYe%2BczSN3YIobgvy6k%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-16 17:59:12,194 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-16 17:59:12,845 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecMMad3o9YkLl999mwlyyp5%2FCAMaov%2BpHLGLnyKQY99AoPSlmjBZTsWwK6aR3Iro6dwYjb7%2BWXpV2IfNO22t7HzXBibg%2B88QtchYZgXhBd0%2BTB8azCvi7E8kxG%2BjqEFVSLApAJVLqwT1DK0XZuYe%2BczSN3YIobgvy6k%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None
+2017-11-16 17:59:12,859 runAll.py[line:81] INFO *********测试 结束！*********
+2017-11-16 17:59:12,861 runAll.py[line:87] INFO 不需要发动邮件给任何人！

@@ -1,0 +1,2 @@
+2017-11-30 10:59:12,703 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-30 10:59:12,888 connectionpool.py[line:396] DEBUG http://t.efang100.cc:80 "GET /steward/urge/meter?param=IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO%2Bgryt57qGAN9ZApBimnwOclxl%2FAvyvvDaU8biEWGpPsYq%2Bp%2BK1IiEC0s81c8F9%2Bdo8yT0rCQK2KzdADCfKEjdlOT6Xp4Yipm%2BHOYfyPgTrfTeSdh%2B4Dj2omRQLQcSPcPQotW4S1HmYMC7t273&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None

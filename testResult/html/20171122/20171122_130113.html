@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-11-22 13:01:13</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:06.599000</p>
+<p class='attribute'><strong>Status:</strong> Pass 10 Error 1</p>
+
+<p class='description'>Test Description</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"password":"12345678","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF3foXbKM/lLZnKHEnTgnfaFo+95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV+KfZMwnvEA=
+接口地址： http://dev.efang100.cc/steward/common/login
+
+请求地址： https://dev.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFo%2B95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV%2BKfZMwnvEA%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"access_token":"KsyHl7BklUykEHZ3quLIp0kUObLjwIzH","access_expires":"1511931674"}}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": {
+        "access_expires": "1511931674", 
+        "access_token": "KsyHl7BklUykEHZ3quLIp0kUObLjwIzH"
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+最新token存储完成... KsyHl7BklUykEHZ3quLIp0kUObLjwIzH
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 将json格式params去掉空格、换行:  {"mobile":"182110788922","source":1,"password":"12345678","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPegffhrL9oFmkuHAEegJZ0JtqGZr6qdlwdh4DTr6wXJYndFuu/5NXVt2LFwDThYvBRlT5YqdIL0FLzQIGsgR3rQ=
+接口地址： http://dev.efang100.cc/steward/common/login
+
+请求地址： https://dev.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPegffhrL9oFmkuHAEegJZ0JtqGZr6qdlwdh4DTr6wXJYndFuu%2F5NXVt2LFwDThYvBRlT5YqdIL0FLzQIGsgR3rQ%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":1101,"err_msg":"\u53c2\u6570\u683c\u5f0f\u9519\u8bef","data":{"mobile":["validation.mobile"]}}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": {
+        "mobile": [
+            "validation.mobile"
+        ]
+    }, 
+    "err_msg": "参数格式错误", 
+    "err_no": 1101
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"password":"1234567890","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF3foXbKM/lLZnKHEnTgnfaFZswITdfF4qToUnDn3Xxx7EGWv3u8XQry/4I93FDif4I=
+接口地址： http://dev.efang100.cc/steward/common/login
+
+请求地址： https://dev.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFZswITdfF4qToUnDn3Xxx7EGWv3u8XQry%2F4I93FDif4I%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":91006,"err_msg":"\u5bc6\u7801\u9519\u8bef","data":[]}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": [], 
+    "err_msg": "密码错误", 
+    "err_no": 91006
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"version":"1.1.0","type_id":"3"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF2UUit9h+dlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJunORAjGPQxo
+接口地址： http://dev.efang100.cc/steward/common/getSmsCode
+
+请求地址： https://dev.efang100.cc/steward/common/getSmsCode?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF2UUit9h%2BdlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJunORAjGPQxo&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: Connect DB successfully!
+读取的验证码： 721680
+将json格式params去掉空格、换行:  {"sms_code":"721680","access_token":"","type_id":"3","source":1,"version":"1.1.0","mobile":"18211078892","password":"12345678"}
+加密后的密文： jETycMSTecNwRzR0u8p1vlhuv2NZgHHUUwLEBCRCpUv+Cz/qZjAHbADvGUHpe8Zrw6yhHaICLqrFWcq8DQbvp9r6oMNBs2Gt2ps+5wXMB0GTQgJPiauYMyw5ZhkjIW9wmnOn8/xC7QCkBWHOcgZRqQA0Dxk+qZIEa38bzq26AbM=
+接口地址： http://dev.efang100.cc/steward/common/resetPwd
+
+请求地址： https://dev.efang100.cc/steward/common/resetPwd?encrypt=DES&amp;param=jETycMSTecNwRzR0u8p1vlhuv2NZgHHUUwLEBCRCpUv%2BCz%2FqZjAHbADvGUHpe8Zrw6yhHaICLqrFWcq8DQbvp9r6oMNBs2Gt2ps%2B5wXMB0GTQgJPiauYMyw5ZhkjIW9wmnOn8%2FxC7QCkBWHOcgZRqQA0Dxk%2BqZIEa38bzq26AbM%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: 将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"version":"1.1.0","type_id":"2"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF2UUit9h+dlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJkuQD6dNwZbk
+接口地址： http://dev.efang100.cc/steward/common/getSmsCode
+
+请求地址： https://dev.efang100.cc/steward/common/getSmsCode?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF2UUit9h%2BdlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJkuQD6dNwZbk&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_3</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: Connect DB successfully!
+读取的验证码： 301151
+将json格式params去掉空格、换行:  {"sms_code":"301151","access_token":"","type_id":"2","source":1,"version":"1.1.0","mobile":"18211078892","password":"12345678"}
+加密后的密文： jETycMSTecOLFgtUKbSXf8jZNXfSSsdhGVJamhG9ORo2plLPxtKmjeV/wW6k9Ez9YGK+OY8vJMPrG8rVc3BU6G6eQZLwThAULwItwUd0ivIDXSeZDUDcJOEVsUEDrXMzqeQ1U+ScN3ugSt9gQlzBwu8CeSkNLPaVmALkhKGOgZc=
+接口地址： http://dev.efang100.cc/steward/common/resetPwd
+
+请求地址： https://dev.efang100.cc/steward/common/resetPwd?encrypt=DES&amp;param=jETycMSTecOLFgtUKbSXf8jZNXfSSsdhGVJamhG9ORo2plLPxtKmjeV%2FwW6k9Ez9YGK%2BOY8vJMPrG8rVc3BU6G6eQZLwThAULwItwUd0ivIDXSeZDUDcJOEVsUEDrXMzqeQ1U%2BScN3ugSt9gQlzBwu8CeSkNLPaVmALkhKGOgZc%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaAccountInfo_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_account_info</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 获取到的最新token: KsyHl7BklUykEHZ3quLIp0kUObLjwIzH
+将json格式params去掉空格、换行:  {"access_token":"KsyHl7BklUykEHZ3quLIp0kUObLjwIzH","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtmcNkvxqHGL5VYasnx+CoxDf9arcu0QnA41k1QclhCaPKwBxjDsJo4bh0hCj5qAv4THbE58b/5jO7byrgKRegkqbZFBIM6l5CA==
+接口地址： http://dev.efang100.cc/steward/account/info
+
+请求地址： https://dev.efang100.cc/steward/account/info?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtmcNkvxqHGL5VYasnx%2BCoxDf9arcu0QnA41k1QclhCaPKwBxjDsJo4bh0hCj5qAv4THbE58b%2F5jO7byrgKRegkqbZFBIM6l5CA%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"user_info":{"user_id":15658,"mobile":"18211078892","real_name":"\u5218\u5927\u826f","site_id":1,"signature":"","avatar":""},"site_info":[{"site_id":1,"site_name":"\u8292\u679c\u516c\u5bd3","community":[{"tag_name":"\u6c5f\u5927\u793e\u533a","id":1,"building":[{"id":2,"tag_name":"1\u680b","unit":[{"id":4,"tag_name":"1"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u5f0f\u793e\u533a\u56db","id":990245,"building":[{"id":990246,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":990247,"tag_name":"1"}]}]},{"tag_name":"\u6f6e\u767d\u4eba\u5bb6\u5c0f\u533a","id":990282,"building":[{"id":990283,"tag_name":"1","unit":[{"id":990284,"tag_name":"1"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a\u4e09","id":990228,"building":[{"id":990229,"tag_name":"1\u53f7\u697c","unit":[{"id":990230,"tag_name":"1"}]},{"id":990328,"tag_name":"4\u680b","unit":[{"id":990329,"tag_name":"3"}]}]},{"tag_name":"\u4e00\u96f6\u4e8c\u96f6\u5206\u6563\u5f0f\u793e\u533a","id":990374,"building":[{"id":990375,"tag_name":"\u65b01\u680b","unit":[{"id":990377,"tag_name":"7"}]}]},{"tag_name":"\u666f\u5c71\u793e\u533a\u4e00\u96c6\u4e2d\u5f0f","id":989790,"building":[{"id":989791,"tag_name":"10\u90fd","unit":[{"id":989792,"tag_name":"1"}]}]},{"tag_name":"\u96f6\u516d","id":990688,"building":[{"id":990689,"tag_name":"1\u680b","unit":[{"id":990690,"tag_name":"5"}]}]},{"tag_name":"\u79df\u5165\u6d4b\u8bd5\u9a8c\u8bc11114","id":990745,"building":[{"id":990746,"tag_name":"1","unit":[{"id":990747,"tag_name":"1"}]}]}]}]}}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": {
+        "site_info": [
+            {
+                "community": [
+                    {
+                        "building": [
+                            {
+                                "id": 2, 
+                                "tag_name": "1栋", 
+                                "unit": [
+                                    {
+                                        "id": 4, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 1, 
+                        "tag_name": "江大社区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990246, 
+                                "tag_name": "第一栋", 
+                                "unit": [
+                                    {
+                                        "id": 990247, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990245, 
+                        "tag_name": "冀恒刚分散式社区四"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990283, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990284, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990282, 
+                        "tag_name": "潮白人家小区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990229, 
+                                "tag_name": "1号楼", 
+                                "unit": [
+                                    {
+                                        "id": 990230, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990328, 
+                                "tag_name": "4栋", 
+                                "unit": [
+                                    {
+                                        "id": 990329, 
+                                        "tag_name": "3"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990228, 
+                        "tag_name": "分散式社区三"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990375, 
+                                "tag_name": "新1栋", 
+                                "unit": [
+                                    {
+                                        "id": 990377, 
+                                        "tag_name": "7"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990374, 
+                        "tag_name": "一零二零分散式社区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 989791, 
+                                "tag_name": "10都", 
+                                "unit": [
+                                    {
+                                        "id": 989792, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 989790, 
+                        "tag_name": "景山社区一集中式"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990689, 
+                                "tag_name": "1栋", 
+                                "unit": [
+                                    {
+                                        "id": 990690, 
+                                        "tag_name": "5"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990688, 
+                        "tag_name": "零六"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990746, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990747, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990745, 
+                        "tag_name": "租入测试验证1114"
+                    }
+                ], 
+                "site_id": 1, 
+                "site_name": "芒果公寓"
+            }
+        ], 
+        "user_info": {
+            "avatar": "", 
+            "mobile": "18211078892", 
+            "real_name": "刘大良", 
+            "signature": "", 
+            "site_id": 1, 
+            "user_id": 15658
+        }
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaUserAvatar_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_user_avatar</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 获取到的最新token: KsyHl7BklUykEHZ3quLIp0kUObLjwIzH
+将json格式params去掉空格、换行:  {"access_token":"KsyHl7BklUykEHZ3quLIp0kUObLjwIzH","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtmcNkvxqHGL5VYasnx+CoxDf9arcu0QnA41k1QclhCaPKwBxjDsJo4bh0hCj5qAv4THbE58b/5jO7byrgKRegkqbZFBIM6l5CA==
+接口地址： http://dev.efang100.cc/steward/account/avatar
+
+请求地址： https://dev.efang100.cc/steward/account/avatar?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtmcNkvxqHGL5VYasnx%2BCoxDf9arcu0QnA41k1QclhCaPKwBxjDsJo4bh0hCj5qAv4THbE58b%2F5jO7byrgKRegkqbZFBIM6l5CA%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"avatar":""}}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": {
+        "avatar": ""
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaSignature_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_signature</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        pass</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: 获取到的最新token: KsyHl7BklUykEHZ3quLIp0kUObLjwIzH
+将json格式params去掉空格、换行:  {"access_token":"KsyHl7BklUykEHZ3quLIp0kUObLjwIzH","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtmcNkvxqHGL5VYasnx+CoxDf9arcu0QnA41k1QclhCaPKwBxjDsJo4bh0hCj5qAv4THbE58b/5jO7byrgKRegkqbZFBIM6l5CA==
+接口地址： http://dev.efang100.cc/steward/account/signature
+$$$$$$$$$$$$$$$$$$$$$$$$$
+&lt;Response [200]&gt;
+
+请求地址： https://dev.efang100.cc/steward/account/signature?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtmcNkvxqHGL5VYasnx%2BCoxDf9arcu0QnA41k1QclhCaPKwBxjDsJo4bh0hCj5qAv4THbE58b%2F5jO7byrgKRegkqbZFBIM6l5CA%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"signature":""}}
+&lt;type 'unicode'&gt;
+
+请求返回值： 
+{
+    "data": {
+        "signature": ""
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>paramunittest.GuanJiaVersionUpdate_0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c11',1)">Detail</a></td>
+</tr>
+
+<tr id='ft11.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_version_update</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.1')" >
+        error</a>
+
+    <div id='div_ft11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.1: 读取的data {u'source': 1, u'version': u'1.1.0'}
+将json格式params去掉空格、换行:  {"source":1,"version":"1.1.0"}
+加密后的密文： PawnCmfK+rKCBXE0KrEHFv7eFm3ZJgSkAk7253f5b5M=
+接口地址： http://dev.efang100.cc/steward/account/version
+
+请求地址： https://dev.efang100.cc/steward/account/version?encrypt=DES&amp;param=PawnCmfK%2BrKCBXE0KrEHFv7eFm3ZJgSkAk7253f5b5M%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求信息：
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8" /&gt;
+        &lt;meta name="robots" content="noindex,nofollow" /&gt;
+        &lt;style&gt;
+            /* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html */
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+            html { background: #eee; padding: 10px }
+            img { border: 0; }
+            #sf-resetcontent { width:970px; margin:0 auto; }
+                        .sf-reset { font: 11px Verdana, Arial, sans-serif; color: #333 }
+            .sf-reset .clear { clear:both; height:0; font-size:0; line-height:0; }
+            .sf-reset .clear_fix:after { display:block; height:0; clear:both; visibility:hidden; }
+            .sf-reset .clear_fix { display:inline-block; }
+            .sf-reset * html .clear_fix { height:1%; }
+            .sf-reset .clear_fix { display:block; }
+            .sf-reset, .sf-reset .block { margin: auto }
+            .sf-reset abbr { border-bottom: 1px dotted #000; cursor: help; }
+            .sf-reset p { font-size:14px; line-height:20px; color:#868686; padding-bottom:20px }
+            .sf-reset strong { font-weight:bold; }
+            .sf-reset a { color:#6c6159; cursor: default; }
+            .sf-reset a img { border:none; }
+            .sf-reset a:hover { text-decoration:underline; }
+            .sf-reset em { font-style:italic; }
+            .sf-reset h1, .sf-reset h2 { font: 20px Georgia, "Times New Roman", Times, serif }
+            .sf-reset .exception_counter { background-color: #fff; color: #333; padding: 6px; float: left; margin-right: 10px; float: left; display: block; }
+            .sf-reset .exception_title { margin-left: 3em; margin-bottom: 0.7em; display: block; }
+            .sf-reset .exception_message { margin-left: 3em; display: block; }
+            .sf-reset .traces li { font-size:12px; padding: 2px 4px; list-style-type:decimal; margin-left:20px; }
+            .sf-reset .block { background-color:#FFFFFF; padding:10px 28px; margin-bottom:20px;
+                -webkit-border-bottom-right-radius: 16px;
+                -webkit-border-bottom-left-radius: 16px;
+                -moz-border-radius-bottomright: 16px;
+                -moz-border-radius-bottomleft: 16px;
+                border-bottom-right-radius: 16px;
+                border-bottom-left-radius: 16px;
+                border-bottom:1px solid #ccc;
+                border-right:1px solid #ccc;
+                border-left:1px solid #ccc;
+                word-wrap: break-word;
+            }
+            .sf-reset .block_exception { background-color:#ddd; color: #333; padding:20px;
+                -webkit-border-top-left-radius: 16px;
+                -webkit-border-top-right-radius: 16px;
+                -moz-border-radius-topleft: 16px;
+                -moz-border-radius-topright: 16px;
+                border-top-left-radius: 16px;
+                border-top-right-radius: 16px;
+                border-top:1px solid #ccc;
+                border-right:1px solid #ccc;
+                border-left:1px solid #ccc;
+                overflow: hidden;
+                word-wrap: break-word;
+            }
+            .sf-reset a { background:none; color:#868686; text-decoration:none; }
+            .sf-reset a:hover { background:none; color:#313131; text-decoration:underline; }
+            .sf-reset ol { padding: 10px 0; }
+            .sf-reset h1 { background-color:#FFFFFF; padding: 15px 28px; margin-bottom: 20px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+                border: 1px solid #ccc;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+                    &lt;div id="sf-resetcontent" class="sf-reset"&gt;
+                &lt;h1&gt;Whoops, looks like something went wrong.&lt;/h1&gt;
+                                        &lt;h2 class="block_exception clear_fix"&gt;
+                            &lt;span class="exception_counter"&gt;1/1&lt;/span&gt;
+                            &lt;span class="exception_title"&gt;&lt;abbr title="ErrorException"&gt;ErrorException&lt;/abbr&gt; in &lt;a title="/data/wwwroot/dev.efang100.cc/app/Http/Controllers/Steward/AccountController.php line 161" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;AccountController.php line 161&lt;/a&gt;:&lt;/span&gt;
+                            &lt;span class="exception_message"&gt;Undefined index: site_id&lt;/span&gt;
+                        &lt;/h2&gt;
+                        &lt;div class="block"&gt;
+                            &lt;ol class="traces list_exception"&gt;
+       &lt;li&gt; in &lt;a title="/data/wwwroot/dev.efang100.cc/app/Http/Controllers/Steward/AccountController.php line 161" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;AccountController.php line 161&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Foundation\Bootstrap\HandleExceptions"&gt;HandleExceptions&lt;/abbr&gt;-&gt;handleError('8', 'Undefined index: site_id', '/data/wwwroot/dev.efang100.cc/app/Http/Controllers/Steward/AccountController.php', '161', &lt;em&gt;array&lt;/em&gt;('request' =&gt; &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), 'param' =&gt; &lt;em&gt;array&lt;/em&gt;('source' =&gt; '1', 'version' =&gt; '1.1.0', 'client_id' =&gt; '1fobqa5ofzixluyjlum7icdufabjfo25'), 'format' =&gt; &lt;em&gt;array&lt;/em&gt;('curr_version' =&gt; '', 'force_update' =&gt; '', 'package_name' =&gt; '', 'version_desc' =&gt; '', 'download_url' =&gt; ''))) in &lt;a title="/data/wwwroot/dev.efang100.cc/app/Http/Controllers/Steward/AccountController.php line 161" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;AccountController.php line 161&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="App\Http\Controllers\Steward\AccountController"&gt;AccountController&lt;/abbr&gt;-&gt;version(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func_array(&lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="App\Http\Controllers\Steward\AccountController"&gt;AccountController&lt;/abbr&gt;), 'version'), &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/Controller.php line 256" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Controller.php line 256&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\Controller"&gt;Controller&lt;/abbr&gt;-&gt;callAction('version', &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php line 164" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;ControllerDispatcher.php line 164&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\ControllerDispatcher"&gt;ControllerDispatcher&lt;/abbr&gt;-&gt;call(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="App\Http\Controllers\Steward\AccountController"&gt;AccountController&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Routing\Route"&gt;Route&lt;/abbr&gt;), 'version') in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php line 112" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;ControllerDispatcher.php line 112&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\ControllerDispatcher"&gt;ControllerDispatcher&lt;/abbr&gt;-&gt;Illuminate\Routing\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 139" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 139&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 103" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 103&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;then(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php line 114" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;ControllerDispatcher.php line 114&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\ControllerDispatcher"&gt;ControllerDispatcher&lt;/abbr&gt;-&gt;callWithinStack(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="App\Http\Controllers\Steward\AccountController"&gt;AccountController&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Routing\Route"&gt;Route&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), 'version') in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php line 69" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;ControllerDispatcher.php line 69&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\ControllerDispatcher"&gt;ControllerDispatcher&lt;/abbr&gt;-&gt;dispatch(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Routing\Route"&gt;Route&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), 'App\Http\Controllers\Steward\AccountController', 'version') in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/Route.php line 203" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Route.php line 203&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\Route"&gt;Route&lt;/abbr&gt;-&gt;runWithCustomDispatcher(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/Route.php line 134" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Route.php line 134&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\Route"&gt;Route&lt;/abbr&gt;-&gt;run(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/Router.php line 708" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Router.php line 708&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\Router"&gt;Router&lt;/abbr&gt;-&gt;Illuminate\Routing\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 139" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 139&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/app/Http/Middleware/AuthSteward.php line 43" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;AuthSteward.php line 43&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="App\Http\Middleware\AuthSteward"&gt;AuthSteward&lt;/abbr&gt;-&gt;handle(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func_array(&lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="App\Http\Middleware\AuthSteward"&gt;AuthSteward&lt;/abbr&gt;), 'handle'), &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 124" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 124&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 103" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 103&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;then(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/Router.php line 710" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Router.php line 710&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\Router"&gt;Router&lt;/abbr&gt;-&gt;runRouteWithinStack(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Routing\Route"&gt;Route&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/Router.php line 675" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Router.php line 675&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\Router"&gt;Router&lt;/abbr&gt;-&gt;dispatchToRoute(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Routing/Router.php line 635" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Router.php line 635&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Routing\Router"&gt;Router&lt;/abbr&gt;-&gt;dispatch(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php line 236" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Kernel.php line 236&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Foundation\Http\Kernel"&gt;Kernel&lt;/abbr&gt;-&gt;Illuminate\Foundation\Http\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 139" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 139&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php line 49" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;ShareErrorsFromSession.php line 49&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\View\Middleware\ShareErrorsFromSession"&gt;ShareErrorsFromSession&lt;/abbr&gt;-&gt;handle(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func_array(&lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\View\Middleware\ShareErrorsFromSession"&gt;ShareErrorsFromSession&lt;/abbr&gt;), 'handle'), &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 124" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 124&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php line 62" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;StartSession.php line 62&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Session\Middleware\StartSession"&gt;StartSession&lt;/abbr&gt;-&gt;handle(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func_array(&lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Session\Middleware\StartSession"&gt;StartSession&lt;/abbr&gt;), 'handle'), &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 124" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 124&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php line 37" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;AddQueuedCookiesToResponse.php line 37&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse"&gt;AddQueuedCookiesToResponse&lt;/abbr&gt;-&gt;handle(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func_array(&lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse"&gt;AddQueuedCookiesToResponse&lt;/abbr&gt;), 'handle'), &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 124" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 124&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php line 59" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;EncryptCookies.php line 59&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Cookie\Middleware\EncryptCookies"&gt;EncryptCookies&lt;/abbr&gt;-&gt;handle(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func_array(&lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Cookie\Middleware\EncryptCookies"&gt;EncryptCookies&lt;/abbr&gt;), 'handle'), &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 124" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 124&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php line 44" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;CheckForMaintenanceMode.php line 44&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode"&gt;CheckForMaintenanceMode&lt;/abbr&gt;-&gt;handle(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func_array(&lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode"&gt;CheckForMaintenanceMode&lt;/abbr&gt;), 'handle'), &lt;em&gt;array&lt;/em&gt;(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;))) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 124" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 124&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;Illuminate\Pipeline\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;))&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title=""&gt;&lt;/abbr&gt;call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php line 103" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Pipeline.php line 103&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Pipeline\Pipeline"&gt;Pipeline&lt;/abbr&gt;-&gt;then(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php line 122" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Kernel.php line 122&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Foundation\Http\Kernel"&gt;Kernel&lt;/abbr&gt;-&gt;sendRequestThroughRouter(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php line 87" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;Kernel.php line 87&lt;/a&gt;&lt;/li&gt;
+       &lt;li&gt;at &lt;abbr title="Illuminate\Foundation\Http\Kernel"&gt;Kernel&lt;/abbr&gt;-&gt;handle(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Illuminate\Http\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a title="/data/wwwroot/dev.efang100.cc/public/index.php line 54" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;"&gt;index.php line 54&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+
+            &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+&lt;type 'unicode'&gt;
+
+请求返回值：Traceback (most recent call last):
+  File "D:\interfaceTest\testCase\case_guanjia_old\case07_guanjia_version_update.py", line 103, in test_version_update
+    self.checkResult()
+  File "D:\interfaceTest\testCase\case_guanjia_old\case07_guanjia_version_update.py", line 114, in checkResult
+    common.show_return_msg(self.response)
+  File "D:\interfaceTest\common\common.py", line 71, in show_return_msg
+    print u"\n请求返回值：", '\n'+json.dumps(json.loads(msg), ensure_ascii=False, sort_keys=True, indent=4)
+  File "C:\Python27\lib\json\__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python27\lib\json\decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python27\lib\json\decoder.py", line 382, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>11</td>
+    <td>10</td>
+    <td>0</td>
+    <td>1</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

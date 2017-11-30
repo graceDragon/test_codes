@@ -1,0 +1,2 @@
+2017-11-28 15:30:47,944 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-11-28 15:30:47,987 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/house/scatSearch?param=u5ciGfIVwxwfp1IekBI%2F3kQ0YWsGjC1iIkoYRTAOSXlI%2BimtpSL3%2FCT1J56h0hmAyy0bvC9Ce4LnC5QfgzCn2z%2B9TWrX7I2y0DuB37F6gDLhuF6nPCACz5mmW%2BLpdXeVetr1L%2F9aTJHsLMQtHTud0oZ8Akj4KZor7QbcEmsx%2Ffg%3D HTTP/1.1" 200 None

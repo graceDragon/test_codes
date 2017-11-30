@@ -1,0 +1,17 @@
+2017-11-28 09:57:48,713 runAll.py[line:64] INFO ********测试 开始！********
+2017-11-28 09:57:48,727 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,743 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,775 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,775 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,790 configDB.py[line:43] ERROR (2003, "Can't connect to MySQL server on '47.93.32.103' ([Errno 10065] )")
+2017-11-28 09:57:48,805 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,805 configDB.py[line:43] ERROR (2003, "Can't connect to MySQL server on '47.93.32.103' ([Errno 10065] )")
+2017-11-28 09:57:48,838 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,852 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,868 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,884 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,930 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,993 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-28 09:57:48,993 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.api.efang100.cc
+2017-11-28 09:57:48,993 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.api.efang100.cc
+2017-11-28 09:57:49,009 runAll.py[line:75] INFO *********测试 结束！*********

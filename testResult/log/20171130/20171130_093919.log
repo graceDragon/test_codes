@@ -1,0 +1,6 @@
+2017-11-30 09:39:20,023 runAll.py[line:65] INFO ********测试 开始！********
+2017-11-30 09:39:20,055 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-30 09:39:20,085 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-30 09:39:20,117 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-30 09:39:20,132 runAll.py[line:76] INFO *********测试 结束！*********
+2017-11-30 09:39:20,132 runAll.py[line:85] INFO 不需要发动邮件给任何人！

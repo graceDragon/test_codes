@@ -1,0 +1,8 @@
+2017-11-27 10:48:08,941 runAll.py[line:64] INFO ********测试 开始！********
+2017-11-27 10:48:08,989 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-27 10:48:09,003 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-27 10:48:09,059 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-27 10:48:09,105 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-27 10:48:09,121 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-27 10:48:09,153 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-27 10:48:09,153 runAll.py[line:73] INFO *********测试 结束！*********

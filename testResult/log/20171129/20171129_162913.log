@@ -1,0 +1,2 @@
+2017-11-29 16:29:13,104 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-29 16:29:13,497 connectionpool.py[line:396] DEBUG http://t.efang100.cc:80 "GET /steward/account/userInfo?param=u5ciGfIVwxwfp1IekBI%2F3pFiaK2Ja3patGPz5wJ49pJ1KJ%2FluYXeFm6zXGclidO2L31WcFtUmKcpLyFEgWzDk75%2FedZoZ%2BuqM%2FW7TNxfv%2F6EjdqoMZnHrqQaf%2Fx3Q9ut HTTP/1.1" 200 None

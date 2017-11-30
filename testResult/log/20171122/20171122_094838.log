@@ -1,0 +1,14 @@
+2017-11-22 09:48:39,492 runAll.py[line:64] INFO ********测试 开始！********
+2017-11-22 09:48:39,523 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-22 09:48:39,555 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-22 09:48:39,585 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-22 09:48:39,601 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-22 09:48:39,617 configDB.py[line:43] ERROR (2003, "Can't connect to MySQL server on '47.93.32.103' ([Errno 10051] )")
+2017-11-22 09:48:39,632 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-22 09:48:39,648 configDB.py[line:43] ERROR (2003, "Can't connect to MySQL server on '47.93.32.103' ([Errno 10051] )")
+2017-11-22 09:48:45,668 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-22 09:48:45,700 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/account/info?encrypt=DES&param=PwFy53E8NrjLcKW6L7rTthujDUbxzb17xRPme8RAMXhwJnY2pAVtCJMas7v49yRsO20BUCu1MHE49W7iX%2BEg0wpfOvwttVxsmBNJrc4MaJ5Y8Q4GApIDng%3D%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-22 09:48:45,700 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-22 09:48:46,543 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/account/info?encrypt=DES&param=PwFy53E8NrjLcKW6L7rTthujDUbxzb17xRPme8RAMXhwJnY2pAVtCJMas7v49yRsO20BUCu1MHE49W7iX%2BEg0wpfOvwttVxsmBNJrc4MaJ5Y8Q4GApIDng%3D%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None
+2017-11-22 09:48:46,543 runAll.py[line:73] INFO *********测试 结束！*********
+2017-11-22 09:48:46,543 runAll.py[line:82] INFO 不需要发动邮件给任何人！

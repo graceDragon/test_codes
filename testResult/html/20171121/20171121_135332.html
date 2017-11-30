@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-11-21 13:53:32</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:25.340000</p>
+<p class='attribute'><strong>Status:</strong> Pass 3 Failure 1</p>
+
+<p class='description'>Test Description</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"password":"12345678","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF3foXbKM/lLZnKHEnTgnfaFo+95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV+KfZMwnvEA=
+接口地址： http://dev.efang100.cc/steward/common/login
+
+请求地址： https://dev.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFo%2B95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV%2BKfZMwnvEA%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求返回值： 
+{
+    "data": {
+        "access_expires": "1511848415", 
+        "access_token": "sBODJ7R16pCogtGBXHRRAMLjr8GNKVAY"
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+存最新的token!!!
+sBODJ7R16pCogtGBXHRRAMLjr8GNKVAY
+time.struct_time(tm_year=2017, tm_mon=11, tm_mday=21, tm_hour=13, tm_min=53, tm_sec=35, tm_wday=1, tm_yday=325, tm_isdst=0)
+存最新的token!!!完成
+time.struct_time(tm_year=2017, tm_mon=11, tm_mday=21, tm_hour=13, tm_min=53, tm_sec=35, tm_wday=1, tm_yday=325, tm_isdst=0)
+sBODJ7R16pCogtGBXHRRAMLjr8GNKVAY
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 将json格式params去掉空格、换行:  {"mobile":"182110788922","source":1,"password":"12345678","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPegffhrL9oFmkuHAEegJZ0JtqGZr6qdlwdh4DTr6wXJYndFuu/5NXVt2LFwDThYvBRlT5YqdIL0FLzQIGsgR3rQ=
+接口地址： http://dev.efang100.cc/steward/common/login
+
+请求地址： https://dev.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPegffhrL9oFmkuHAEegJZ0JtqGZr6qdlwdh4DTr6wXJYndFuu%2F5NXVt2LFwDThYvBRlT5YqdIL0FLzQIGsgR3rQ%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求返回值： 
+{
+    "data": {
+        "mobile": [
+            "validation.mobile"
+        ]
+    }, 
+    "err_msg": "参数格式错误", 
+    "err_no": 1101
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"password":"1234567890","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF3foXbKM/lLZnKHEnTgnfaFZswITdfF4qToUnDn3Xxx7EGWv3u8XQry/4I93FDif4I=
+接口地址： http://dev.efang100.cc/steward/common/login
+
+请求地址： https://dev.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFZswITdfF4qToUnDn3Xxx7EGWv3u8XQry%2F4I93FDif4I%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求返回值： 
+{
+    "data": [], 
+    "err_msg": "密码错误", 
+    "err_no": 91006
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>paramunittest.GuanJiaAccountInfo_0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='ft4.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_account_info</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        fail</a>
+
+    <div id='div_ft4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.1: 取最新的token!!!
+1R4Q9LG9jtVLpNdDkwsib1hWOD69XH1L
+time.struct_time(tm_year=2017, tm_mon=11, tm_mday=21, tm_hour=13, tm_min=53, tm_sec=57, tm_wday=1, tm_yday=325, tm_isdst=0)
+token: 1R4Q9LG9jtVLpNdDkwsib1hWOD69XH1L
+将json格式params去掉空格、换行:  {"access_token":"1R4Q9LG9jtVLpNdDkwsib1hWOD69XH1L","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtu5pcymMhb9vgfkBICYys6SKo6//mykwI/13UfPl1RRR1b5+1dQJXqw3R2xGKyQGLD8+7h/Y36EP5JPrOxypr9WOHyZtQ+jClQ==
+接口地址： http://dev.efang100.cc/steward/account/info
+
+请求地址： https://dev.efang100.cc/steward/account/info?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtu5pcymMhb9vgfkBICYys6SKo6%2F%2FmykwI%2F13UfPl1RRR1b5%2B1dQJXqw3R2xGKyQGLD8%2B7h%2FY36EP5JPrOxypr9WOHyZtQ%2BjClQ%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+
+请求返回值： 
+{
+    "data": [], 
+    "err_msg": "令牌不存在", 
+    "err_no": 91106
+}
+Traceback (most recent call last):
+  File "D:\interfaceTest\testCase\case_guanjia_old\case04_guanjia_account_info.py", line 97, in test_account_info
+    self.checkResult()
+  File "D:\interfaceTest\testCase\case_guanjia_old\case04_guanjia_account_info.py", line 118, in checkResult
+    self.assertEqual(self.info['err_no'], self.expect_state)
+AssertionError: 91106 != 0
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

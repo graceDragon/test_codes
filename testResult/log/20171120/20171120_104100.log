@@ -1,0 +1,4 @@
+2017-11-20 10:41:01,239 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.efang100.cc
+2017-11-20 10:41:01,441 connectionpool.py[line:396] DEBUG http://dev.efang100.cc:80 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecOT%2Bgs6XEFtz1mQF9X1z7HdZbizoXI2zOxJponUJUxmG5IvH7EEmp8Fn%2BnxKW7qF6uhixgeIr2PBxyk1ycnb1oew8Z2gI0Mhc5ySH142dsm9cBCyw5eWr5qsDPS%2BMptYWvhu89fIh0zrpCzzqyAp%2FMNJDkQ4nJkOno%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 302 154
+2017-11-20 10:41:01,441 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): dev.efang100.cc
+2017-11-20 10:41:02,519 connectionpool.py[line:396] DEBUG https://dev.efang100.cc:443 "GET /steward/common/resetPwd?encrypt=DES&param=jETycMSTecOT%2Bgs6XEFtz1mQF9X1z7HdZbizoXI2zOxJponUJUxmG5IvH7EEmp8Fn%2BnxKW7qF6uhixgeIr2PBxyk1ycnb1oew8Z2gI0Mhc5ySH142dsm9cBCyw5eWr5qsDPS%2BMptYWvhu89fIh0zrpCzzqyAp%2FMNJDkQ4nJkOno%3D&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 200 None

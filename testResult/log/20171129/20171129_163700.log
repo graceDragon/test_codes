@@ -1,0 +1,2 @@
+2017-11-29 16:37:00,467 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): t.efang100.cc
+2017-11-29 16:37:00,648 connectionpool.py[line:396] DEBUG http://t.efang100.cc:80 "GET /steward/home/total?encrypt=DES&param=PwFy53E8NrjLcKW6L7rTtmLWKPLrLXqFKZaSuO3pH4kNNqoWPu8zeuaAQYNk7BV%2Bx3WWtYFXxRRmYz9O6sk1u2YxuD1ZHEth1hgIVJ3i3ti5gEMDrPUUtxQC3rAg3dmcizq5Ifo0sc2AUbBFY35zsaGociw259YN9fprQSoekGnMfYbVj6PK%2FDXRJWQcdJpb51P3yrkYdIXhqTm4ZExWIdswPtGFyPuA&client_id=1fobqa5ofzixluyjlum7icdufabjfo25 HTTP/1.1" 500 None

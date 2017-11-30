@@ -1,0 +1,3717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-11-30 12:11:46</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:06.576000</p>
+<p class='attribute'><strong>Status:</strong> Pass 26</p>
+
+<p class='description'>若要查看详细结果,请下载附件查看！</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Test Describe</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: &lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"password":"12345678","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF3foXbKM/lLZnKHEnTgnfaFo+95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV+KfZMwnvEA=
+接口地址： http://t.efang100.cc/steward/common/login
+
+请求地址：
+http://t.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFo%2B95g5DNLRpxJeSBbhHXZpvIVM5Em2mOV%2BKfZMwnvEA%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","access_expires":"1512619903"}}
+
+请求返回值：
+{
+    "data": {
+        "access_expires": "1512619903", 
+        "access_token": "RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7"
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+最新token存储完成... RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: &lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"mobile":"182110788922","source":1,"password":"12345678","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPegffhrL9oFmkuHAEegJZ0JtqGZr6qdlwdh4DTr6wXJYndFuu/5NXVt2LFwDThYvBRlT5YqdIL0FLzQIGsgR3rQ=
+接口地址： http://t.efang100.cc/steward/common/login
+
+请求地址：
+http://t.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPegffhrL9oFmkuHAEegJZ0JtqGZr6qdlwdh4DTr6wXJYndFuu%2F5NXVt2LFwDThYvBRlT5YqdIL0FLzQIGsgR3rQ%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":1101,"err_msg":"\u53c2\u6570\u683c\u5f0f\u9519\u8bef","data":{"mobile":["validation.mobile"]}}
+
+请求返回值：
+{
+    "data": {
+        "mobile": [
+            "validation.mobile"
+        ]
+    }, 
+    "err_msg": "参数格式错误", 
+    "err_no": 1101
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaLogin_2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: &lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"password":"1234567890","version":"1.1.0"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF3foXbKM/lLZnKHEnTgnfaFZswITdfF4qToUnDn3Xxx7EGWv3u8XQry/4I93FDif4I=
+接口地址： http://t.efang100.cc/steward/common/login
+
+请求地址：
+http://t.efang100.cc/steward/common/login?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF3foXbKM%2FlLZnKHEnTgnfaFZswITdfF4qToUnDn3Xxx7EGWv3u8XQry%2F4I93FDif4I%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":91006,"err_msg":"\u5bc6\u7801\u9519\u8bef","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "密码错误", 
+    "err_no": 91006
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: &lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"version":"1.1.0","type_id":"3"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF2UUit9h+dlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJunORAjGPQxo
+接口地址： http://t.efang100.cc/steward/common/getSmsCode
+
+请求地址：
+http://t.efang100.cc/steward/common/getSmsCode?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF2UUit9h%2BdlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJunORAjGPQxo&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: 获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+Connect DB successfully!
+读取的验证码： 953241
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"sms_code":"953241","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","type_id":"3","source":1,"version":"1.1.0","mobile":"18211078892","password":"12345678"}
+加密后的密文： jETycMSTecNv397JqoSt1XcxQQnUDv9yBmxpR7IoGj0JusQTHVLj/sxb6qtRI0A0hJ5UKEALybOR1kMkj79kFPG19i+7SKlySpRhtihelt2BBMssic/KpvsRbWY1T7XmV+j8d9fqrBXJFTtFOQP8YTblyow7lYI/5nJI8JVgJheYxujcTmttT/9agKpmUlxYFsdmLHHKOTb9pTzUuLFUNw==
+接口地址： http://t.efang100.cc/steward/common/resetPwd
+
+请求地址：
+http://t.efang100.cc/steward/common/resetPwd?encrypt=DES&amp;param=jETycMSTecNv397JqoSt1XcxQQnUDv9yBmxpR7IoGj0JusQTHVLj%2Fsxb6qtRI0A0hJ5UKEALybOR1kMkj79kFPG19i%2B7SKlySpRhtihelt2BBMssic%2FKpvsRbWY1T7XmV%2Bj8d9fqrBXJFTtFOQP8YTblyow7lYI%2F5nJI8JVgJheYxujcTmttT%2F9agKpmUlxYFsdmLHHKOTb9pTzUuLFUNw%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: &lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"mobile":"18211078892","source":1,"version":"1.1.0","type_id":"2"}
+加密后的密文： lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W+dF2UUit9h+dlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJkuQD6dNwZbk
+接口地址： http://t.efang100.cc/steward/common/getSmsCode
+
+请求地址：
+http://t.efang100.cc/steward/common/getSmsCode?encrypt=DES&amp;param=lAHyQ4545oY2eyfKi2uvPUz4JRdViGgZ3gHdL8W%2BdF2UUit9h%2BdlA8CEFaqt9XaYoYzh3DkmOffvOys5CMzcJkuQD6dNwZbk&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaModifyPwd_3</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modify_pwd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+Connect DB successfully!
+读取的验证码： 156904
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"sms_code":"156904","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","type_id":"2","source":1,"version":"1.1.0","mobile":"18211078892","password":"12345678"}
+加密后的密文： jETycMSTecPyokvmMYNjbz07LHLufGOzx3YFzBbuDj2jnI888AINbeY8zSldrL9uKgr2ZOi7tPUMiS21y/4Tt1L+rqYhYOz+7L5mhxd3+JFHxxvLl47J81Ay3tdPZ4Z6zdrLRjg9MLdRUXoVPOKBmJB/Fc4i/cLEtLrqD00jqklpDdmcFGtitJF0mwcw7uvPti0NT2yt5pzvDujg3SppgA==
+接口地址： http://t.efang100.cc/steward/common/resetPwd
+
+请求地址：
+http://t.efang100.cc/steward/common/resetPwd?encrypt=DES&amp;param=jETycMSTecPyokvmMYNjbz07LHLufGOzx3YFzBbuDj2jnI888AINbeY8zSldrL9uKgr2ZOi7tPUMiS21y%2F4Tt1L%2BrqYhYOz%2B7L5mhxd3%2BJFHxxvLl47J81Ay3tdPZ4Z6zdrLRjg9MLdRUXoVPOKBmJB%2FFc4i%2FcLEtLrqD00jqklpDdmcFGtitJF0mwcw7uvPti0NT2yt5pzvDujg3SppgA%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaAccountInfo_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_account_info</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjPYG/7NVJ2C+WQjEeEBQ6XQ==
+接口地址： http://t.efang100.cc/steward/account/info
+
+请求地址：
+http://t.efang100.cc/steward/account/info?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjPYG%2F7NVJ2C%2BWQjEeEBQ6XQ%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"user_info":{"user_id":15658,"mobile":"18211078892","real_name":"\u5218\u5927\u826f","site_id":1,"signature":"","avatar":""},"site_info":[{"site_id":1,"site_name":"\u8292\u679c\u516c\u5bd3","community":[{"tag_name":"\u6c5f\u5927\u793e\u533a","id":1,"building":[{"id":2,"tag_name":"1\u680b","unit":[{"id":4,"tag_name":"1"}]}]},{"tag_name":"\u516b\u4e00\u82b1\u56ed","id":35,"building":[{"id":36,"tag_name":"\u91d1\u57301\u680b","unit":[{"id":38,"tag_name":"1"}]}]},{"tag_name":"\u98ce\u666f\u7ebf\u793e\u533a","id":49,"building":[{"id":92,"tag_name":"1","unit":[{"id":93,"tag_name":"1"},{"id":1017685,"tag_name":"2"}]},{"id":96,"tag_name":"11","unit":[{"id":97,"tag_name":"1"}]}]},{"tag_name":"\u897f\u4e8c\u65d7","id":220,"building":[{"id":221,"tag_name":"1\u53f7","unit":[{"id":222,"tag_name":"1"}]}]},{"tag_name":"\u9f99\u6f6d\u793e\u533a\u4e00","id":494,"building":[{"id":495,"tag_name":"1\u680b","unit":[{"id":496,"tag_name":"1"},{"id":497,"tag_name":"2"}]}]},{"tag_name":"\u9f99\u6f6d\u793e\u533a6\u96c6\u4e2d\u5f0f","id":501,"building":[{"id":502,"tag_name":"101\u680b\u697c","unit":[{"id":503,"tag_name":"8"}]}]},{"tag_name":"\u540d\u79f0\u9f99\u6f6d\u5206\u6563\u793e\u533a7","id":506,"building":[{"id":507,"tag_name":"30\u680b","unit":[{"id":508,"tag_name":"1"}]},{"id":990403,"tag_name":"2","unit":[{"id":990404,"tag_name":"3"}]},{"id":990421,"tag_name":"1","unit":[{"id":990422,"tag_name":"2"}]}]},{"tag_name":"8\u670811\u53f7\u793e\u533a\u4e8c","id":989740,"building":[{"id":989741,"tag_name":"105\u680b","unit":[{"id":989742,"tag_name":"1"}]}]},{"tag_name":"8\u670814\u53f7\u793e\u533a\u4e00","id":989747,"building":[{"id":989748,"tag_name":"1\u53f7\u697c","unit":[{"id":989749,"tag_name":"1"}]}]},{"tag_name":"8\u670815\u53f7\u5b89\u5b9a\u95e8\u96c6\u4e2d\u5f0f\u516c\u5bd3\u4e00","id":989765,"building":[{"id":989766,"tag_name":"1\u53f7\u697c","unit":[{"id":989767,"tag_name":"1"}]}]},{"tag_name":"\u666f\u5c71\u793e\u533a\u4e00\u96c6\u4e2d\u5f0f","id":989790,"building":[{"id":989791,"tag_name":"10\u90fd","unit":[{"id":989792,"tag_name":"1"}]},{"id":989794,"tag_name":"20\u680b","unit":[{"id":989795,"tag_name":"1"}]}]},{"tag_name":"\u4e09\u91cc\u5c6f\u5bb6\u56ed","id":990014,"building":[{"id":990015,"tag_name":"1","unit":[{"id":990018,"tag_name":"1"}]}]},{"tag_name":"\u666f\u5c71\u4e8c\u533a","id":990021,"building":[{"id":990022,"tag_name":"1\u53f7\u697c","unit":[{"id":990023,"tag_name":"2"}]}]},{"tag_name":"\u671d\u9633\u95e8\u5bb6\u56ed","id":990025,"building":[{"id":990026,"tag_name":"\u4e00\u53f7\u697c","unit":[{"id":990027,"tag_name":"1"}]}]},{"tag_name":"\u4e1c\u82b1\u82b1\u56ed","id":990029,"building":[{"id":990032,"tag_name":"\u4e09","unit":[{"id":990033,"tag_name":"1"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u4e00","id":990223,"building":[{"id":990224,"tag_name":"202","unit":[{"id":990225,"tag_name":"2"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a\u4e09","id":990228,"building":[{"id":990229,"tag_name":"1\u53f7\u697c","unit":[{"id":990230,"tag_name":"1"}]},{"id":990263,"tag_name":"2hao","unit":[{"id":990265,"tag_name":"2"}]},{"id":990328,"tag_name":"4\u680b","unit":[{"id":990329,"tag_name":"3"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u5f0f\u4e8c","id":990233,"building":[{"id":990234,"tag_name":"303","unit":[{"id":990235,"tag_name":"3"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u4e09","id":990238,"building":[{"id":990239,"tag_name":"1\u53f7\u697c","unit":[{"id":990242,"tag_name":"2"}]},{"id":990240,"tag_name":"2\u53f7\u697c","unit":[{"id":990241,"tag_name":"1"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u5f0f\u793e\u533a\u56db","id":990245,"building":[{"id":990246,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":990247,"tag_name":"1"}]}]},{"tag_name":"\u56fd\u5e86\u4e00","id":990254,"building":[{"id":990256,"tag_name":"1\u680b","unit":[{"id":990257,"tag_name":"1"}]}]},{"tag_name":"\u56fd\u5e86\u4e09","id":990278,"building":[{"id":990279,"tag_name":"\u7b2c\u4e8c\u680b","unit":[{"id":990280,"tag_name":"5"}]}]},{"tag_name":"\u6f6e\u767d\u4eba\u5bb6\u5c0f\u533a","id":990282,"building":[{"id":990283,"tag_name":"1","unit":[{"id":990284,"tag_name":"1"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a10","id":990314,"building":[{"id":990315,"tag_name":"1","unit":[{"id":990316,"tag_name":"1"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u8bbe\u65bd\u51685","id":990318,"building":[{"id":990319,"tag_name":"1","unit":[{"id":990320,"tag_name":"1"}]}]},{"tag_name":"\u666f\u5c71\u4e09\u533a","id":990334,"building":[{"id":990335,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":990344,"tag_name":"8"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a\u4e00\u56fd\u5e86","id":990348,"building":[{"id":990349,"tag_name":"1","unit":[{"id":990350,"tag_name":"8"}]}]},{"tag_name":"\u4e00\u96f6\u4e00\u7396","id":990359,"building":[{"id":990360,"tag_name":"1","unit":[{"id":990361,"tag_name":"1"}]}]},{"tag_name":"feature\u793e\u533a\u4e00","id":990364,"building":[{"id":990365,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":990366,"tag_name":"8"}]}]},{"tag_name":"\u4e00\u96f6\u4e8c\u96f6\u5206\u6563\u5f0f\u793e\u533a","id":990374,"building":[{"id":990375,"tag_name":"\u65b01\u680b","unit":[{"id":990377,"tag_name":"7"},{"id":990419,"tag_name":"8"}]},{"id":990472,"tag_name":"2","unit":[{"id":990473,"tag_name":"1"}]},{"id":990476,"tag_name":"2-5","unit":[{"id":990477,"tag_name":"1"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a5","id":990387,"building":[{"id":990388,"tag_name":"1","unit":[{"id":990389,"tag_name":"1"}]}]},{"tag_name":"\u6d4b\u8bd5\u5206\u6563\u5f0f\u516c\u5bd32","id":990452,"building":[{"id":990453,"tag_name":"1","unit":[{"id":990454,"tag_name":"1"}]}]},{"tag_name":"1028\u793e\u533a\u4e00","id":990479,"building":[{"id":990480,"tag_name":"1","unit":[{"id":990481,"tag_name":"2"}]},{"id":990483,"tag_name":"2","unit":[{"id":990484,"tag_name":"2"}]},{"id":990499,"tag_name":"5","unit":[{"id":990500,"tag_name":"2"}]},{"id":990587,"tag_name":"1\u53f7\u697c","unit":[{"id":990588,"tag_name":"1"}]}]},{"tag_name":"1030\u793e\u533a","id":990544,"building":[{"id":990549,"tag_name":"5\u680b","unit":[{"id":990550,"tag_name":"3"}]}]},{"tag_name":"\u96f6\u516d","id":990688,"building":[{"id":990689,"tag_name":"1\u680b","unit":[{"id":990690,"tag_name":"5"}]},{"id":990703,"tag_name":"2","unit":[{"id":990704,"tag_name":"3"}]}]},{"tag_name":"\u9f99\u6f6d1107\u533a","id":990697,"building":[{"id":990698,"tag_name":"101\u680b","unit":[{"id":990699,"tag_name":"5"}]}]},{"tag_name":"\u79df\u5165\u6d4b\u8bd5\u9a8c\u8bc11114","id":990745,"building":[{"id":990746,"tag_name":"1","unit":[{"id":990747,"tag_name":"1"}]}]},{"tag_name":"\u548c\u5e73\u8857\u56db\u533a","id":1017590,"building":[{"id":1017591,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":1017592,"tag_name":"5"}]}]},{"tag_name":"\u5929\u901a\u5e1d\u56fd\u5206\u6563\u5f0f","id":1017647,"building":[{"id":1017652,"tag_name":"3","unit":[{"id":1017653,"tag_name":"1"}]},{"id":1017655,"tag_name":"4","unit":[{"id":1017656,"tag_name":"2"}]},{"id":1017658,"tag_name":"5","unit":[{"id":1017659,"tag_name":"3"}]}]},{"tag_name":"\u63a5\u53e3\u6d4b\u8bd5\u4e13\u7528-\u96c6\u4e2d\u5f0f-\u5929\u901a\u82d1","id":1017634,"building":[{"id":1017637,"tag_name":"37\u53f7\u697c","unit":[{"id":1017638,"tag_name":"8"}]}]},{"tag_name":"\u590f\u5a01\u5937\u5317\u5cb8","id":990259,"building":[{"id":1017662,"tag_name":"\u7b2c\u4e00\u697c\u680b","unit":[{"id":1017663,"tag_name":"1"}]}]},{"tag_name":"\u4e1c\u57ce\u9f99\u6f6d\u5206\u6563\u5f0f\u793e\u533a5","id":451,"building":[{"id":1017665,"tag_name":"11\u680b","unit":[{"id":1017666,"tag_name":"2"}]}]},{"tag_name":"\u63a5\u53e3\u6d4b\u8bd5\u4e13\u7528-\u5206\u6563\u5f0f-\u5929\u901a\u82d1","id":1017669,"building":[{"id":1017670,"tag_name":"37\u53f7\u697c","unit":[{"id":1017671,"tag_name":"1"},{"id":1017674,"tag_name":"2"}]},{"id":1017672,"tag_name":"35\u53f7\u697c","unit":[{"id":1017676,"tag_name":"1"}]},{"id":1017678,"tag_name":"1","unit":[{"id":1017679,"tag_name":"1"}]},{"id":1017681,"tag_name":"2","unit":[{"id":1017682,"tag_name":"2"}]}]},{"tag_name":"test\u5206\u6563\u5f0f\u793e\u533a-yw","id":1017694,"building":[{"id":1017695,"tag_name":"22","unit":[{"id":1017696,"tag_name":"16"}]}]}]}]}}
+
+请求返回值：
+{
+    "data": {
+        "site_info": [
+            {
+                "community": [
+                    {
+                        "building": [
+                            {
+                                "id": 2, 
+                                "tag_name": "1栋", 
+                                "unit": [
+                                    {
+                                        "id": 4, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 1, 
+                        "tag_name": "江大社区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 36, 
+                                "tag_name": "金地1栋", 
+                                "unit": [
+                                    {
+                                        "id": 38, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 35, 
+                        "tag_name": "八一花园"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 92, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 93, 
+                                        "tag_name": "1"
+                                    }, 
+                                    {
+                                        "id": 1017685, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 96, 
+                                "tag_name": "11", 
+                                "unit": [
+                                    {
+                                        "id": 97, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 49, 
+                        "tag_name": "风景线社区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 221, 
+                                "tag_name": "1号", 
+                                "unit": [
+                                    {
+                                        "id": 222, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 220, 
+                        "tag_name": "西二旗"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 495, 
+                                "tag_name": "1栋", 
+                                "unit": [
+                                    {
+                                        "id": 496, 
+                                        "tag_name": "1"
+                                    }, 
+                                    {
+                                        "id": 497, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 494, 
+                        "tag_name": "龙潭社区一"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 502, 
+                                "tag_name": "101栋楼", 
+                                "unit": [
+                                    {
+                                        "id": 503, 
+                                        "tag_name": "8"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 501, 
+                        "tag_name": "龙潭社区6集中式"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 507, 
+                                "tag_name": "30栋", 
+                                "unit": [
+                                    {
+                                        "id": 508, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990403, 
+                                "tag_name": "2", 
+                                "unit": [
+                                    {
+                                        "id": 990404, 
+                                        "tag_name": "3"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990421, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990422, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 506, 
+                        "tag_name": "名称龙潭分散社区7"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 989741, 
+                                "tag_name": "105栋", 
+                                "unit": [
+                                    {
+                                        "id": 989742, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 989740, 
+                        "tag_name": "8月11号社区二"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 989748, 
+                                "tag_name": "1号楼", 
+                                "unit": [
+                                    {
+                                        "id": 989749, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 989747, 
+                        "tag_name": "8月14号社区一"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 989766, 
+                                "tag_name": "1号楼", 
+                                "unit": [
+                                    {
+                                        "id": 989767, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 989765, 
+                        "tag_name": "8月15号安定门集中式公寓一"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 989791, 
+                                "tag_name": "10都", 
+                                "unit": [
+                                    {
+                                        "id": 989792, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 989794, 
+                                "tag_name": "20栋", 
+                                "unit": [
+                                    {
+                                        "id": 989795, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 989790, 
+                        "tag_name": "景山社区一集中式"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990015, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990018, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990014, 
+                        "tag_name": "三里屯家园"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990022, 
+                                "tag_name": "1号楼", 
+                                "unit": [
+                                    {
+                                        "id": 990023, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990021, 
+                        "tag_name": "景山二区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990026, 
+                                "tag_name": "一号楼", 
+                                "unit": [
+                                    {
+                                        "id": 990027, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990025, 
+                        "tag_name": "朝阳门家园"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990032, 
+                                "tag_name": "三", 
+                                "unit": [
+                                    {
+                                        "id": 990033, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990029, 
+                        "tag_name": "东花花园"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990224, 
+                                "tag_name": "202", 
+                                "unit": [
+                                    {
+                                        "id": 990225, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990223, 
+                        "tag_name": "冀恒刚分散一"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990229, 
+                                "tag_name": "1号楼", 
+                                "unit": [
+                                    {
+                                        "id": 990230, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990263, 
+                                "tag_name": "2hao", 
+                                "unit": [
+                                    {
+                                        "id": 990265, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990328, 
+                                "tag_name": "4栋", 
+                                "unit": [
+                                    {
+                                        "id": 990329, 
+                                        "tag_name": "3"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990228, 
+                        "tag_name": "分散式社区三"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990234, 
+                                "tag_name": "303", 
+                                "unit": [
+                                    {
+                                        "id": 990235, 
+                                        "tag_name": "3"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990233, 
+                        "tag_name": "冀恒刚分散式二"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990239, 
+                                "tag_name": "1号楼", 
+                                "unit": [
+                                    {
+                                        "id": 990242, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990240, 
+                                "tag_name": "2号楼", 
+                                "unit": [
+                                    {
+                                        "id": 990241, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990238, 
+                        "tag_name": "冀恒刚分散三"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990246, 
+                                "tag_name": "第一栋", 
+                                "unit": [
+                                    {
+                                        "id": 990247, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990245, 
+                        "tag_name": "冀恒刚分散式社区四"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990256, 
+                                "tag_name": "1栋", 
+                                "unit": [
+                                    {
+                                        "id": 990257, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990254, 
+                        "tag_name": "国庆一"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990279, 
+                                "tag_name": "第二栋", 
+                                "unit": [
+                                    {
+                                        "id": 990280, 
+                                        "tag_name": "5"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990278, 
+                        "tag_name": "国庆三"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990283, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990284, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990282, 
+                        "tag_name": "潮白人家小区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990315, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990316, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990314, 
+                        "tag_name": "分散式社区10"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990319, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990320, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990318, 
+                        "tag_name": "分散式设施全5"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990335, 
+                                "tag_name": "第一栋", 
+                                "unit": [
+                                    {
+                                        "id": 990344, 
+                                        "tag_name": "8"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990334, 
+                        "tag_name": "景山三区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990349, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990350, 
+                                        "tag_name": "8"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990348, 
+                        "tag_name": "分散式社区一国庆"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990360, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990361, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990359, 
+                        "tag_name": "一零一玖"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990365, 
+                                "tag_name": "第一栋", 
+                                "unit": [
+                                    {
+                                        "id": 990366, 
+                                        "tag_name": "8"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990364, 
+                        "tag_name": "feature社区一"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990375, 
+                                "tag_name": "新1栋", 
+                                "unit": [
+                                    {
+                                        "id": 990377, 
+                                        "tag_name": "7"
+                                    }, 
+                                    {
+                                        "id": 990419, 
+                                        "tag_name": "8"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990472, 
+                                "tag_name": "2", 
+                                "unit": [
+                                    {
+                                        "id": 990473, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990476, 
+                                "tag_name": "2-5", 
+                                "unit": [
+                                    {
+                                        "id": 990477, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990374, 
+                        "tag_name": "一零二零分散式社区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990388, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990389, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990387, 
+                        "tag_name": "分散式社区5"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990453, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990454, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990452, 
+                        "tag_name": "测试分散式公寓2"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990480, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990481, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990483, 
+                                "tag_name": "2", 
+                                "unit": [
+                                    {
+                                        "id": 990484, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990499, 
+                                "tag_name": "5", 
+                                "unit": [
+                                    {
+                                        "id": 990500, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990587, 
+                                "tag_name": "1号楼", 
+                                "unit": [
+                                    {
+                                        "id": 990588, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990479, 
+                        "tag_name": "1028社区一"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990549, 
+                                "tag_name": "5栋", 
+                                "unit": [
+                                    {
+                                        "id": 990550, 
+                                        "tag_name": "3"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990544, 
+                        "tag_name": "1030社区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990689, 
+                                "tag_name": "1栋", 
+                                "unit": [
+                                    {
+                                        "id": 990690, 
+                                        "tag_name": "5"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 990703, 
+                                "tag_name": "2", 
+                                "unit": [
+                                    {
+                                        "id": 990704, 
+                                        "tag_name": "3"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990688, 
+                        "tag_name": "零六"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990698, 
+                                "tag_name": "101栋", 
+                                "unit": [
+                                    {
+                                        "id": 990699, 
+                                        "tag_name": "5"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990697, 
+                        "tag_name": "龙潭1107区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 990746, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 990747, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990745, 
+                        "tag_name": "租入测试验证1114"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 1017591, 
+                                "tag_name": "第一栋", 
+                                "unit": [
+                                    {
+                                        "id": 1017592, 
+                                        "tag_name": "5"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 1017590, 
+                        "tag_name": "和平街四区"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 1017652, 
+                                "tag_name": "3", 
+                                "unit": [
+                                    {
+                                        "id": 1017653, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 1017655, 
+                                "tag_name": "4", 
+                                "unit": [
+                                    {
+                                        "id": 1017656, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 1017658, 
+                                "tag_name": "5", 
+                                "unit": [
+                                    {
+                                        "id": 1017659, 
+                                        "tag_name": "3"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 1017647, 
+                        "tag_name": "天通帝国分散式"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 1017637, 
+                                "tag_name": "37号楼", 
+                                "unit": [
+                                    {
+                                        "id": 1017638, 
+                                        "tag_name": "8"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 1017634, 
+                        "tag_name": "接口测试专用-集中式-天通苑"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 1017662, 
+                                "tag_name": "第一楼栋", 
+                                "unit": [
+                                    {
+                                        "id": 1017663, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 990259, 
+                        "tag_name": "夏威夷北岸"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 1017665, 
+                                "tag_name": "11栋", 
+                                "unit": [
+                                    {
+                                        "id": 1017666, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 451, 
+                        "tag_name": "东城龙潭分散式社区5"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 1017670, 
+                                "tag_name": "37号楼", 
+                                "unit": [
+                                    {
+                                        "id": 1017671, 
+                                        "tag_name": "1"
+                                    }, 
+                                    {
+                                        "id": 1017674, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 1017672, 
+                                "tag_name": "35号楼", 
+                                "unit": [
+                                    {
+                                        "id": 1017676, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 1017678, 
+                                "tag_name": "1", 
+                                "unit": [
+                                    {
+                                        "id": 1017679, 
+                                        "tag_name": "1"
+                                    }
+                                ]
+                            }, 
+                            {
+                                "id": 1017681, 
+                                "tag_name": "2", 
+                                "unit": [
+                                    {
+                                        "id": 1017682, 
+                                        "tag_name": "2"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 1017669, 
+                        "tag_name": "接口测试专用-分散式-天通苑"
+                    }, 
+                    {
+                        "building": [
+                            {
+                                "id": 1017695, 
+                                "tag_name": "22", 
+                                "unit": [
+                                    {
+                                        "id": 1017696, 
+                                        "tag_name": "16"
+                                    }
+                                ]
+                            }
+                        ], 
+                        "id": 1017694, 
+                        "tag_name": "test分散式社区-yw"
+                    }
+                ], 
+                "site_id": 1, 
+                "site_name": "芒果公寓"
+            }
+        ], 
+        "user_info": {
+            "avatar": "", 
+            "mobile": "18211078892", 
+            "real_name": "刘大良", 
+            "signature": "", 
+            "site_id": 1, 
+            "user_id": 15658
+        }
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaUserAvatar_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_user_avatar</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjPYG/7NVJ2C+WQjEeEBQ6XQ==
+接口地址： http://t.efang100.cc/steward/account/avatar
+
+请求地址：
+http://t.efang100.cc/steward/account/avatar?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjPYG%2F7NVJ2C%2BWQjEeEBQ6XQ%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"avatar":""}}
+
+请求返回值：
+{
+    "data": {
+        "avatar": ""
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaSignature_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_signature</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        pass</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: 获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjPYG/7NVJ2C+WQjEeEBQ6XQ==
+接口地址： http://t.efang100.cc/steward/account/signature
+$$$$$$$$$$$$$$$$$$$$$$$$$
+&lt;Response [200]&gt;
+
+请求地址：
+http://t.efang100.cc/steward/account/signature?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjPYG%2F7NVJ2C%2BWQjEeEBQ6XQ%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"signature":""}}
+
+请求返回值：
+{
+    "data": {
+        "signature": ""
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaVersionUpdate_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c11',1)">Detail</a></td>
+</tr>
+
+<tr id='pt11.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_version_update</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.1')" >
+        pass</a>
+
+    <div id='div_pt11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt11.1: 读取的data {u'source': 1, u'version': u'1.1.0', u'site_id': 1}
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"source":1,"version":"1.1.0","site_id":1}
+加密后的密文： PawnCmfK+rKCBXE0KrEHFv7eFm3ZJgSk6TgAsQb7Cg/OlnNf8J23db4Pn9lrM+yc
+接口地址： http://t.efang100.cc/steward/account/version
+
+请求地址：
+http://t.efang100.cc/steward/account/version?encrypt=DES&amp;param=PawnCmfK%2BrKCBXE0KrEHFv7eFm3ZJgSk6TgAsQb7Cg%2FOlnNf8J23db4Pn9lrM%2Byc&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"curr_version":"1.1.1","force_update":1,"package_name":"test","version_desc":"test","download_url":"http:\/\/106.117.248.179\/download.sj.qq.com\/upload\/connAssitantDownload\/upload\/MobileAssistant_1.apk?mkey=59e855e52ac5f92a&amp;f=6b80&amp;c=0&amp;p=.apk"}}
+
+请求返回值：
+{
+    "data": {
+        "curr_version": "1.1.1", 
+        "download_url": "http://106.117.248.179/download.sj.qq.com/upload/connAssitantDownload/upload/MobileAssistant_1.apk?mkey=59e855e52ac5f92a&amp;f=6b80&amp;c=0&amp;p=.apk", 
+        "force_update": 1, 
+        "package_name": "test", 
+        "version_desc": "test"
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaAddClient_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',1)">Detail</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_add_client</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        pass</a>
+
+    <div id='div_pt12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/user/add
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"name":"\u5218\u5c0f\u826f","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","site_id":1,"user_pwd":"12345678","sex":"1","source":1,"customer_type":"1","version":"1.1.0","mobile":"18211078899","account_status":"1","card_no":"370481198811156472"}
+加密后的密文： Q2xE9kr0PBLZkk7GV+h+spNrLjt/51OVyabpk2gJ175qvh87rFZxdXC9ueCDsxrppn1rvGJS0pSqr2WcbpZ/x8lOABFSkId1zPsyVglR02Te/UR6mBsxzkBnAtJ7qP+53LcrXltUdXNGBjnOEQo1KZj4suCDqmPOZ4qifBRV6seQQrHOHYNRn+/wZvk2lBJfmnSd21ZeqHjnH4vjNARHriQs9oVn5KnUT4PxVJ2MnRArvNRgmCnTYi04kLFGmdgdIDyVMmut4IR2fZrDBuc1BKIQkZl/YbJGSgFH2fgtvulQJYSXXQYwLRkczOOvIrISIUBfEE43vik=
+post
+
+请求地址：
+http://t.efang100.cc/steward/user/add
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+Connect DB successfully!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaAddClient_1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c13',1)">Detail</a></td>
+</tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_add_client</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.1')" >
+        pass</a>
+
+    <div id='div_pt13.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/user/add
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"org_code_type":"1","legal_name":"\u5218\u6631\u826f","name":"\u5218\u5c0f\u826f","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","company_name":"\u4e00\u623f","site_id":1,"user_pwd":"12345678","sex":"1","source":1,"customer_type":"1","version":"1.1.0","mobile":"18211078899","account_status":"1","credit_code":"1","card_no":"370481198811156472"}
+加密后的密文： Go0Ns+M+TK82lu6gqA064xlXaUbT4Z7UBF4BI920Td7EShAqKoLoWH+H5anmABg/G/qYuqjZzhbe+s+TqIAJjJLnGev6+5e7l7g0Lcj1vG5G3Srqzf3cQS6Ysf5M8CO5Bv7tZtzI6XTjtNqeiw32bijPUZQYamP3U1TkTMmmfNkSYpI55MzG2XEqSOzN9rK3FTcaW4PSGMzqniPvaZF3gH/UnzY9Qbb82+thy+SIJNE0kAfQnbw1q2gvt7gcP+9500k24/k2LiS5PY2FTvn18KKtBtY5fX7glsc8tZC4MP0KzTslHWMDmvq+3VdaaaPn4s6axw+pDmO5u0Pxvaiv6O9N1hmiK7hCKPAVzQUVizQXnkbKO4qw4clVSl/AxMC0Aw4NYOLhfsmpYWB+gl3EdQkNDSGMkdoTUYyoBQnLEotuwd61WpK1E9NMxea+bfyZeBQp9B3bpUwb8KNiFPo8JA==
+post
+
+请求地址：
+http://t.efang100.cc/steward/user/add
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+Connect DB successfully!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaAccountInfoGJ_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',1)">Detail</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_account_info_guanjia</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+        pass</a>
+
+    <div id='div_pt14.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/account/userInfo
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":1,"version":"1.1.0","client_id":""}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjNI6YRGp/yPt6mczgCFM+10B/4TNGPGvn
+get
+
+请求地址：
+http://t.efang100.cc/steward/account/userInfo?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjNI6YRGp%2FyPt6mczgCFM%2B10B%2F4TNGPGvn&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"user_info":{"user_id":15658,"mobile":"18211078892","real_name":"\u5218\u5927\u826f","site_id":1,"signature":"","avatar":""},"site_info":[{"site_id":1,"site_name":"\u8292\u679c\u516c\u5bd3","city_lists":[{"id":2,"tag_name":"\u5317\u4eac"},{"id":377,"tag_name":"\u6b66\u6c49"},{"id":385,"tag_name":"\u82cf\u5dde"},{"id":399,"tag_name":"\u676d\u5dde"},{"id":444,"tag_name":"\u6cc9\u5dde"},{"id":683,"tag_name":"\u53a6\u95e8\u5e02"},{"id":1496,"tag_name":"\u8fd0\u57ce\u5e02"},{"id":2472,"tag_name":"\u5927\u540c\u5e02"},{"id":2480,"tag_name":"\u957f\u6c99\u5e02"}]}]}}
+
+请求返回值：
+{
+    "data": {
+        "site_info": [
+            {
+                "city_lists": [
+                    {
+                        "id": 2, 
+                        "tag_name": "北京"
+                    }, 
+                    {
+                        "id": 377, 
+                        "tag_name": "武汉"
+                    }, 
+                    {
+                        "id": 385, 
+                        "tag_name": "苏州"
+                    }, 
+                    {
+                        "id": 399, 
+                        "tag_name": "杭州"
+                    }, 
+                    {
+                        "id": 444, 
+                        "tag_name": "泉州"
+                    }, 
+                    {
+                        "id": 683, 
+                        "tag_name": "厦门市"
+                    }, 
+                    {
+                        "id": 1496, 
+                        "tag_name": "运城市"
+                    }, 
+                    {
+                        "id": 2472, 
+                        "tag_name": "大同市"
+                    }, 
+                    {
+                        "id": 2480, 
+                        "tag_name": "长沙市"
+                    }
+                ], 
+                "site_id": 1, 
+                "site_name": "芒果公寓"
+            }
+        ], 
+        "user_info": {
+            "avatar": "", 
+            "mobile": "18211078892", 
+            "real_name": "刘大良", 
+            "signature": "", 
+            "site_id": 1, 
+            "user_id": 15658
+        }
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaCommunityList_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c15',1)">Detail</a></td>
+</tr>
+
+<tr id='pt15.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_community_list</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.1')" >
+        pass</a>
+
+    <div id='div_pt15.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/account/community_lists
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":1,"version":"1.1.0","site_id":1}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjNI6YRGp/yPsKprG0NxDoVtFPArZxv8y9
+get
+
+请求地址：
+http://t.efang100.cc/steward/account/community_lists?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XLMRgjrDSPf6BHnHJxIpHKjNI6YRGp%2FyPsKprG0NxDoVtFPArZxv8y9&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"community":[{"tag_name":"\u6c5f\u5927\u793e\u533a","id":1,"building":[{"id":2,"tag_name":"1\u680b","unit":[{"id":4,"tag_name":"1"}]}]},{"tag_name":"\u516b\u4e00\u82b1\u56ed","id":35,"building":[{"id":36,"tag_name":"\u91d1\u57301\u680b","unit":[{"id":38,"tag_name":"1"}]}]},{"tag_name":"\u98ce\u666f\u7ebf\u793e\u533a","id":49,"building":[{"id":92,"tag_name":"1","unit":[{"id":93,"tag_name":"1"},{"id":1017685,"tag_name":"2"}]},{"id":96,"tag_name":"11","unit":[{"id":97,"tag_name":"1"}]}]},{"tag_name":"\u897f\u4e8c\u65d7","id":220,"building":[{"id":221,"tag_name":"1\u53f7","unit":[{"id":222,"tag_name":"1"}]}]},{"tag_name":"\u9f99\u6f6d\u793e\u533a\u4e00","id":494,"building":[{"id":495,"tag_name":"1\u680b","unit":[{"id":496,"tag_name":"1"},{"id":497,"tag_name":"2"}]}]},{"tag_name":"\u9f99\u6f6d\u793e\u533a6\u96c6\u4e2d\u5f0f","id":501,"building":[{"id":502,"tag_name":"101\u680b\u697c","unit":[{"id":503,"tag_name":"8"}]}]},{"tag_name":"\u540d\u79f0\u9f99\u6f6d\u5206\u6563\u793e\u533a7","id":506,"building":[{"id":507,"tag_name":"30\u680b","unit":[{"id":508,"tag_name":"1"}]},{"id":990403,"tag_name":"2","unit":[{"id":990404,"tag_name":"3"}]},{"id":990421,"tag_name":"1","unit":[{"id":990422,"tag_name":"2"}]}]},{"tag_name":"8\u670811\u53f7\u793e\u533a\u4e8c","id":989740,"building":[{"id":989741,"tag_name":"105\u680b","unit":[{"id":989742,"tag_name":"1"}]}]},{"tag_name":"8\u670814\u53f7\u793e\u533a\u4e00","id":989747,"building":[{"id":989748,"tag_name":"1\u53f7\u697c","unit":[{"id":989749,"tag_name":"1"}]}]},{"tag_name":"8\u670815\u53f7\u5b89\u5b9a\u95e8\u96c6\u4e2d\u5f0f\u516c\u5bd3\u4e00","id":989765,"building":[{"id":989766,"tag_name":"1\u53f7\u697c","unit":[{"id":989767,"tag_name":"1"}]}]},{"tag_name":"\u666f\u5c71\u793e\u533a\u4e00\u96c6\u4e2d\u5f0f","id":989790,"building":[{"id":989791,"tag_name":"10\u90fd","unit":[{"id":989792,"tag_name":"1"}]},{"id":989794,"tag_name":"20\u680b","unit":[{"id":989795,"tag_name":"1"}]}]},{"tag_name":"\u4e09\u91cc\u5c6f\u5bb6\u56ed","id":990014,"building":[{"id":990015,"tag_name":"1","unit":[{"id":990018,"tag_name":"1"}]}]},{"tag_name":"\u666f\u5c71\u4e8c\u533a","id":990021,"building":[{"id":990022,"tag_name":"1\u53f7\u697c","unit":[{"id":990023,"tag_name":"2"}]}]},{"tag_name":"\u671d\u9633\u95e8\u5bb6\u56ed","id":990025,"building":[{"id":990026,"tag_name":"\u4e00\u53f7\u697c","unit":[{"id":990027,"tag_name":"1"}]}]},{"tag_name":"\u4e1c\u82b1\u82b1\u56ed","id":990029,"building":[{"id":990032,"tag_name":"\u4e09","unit":[{"id":990033,"tag_name":"1"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u4e00","id":990223,"building":[{"id":990224,"tag_name":"202","unit":[{"id":990225,"tag_name":"2"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a\u4e09","id":990228,"building":[{"id":990229,"tag_name":"1\u53f7\u697c","unit":[{"id":990230,"tag_name":"1"}]},{"id":990263,"tag_name":"2hao","unit":[{"id":990265,"tag_name":"2"}]},{"id":990328,"tag_name":"4\u680b","unit":[{"id":990329,"tag_name":"3"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u5f0f\u4e8c","id":990233,"building":[{"id":990234,"tag_name":"303","unit":[{"id":990235,"tag_name":"3"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u4e09","id":990238,"building":[{"id":990239,"tag_name":"1\u53f7\u697c","unit":[{"id":990242,"tag_name":"2"}]},{"id":990240,"tag_name":"2\u53f7\u697c","unit":[{"id":990241,"tag_name":"1"}]}]},{"tag_name":"\u5180\u6052\u521a\u5206\u6563\u5f0f\u793e\u533a\u56db","id":990245,"building":[{"id":990246,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":990247,"tag_name":"1"}]}]},{"tag_name":"\u56fd\u5e86\u4e00","id":990254,"building":[{"id":990256,"tag_name":"1\u680b","unit":[{"id":990257,"tag_name":"1"}]}]},{"tag_name":"\u56fd\u5e86\u4e09","id":990278,"building":[{"id":990279,"tag_name":"\u7b2c\u4e8c\u680b","unit":[{"id":990280,"tag_name":"5"}]}]},{"tag_name":"\u6f6e\u767d\u4eba\u5bb6\u5c0f\u533a","id":990282,"building":[{"id":990283,"tag_name":"1","unit":[{"id":990284,"tag_name":"1"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a10","id":990314,"building":[{"id":990315,"tag_name":"1","unit":[{"id":990316,"tag_name":"1"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u8bbe\u65bd\u51685","id":990318,"building":[{"id":990319,"tag_name":"1","unit":[{"id":990320,"tag_name":"1"}]}]},{"tag_name":"\u666f\u5c71\u4e09\u533a","id":990334,"building":[{"id":990335,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":990344,"tag_name":"8"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a\u4e00\u56fd\u5e86","id":990348,"building":[{"id":990349,"tag_name":"1","unit":[{"id":990350,"tag_name":"8"}]}]},{"tag_name":"\u4e00\u96f6\u4e00\u7396","id":990359,"building":[{"id":990360,"tag_name":"1","unit":[{"id":990361,"tag_name":"1"}]}]},{"tag_name":"feature\u793e\u533a\u4e00","id":990364,"building":[{"id":990365,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":990366,"tag_name":"8"}]}]},{"tag_name":"\u4e00\u96f6\u4e8c\u96f6\u5206\u6563\u5f0f\u793e\u533a","id":990374,"building":[{"id":990375,"tag_name":"\u65b01\u680b","unit":[{"id":990377,"tag_name":"7"},{"id":990419,"tag_name":"8"}]},{"id":990472,"tag_name":"2","unit":[{"id":990473,"tag_name":"1"}]},{"id":990476,"tag_name":"2-5","unit":[{"id":990477,"tag_name":"1"}]}]},{"tag_name":"\u5206\u6563\u5f0f\u793e\u533a5","id":990387,"building":[{"id":990388,"tag_name":"1","unit":[{"id":990389,"tag_name":"1"}]}]},{"tag_name":"\u6d4b\u8bd5\u5206\u6563\u5f0f\u516c\u5bd32","id":990452,"building":[{"id":990453,"tag_name":"1","unit":[{"id":990454,"tag_name":"1"}]}]},{"tag_name":"1028\u793e\u533a\u4e00","id":990479,"building":[{"id":990480,"tag_name":"1","unit":[{"id":990481,"tag_name":"2"}]},{"id":990483,"tag_name":"2","unit":[{"id":990484,"tag_name":"2"}]},{"id":990499,"tag_name":"5","unit":[{"id":990500,"tag_name":"2"}]},{"id":990587,"tag_name":"1\u53f7\u697c","unit":[{"id":990588,"tag_name":"1"}]}]},{"tag_name":"1030\u793e\u533a","id":990544,"building":[{"id":990549,"tag_name":"5\u680b","unit":[{"id":990550,"tag_name":"3"}]}]},{"tag_name":"\u96f6\u516d","id":990688,"building":[{"id":990689,"tag_name":"1\u680b","unit":[{"id":990690,"tag_name":"5"}]},{"id":990703,"tag_name":"2","unit":[{"id":990704,"tag_name":"3"}]}]},{"tag_name":"\u9f99\u6f6d1107\u533a","id":990697,"building":[{"id":990698,"tag_name":"101\u680b","unit":[{"id":990699,"tag_name":"5"}]}]},{"tag_name":"\u79df\u5165\u6d4b\u8bd5\u9a8c\u8bc11114","id":990745,"building":[{"id":990746,"tag_name":"1","unit":[{"id":990747,"tag_name":"1"}]}]},{"tag_name":"\u548c\u5e73\u8857\u56db\u533a","id":1017590,"building":[{"id":1017591,"tag_name":"\u7b2c\u4e00\u680b","unit":[{"id":1017592,"tag_name":"5"}]}]},{"tag_name":"\u5929\u901a\u5e1d\u56fd\u5206\u6563\u5f0f","id":1017647,"building":[{"id":1017652,"tag_name":"3","unit":[{"id":1017653,"tag_name":"1"}]},{"id":1017655,"tag_name":"4","unit":[{"id":1017656,"tag_name":"2"}]},{"id":1017658,"tag_name":"5","unit":[{"id":1017659,"tag_name":"3"}]}]},{"tag_name":"\u63a5\u53e3\u6d4b\u8bd5\u4e13\u7528-\u96c6\u4e2d\u5f0f-\u5929\u901a\u82d1","id":1017634,"building":[{"id":1017637,"tag_name":"37\u53f7\u697c","unit":[{"id":1017638,"tag_name":"8"}]}]},{"tag_name":"\u590f\u5a01\u5937\u5317\u5cb8","id":990259,"building":[{"id":1017662,"tag_name":"\u7b2c\u4e00\u697c\u680b","unit":[{"id":1017663,"tag_name":"1"}]}]},{"tag_name":"\u4e1c\u57ce\u9f99\u6f6d\u5206\u6563\u5f0f\u793e\u533a5","id":451,"building":[{"id":1017665,"tag_name":"11\u680b","unit":[{"id":1017666,"tag_name":"2"}]}]},{"tag_name":"\u63a5\u53e3\u6d4b\u8bd5\u4e13\u7528-\u5206\u6563\u5f0f-\u5929\u901a\u82d1","id":1017669,"building":[{"id":1017670,"tag_name":"37\u53f7\u697c","unit":[{"id":1017671,"tag_name":"1"},{"id":1017674,"tag_name":"2"}]},{"id":1017672,"tag_name":"35\u53f7\u697c","unit":[{"id":1017676,"tag_name":"1"}]},{"id":1017678,"tag_name":"1","unit":[{"id":1017679,"tag_name":"1"}]},{"id":1017681,"tag_name":"2","unit":[{"id":1017682,"tag_name":"2"}]}]},{"tag_name":"test\u5206\u6563\u5f0f\u793e\u533a-yw","id":1017694,"building":[{"id":1017695,"tag_name":"22","unit":[{"id":1017696,"tag_name":"16"}]}]}],"district_data":[]}}
+
+请求返回值：
+{
+    "data": {
+        "community": [
+            {
+                "building": [
+                    {
+                        "id": 2, 
+                        "tag_name": "1栋", 
+                        "unit": [
+                            {
+                                "id": 4, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 1, 
+                "tag_name": "江大社区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 36, 
+                        "tag_name": "金地1栋", 
+                        "unit": [
+                            {
+                                "id": 38, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 35, 
+                "tag_name": "八一花园"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 92, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 93, 
+                                "tag_name": "1"
+                            }, 
+                            {
+                                "id": 1017685, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 96, 
+                        "tag_name": "11", 
+                        "unit": [
+                            {
+                                "id": 97, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 49, 
+                "tag_name": "风景线社区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 221, 
+                        "tag_name": "1号", 
+                        "unit": [
+                            {
+                                "id": 222, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 220, 
+                "tag_name": "西二旗"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 495, 
+                        "tag_name": "1栋", 
+                        "unit": [
+                            {
+                                "id": 496, 
+                                "tag_name": "1"
+                            }, 
+                            {
+                                "id": 497, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 494, 
+                "tag_name": "龙潭社区一"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 502, 
+                        "tag_name": "101栋楼", 
+                        "unit": [
+                            {
+                                "id": 503, 
+                                "tag_name": "8"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 501, 
+                "tag_name": "龙潭社区6集中式"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 507, 
+                        "tag_name": "30栋", 
+                        "unit": [
+                            {
+                                "id": 508, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990403, 
+                        "tag_name": "2", 
+                        "unit": [
+                            {
+                                "id": 990404, 
+                                "tag_name": "3"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990421, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990422, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 506, 
+                "tag_name": "名称龙潭分散社区7"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 989741, 
+                        "tag_name": "105栋", 
+                        "unit": [
+                            {
+                                "id": 989742, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 989740, 
+                "tag_name": "8月11号社区二"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 989748, 
+                        "tag_name": "1号楼", 
+                        "unit": [
+                            {
+                                "id": 989749, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 989747, 
+                "tag_name": "8月14号社区一"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 989766, 
+                        "tag_name": "1号楼", 
+                        "unit": [
+                            {
+                                "id": 989767, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 989765, 
+                "tag_name": "8月15号安定门集中式公寓一"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 989791, 
+                        "tag_name": "10都", 
+                        "unit": [
+                            {
+                                "id": 989792, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 989794, 
+                        "tag_name": "20栋", 
+                        "unit": [
+                            {
+                                "id": 989795, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 989790, 
+                "tag_name": "景山社区一集中式"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990015, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990018, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990014, 
+                "tag_name": "三里屯家园"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990022, 
+                        "tag_name": "1号楼", 
+                        "unit": [
+                            {
+                                "id": 990023, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990021, 
+                "tag_name": "景山二区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990026, 
+                        "tag_name": "一号楼", 
+                        "unit": [
+                            {
+                                "id": 990027, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990025, 
+                "tag_name": "朝阳门家园"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990032, 
+                        "tag_name": "三", 
+                        "unit": [
+                            {
+                                "id": 990033, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990029, 
+                "tag_name": "东花花园"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990224, 
+                        "tag_name": "202", 
+                        "unit": [
+                            {
+                                "id": 990225, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990223, 
+                "tag_name": "冀恒刚分散一"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990229, 
+                        "tag_name": "1号楼", 
+                        "unit": [
+                            {
+                                "id": 990230, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990263, 
+                        "tag_name": "2hao", 
+                        "unit": [
+                            {
+                                "id": 990265, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990328, 
+                        "tag_name": "4栋", 
+                        "unit": [
+                            {
+                                "id": 990329, 
+                                "tag_name": "3"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990228, 
+                "tag_name": "分散式社区三"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990234, 
+                        "tag_name": "303", 
+                        "unit": [
+                            {
+                                "id": 990235, 
+                                "tag_name": "3"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990233, 
+                "tag_name": "冀恒刚分散式二"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990239, 
+                        "tag_name": "1号楼", 
+                        "unit": [
+                            {
+                                "id": 990242, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990240, 
+                        "tag_name": "2号楼", 
+                        "unit": [
+                            {
+                                "id": 990241, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990238, 
+                "tag_name": "冀恒刚分散三"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990246, 
+                        "tag_name": "第一栋", 
+                        "unit": [
+                            {
+                                "id": 990247, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990245, 
+                "tag_name": "冀恒刚分散式社区四"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990256, 
+                        "tag_name": "1栋", 
+                        "unit": [
+                            {
+                                "id": 990257, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990254, 
+                "tag_name": "国庆一"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990279, 
+                        "tag_name": "第二栋", 
+                        "unit": [
+                            {
+                                "id": 990280, 
+                                "tag_name": "5"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990278, 
+                "tag_name": "国庆三"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990283, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990284, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990282, 
+                "tag_name": "潮白人家小区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990315, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990316, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990314, 
+                "tag_name": "分散式社区10"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990319, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990320, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990318, 
+                "tag_name": "分散式设施全5"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990335, 
+                        "tag_name": "第一栋", 
+                        "unit": [
+                            {
+                                "id": 990344, 
+                                "tag_name": "8"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990334, 
+                "tag_name": "景山三区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990349, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990350, 
+                                "tag_name": "8"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990348, 
+                "tag_name": "分散式社区一国庆"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990360, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990361, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990359, 
+                "tag_name": "一零一玖"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990365, 
+                        "tag_name": "第一栋", 
+                        "unit": [
+                            {
+                                "id": 990366, 
+                                "tag_name": "8"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990364, 
+                "tag_name": "feature社区一"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990375, 
+                        "tag_name": "新1栋", 
+                        "unit": [
+                            {
+                                "id": 990377, 
+                                "tag_name": "7"
+                            }, 
+                            {
+                                "id": 990419, 
+                                "tag_name": "8"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990472, 
+                        "tag_name": "2", 
+                        "unit": [
+                            {
+                                "id": 990473, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990476, 
+                        "tag_name": "2-5", 
+                        "unit": [
+                            {
+                                "id": 990477, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990374, 
+                "tag_name": "一零二零分散式社区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990388, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990389, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990387, 
+                "tag_name": "分散式社区5"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990453, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990454, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990452, 
+                "tag_name": "测试分散式公寓2"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990480, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990481, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990483, 
+                        "tag_name": "2", 
+                        "unit": [
+                            {
+                                "id": 990484, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990499, 
+                        "tag_name": "5", 
+                        "unit": [
+                            {
+                                "id": 990500, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990587, 
+                        "tag_name": "1号楼", 
+                        "unit": [
+                            {
+                                "id": 990588, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990479, 
+                "tag_name": "1028社区一"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990549, 
+                        "tag_name": "5栋", 
+                        "unit": [
+                            {
+                                "id": 990550, 
+                                "tag_name": "3"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990544, 
+                "tag_name": "1030社区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990689, 
+                        "tag_name": "1栋", 
+                        "unit": [
+                            {
+                                "id": 990690, 
+                                "tag_name": "5"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 990703, 
+                        "tag_name": "2", 
+                        "unit": [
+                            {
+                                "id": 990704, 
+                                "tag_name": "3"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990688, 
+                "tag_name": "零六"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990698, 
+                        "tag_name": "101栋", 
+                        "unit": [
+                            {
+                                "id": 990699, 
+                                "tag_name": "5"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990697, 
+                "tag_name": "龙潭1107区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 990746, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 990747, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990745, 
+                "tag_name": "租入测试验证1114"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 1017591, 
+                        "tag_name": "第一栋", 
+                        "unit": [
+                            {
+                                "id": 1017592, 
+                                "tag_name": "5"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 1017590, 
+                "tag_name": "和平街四区"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 1017652, 
+                        "tag_name": "3", 
+                        "unit": [
+                            {
+                                "id": 1017653, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 1017655, 
+                        "tag_name": "4", 
+                        "unit": [
+                            {
+                                "id": 1017656, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 1017658, 
+                        "tag_name": "5", 
+                        "unit": [
+                            {
+                                "id": 1017659, 
+                                "tag_name": "3"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 1017647, 
+                "tag_name": "天通帝国分散式"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 1017637, 
+                        "tag_name": "37号楼", 
+                        "unit": [
+                            {
+                                "id": 1017638, 
+                                "tag_name": "8"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 1017634, 
+                "tag_name": "接口测试专用-集中式-天通苑"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 1017662, 
+                        "tag_name": "第一楼栋", 
+                        "unit": [
+                            {
+                                "id": 1017663, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 990259, 
+                "tag_name": "夏威夷北岸"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 1017665, 
+                        "tag_name": "11栋", 
+                        "unit": [
+                            {
+                                "id": 1017666, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 451, 
+                "tag_name": "东城龙潭分散式社区5"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 1017670, 
+                        "tag_name": "37号楼", 
+                        "unit": [
+                            {
+                                "id": 1017671, 
+                                "tag_name": "1"
+                            }, 
+                            {
+                                "id": 1017674, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 1017672, 
+                        "tag_name": "35号楼", 
+                        "unit": [
+                            {
+                                "id": 1017676, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 1017678, 
+                        "tag_name": "1", 
+                        "unit": [
+                            {
+                                "id": 1017679, 
+                                "tag_name": "1"
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 1017681, 
+                        "tag_name": "2", 
+                        "unit": [
+                            {
+                                "id": 1017682, 
+                                "tag_name": "2"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 1017669, 
+                "tag_name": "接口测试专用-分散式-天通苑"
+            }, 
+            {
+                "building": [
+                    {
+                        "id": 1017695, 
+                        "tag_name": "22", 
+                        "unit": [
+                            {
+                                "id": 1017696, 
+                                "tag_name": "16"
+                            }
+                        ]
+                    }
+                ], 
+                "id": 1017694, 
+                "tag_name": "test分散式社区-yw"
+            }
+        ], 
+        "district_data": []
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaCommunityList_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c16',1)">Detail</a></td>
+</tr>
+
+<tr id='pt16.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_community_list</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.1')" >
+        pass</a>
+
+    <div id='div_pt16.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/home/total
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","site_id":1,"days":"1","community_id":"1017669","source":1,"version":"1.1.0"}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvnoIgpmRF32y6OnJ1vhEZiAZNfy5khsHtAQim30+U4yusNvIheiTJGJP55jYg8e1MO4+aF9EntPWNk49jRVTn+r/UGjWRTw6iSwFZSh3ahhcdeOIJo2LIZA==
+get
+
+请求地址：
+http://t.efang100.cc/steward/home/total?encrypt=DES&amp;param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvnoIgpmRF32y6OnJ1vhEZiAZNfy5khsHtAQim30%2BU4yusNvIheiTJGJP55jYg8e1MO4%2BaF9EntPWNk49jRVTn%2Br%2FUGjWRTw6iSwFZSh3ahhcdeOIJo2LIZA%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"subscribe_count":0,"fee_count":0,"signing_count":0,"checkout_count":0,"repair_count":0,"fee_list_count":0,"meter_list_count":0}}
+
+请求返回值：
+{
+    "data": {
+        "checkout_count": 0, 
+        "fee_count": 0, 
+        "fee_list_count": 0, 
+        "meter_list_count": 0, 
+        "repair_count": 0, 
+        "signing_count": 0, 
+        "subscribe_count": 0
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaCommunityList_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c17',1)">Detail</a></td>
+</tr>
+
+<tr id='pt17.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_community_list</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.1')" >
+        pass</a>
+
+    <div id='div_pt17.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/subscribe/lists
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"name_mobile":"18211078892","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","days":1,"community_id":1017669,"source":1,"version":"1.1.0","update_type":1,"page":1}
+加密后的密文： IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO+gryt5/k/w9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El/TVpRI7NwLa2UvNfaKhbO4cmRE1zC3GBqSlel6jDI6q02DS1XeBqULBsebGYr1DW7SM+CjDnmtQ2YC2kTdio9E8xZwfkGzgvaABU3TtwhUX0AHE+grilPZ8t9UkKpq
+get
+
+请求地址：
+http://t.efang100.cc/steward/subscribe/lists?encrypt=DES&amp;param=IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO%2Bgryt5%2Fk%2Fw9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El%2FTVpRI7NwLa2UvNfaKhbO4cmRE1zC3GBqSlel6jDI6q02DS1XeBqULBsebGYr1DW7SM%2BCjDnmtQ2YC2kTdio9E8xZwfkGzgvaABU3TtwhUX0AHE%2BgrilPZ8t9UkKpq&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"list":[],"page_num":0}}
+
+请求返回值：
+{
+    "data": {
+        "list": [], 
+        "page_num": 0
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaSubscribeDetailInfo_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c18',1)">Detail</a></td>
+</tr>
+
+<tr id='pt18.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_subscribe_detail_info</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.1')" >
+        pass</a>
+
+    <div id='div_pt18.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/subscribe/info
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":4,"version":"1.1.0","id":1}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU7bZ86N4DSqgw==
+get
+
+请求地址：
+http://t.efang100.cc/steward/subscribe/info?param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU7bZ86N4DSqgw%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"user_name":"zdd","mobile":"13500000000","booking_type":"app\u7aef","user_style":"\u5b66\u751f","source":"WAP\u7aef","look_time":"1493195640","update_type":1}}
+
+请求返回值：
+{
+    "data": {
+        "booking_type": "app端", 
+        "look_time": "1493195640", 
+        "mobile": "13500000000", 
+        "source": "WAP端", 
+        "update_type": 1, 
+        "user_name": "zdd", 
+        "user_style": "学生"
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaUpdateLog_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c19',1)">Detail</a></td>
+</tr>
+
+<tr id='pt19.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_update_log</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.1')" >
+        pass</a>
+
+    <div id='div_pt19.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/subscribe/updateLog
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":4,"version":"1.1.0","id":1}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU7bZ86N4DSqgw==
+get
+
+请求地址：
+http://t.efang100.cc/steward/subscribe/updateLog?param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU7bZ86N4DSqgw%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[{"remark":"\u65e0","create_time":"1512015035","admin_name":"\u5218\u5927\u826f","tag_name":"\u5f85\u8054\u7cfb"},{"remark":"\u65e0","create_time":"1512014974","admin_name":"\u5218\u5927\u826f","tag_name":"\u5f85\u8054\u7cfb"},{"remark":"\u65e0","create_time":"1512009297","admin_name":"\u5218\u5927\u826f","tag_name":"\u5f85\u8054\u7cfb"},{"remark":"\u65e0","create_time":"1512009272","admin_name":"\u5218\u5927\u826f","tag_name":"\u5f85\u8054\u7cfb"}]}
+
+请求返回值：
+{
+    "data": [
+        {
+            "admin_name": "刘大良", 
+            "create_time": "1512015035", 
+            "remark": "无", 
+            "tag_name": "待联系"
+        }, 
+        {
+            "admin_name": "刘大良", 
+            "create_time": "1512014974", 
+            "remark": "无", 
+            "tag_name": "待联系"
+        }, 
+        {
+            "admin_name": "刘大良", 
+            "create_time": "1512009297", 
+            "remark": "无", 
+            "tag_name": "待联系"
+        }, 
+        {
+            "admin_name": "刘大良", 
+            "create_time": "1512009272", 
+            "remark": "无", 
+            "tag_name": "待联系"
+        }
+    ], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaSubscribeHandle_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c20',1)">Detail</a></td>
+</tr>
+
+<tr id='pt20.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_subscribe_handle</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.1')" >
+        pass</a>
+
+    <div id='div_pt20.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt20.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/subscribe/handle
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":4,"version":"1.1.0","id":1}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU7bZ86N4DSqgw==
+get
+
+请求地址：
+http://t.efang100.cc/steward/subscribe/handle?param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU7bZ86N4DSqgw%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"info":{"user_name":"zdd","look_time":"1493195640","mobile":"13500000000","update_type":1,"product_name":"\u767d\u9886\u5355\u4eba\u95f4"},"subscribe_update":[{"id":1,"tag_name":"\u5f85\u8054\u7cfb"},{"id":2,"tag_name":"\u672a\u63a5\u901a"},{"id":3,"tag_name":"\u5df2\u8054\u7cfb\u5f85\u770b\u623f"},{"id":4,"tag_name":"\u5df2\u8054\u7cfb\u4e0d\u8003\u8651"},{"id":5,"tag_name":"\u5df2\u5e26\u770b"},{"id":6,"tag_name":"\u5df2\u5e26\u770b\u4e0d\u8003\u8651"},{"id":7,"tag_name":"\u5df2\u7b7e\u7ea6"},{"id":8,"tag_name":"\u7528\u6237\u53d6\u6d88"}]}}
+
+请求返回值：
+{
+    "data": {
+        "info": {
+            "look_time": "1493195640", 
+            "mobile": "13500000000", 
+            "product_name": "白领单人间", 
+            "update_type": 1, 
+            "user_name": "zdd"
+        }, 
+        "subscribe_update": [
+            {
+                "id": 1, 
+                "tag_name": "待联系"
+            }, 
+            {
+                "id": 2, 
+                "tag_name": "未接通"
+            }, 
+            {
+                "id": 3, 
+                "tag_name": "已联系待看房"
+            }, 
+            {
+                "id": 4, 
+                "tag_name": "已联系不考虑"
+            }, 
+            {
+                "id": 5, 
+                "tag_name": "已带看"
+            }, 
+            {
+                "id": 6, 
+                "tag_name": "已带看不考虑"
+            }, 
+            {
+                "id": 7, 
+                "tag_name": "已签约"
+            }, 
+            {
+                "id": 8, 
+                "tag_name": "用户取消"
+            }
+        ]
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaSubscribeDoHandle_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c21',1)">Detail</a></td>
+</tr>
+
+<tr id='pt21.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_subscribe_dohandle</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt21.1')" >
+        pass</a>
+
+    <div id='div_pt21.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt21.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt21.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/subscribe/doHandle
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","look_time":"1493195640","source":4,"version":"1.1.0","update_type":1,"id":1}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvNEZ0MhFjjBX+OmDwjnzBbRXYG0dLaWw1gALpxfaCnrfEvvrg/9Klcql6eZivn2YKIvdmnci52DbEwUyGRNNgv6X+Jr6zFjMV2/VDpoE9+GXkzs1jJyd5Zw==
+post
+
+请求地址：
+http://t.efang100.cc/steward/subscribe/doHandle
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaUrgeMeter_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c22',1)">Detail</a></td>
+</tr>
+
+<tr id='pt22.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_urge_meter</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt22.1')" >
+        pass</a>
+
+    <div id='div_pt22.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt22.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt22.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/urge/meter
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"name_mobile":"18211078892","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","site_id":1,"community_id":1,"days":1,"source":4,"version":"1.1.0","page":1}
+加密后的密文： IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO+gryt5/k/w9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El/TVpRI7Ny/brlE4sWeN5H2wIVMxLozRdIG0nvoUSPH45ru7gOdmbZTNcOD1oFoNwSNmHjYUZPLn2AiaWM8qo+gn9JQc7OFzF6E45lqbYw3KtInmdGPrw==
+get
+
+请求地址：
+http://t.efang100.cc/steward/urge/meter?param=IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO%2Bgryt5%2Fk%2Fw9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El%2FTVpRI7Ny%2FbrlE4sWeN5H2wIVMxLozRdIG0nvoUSPH45ru7gOdmbZTNcOD1oFoNwSNmHjYUZPLn2AiaWM8qo%2Bgn9JQc7OFzF6E45lqbYw3KtInmdGPrw%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"list":[],"page_num":0}}
+
+请求返回值：
+{
+    "data": {
+        "list": [], 
+        "page_num": 0
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaUrgeLists_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c23',1)">Detail</a></td>
+</tr>
+
+<tr id='pt23.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_urge_lists</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt23.1')" >
+        pass</a>
+
+    <div id='div_pt23.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt23.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt23.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/urge/lists
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"name_mobile":"18211078892","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","site_id":1,"community_id":1,"days":1,"source":4,"version":"1.1.0","page":1}
+加密后的密文： IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO+gryt5/k/w9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El/TVpRI7Ny/brlE4sWeN5H2wIVMxLozRdIG0nvoUSPH45ru7gOdmbZTNcOD1oFoNwSNmHjYUZPLn2AiaWM8qo+gn9JQc7OFzF6E45lqbYw3KtInmdGPrw==
+get
+
+请求地址：
+http://t.efang100.cc/steward/urge/lists?param=IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO%2Bgryt5%2Fk%2Fw9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El%2FTVpRI7Ny%2FbrlE4sWeN5H2wIVMxLozRdIG0nvoUSPH45ru7gOdmbZTNcOD1oFoNwSNmHjYUZPLn2AiaWM8qo%2Bgn9JQc7OFzF6E45lqbYw3KtInmdGPrw%3D%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"list":[],"page_num":0}}
+
+请求返回值：
+{
+    "data": {
+        "list": [], 
+        "page_num": 0
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaRepairInfo_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c24',1)">Detail</a></td>
+</tr>
+
+<tr id='pt24.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_repair_info</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt24.1')" >
+        pass</a>
+
+    <div id='div_pt24.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt24.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt24.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/repair/info
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":4,"version":"1.1.0","site_id":1,"id":1}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU6MFpgJ1AuwFX8NvRQEL4Os+yeuEcrlH+E=
+get
+
+请求地址：
+http://t.efang100.cc/steward/repair/info?param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU6MFpgJ1AuwFX8NvRQEL4Os%2ByeuEcrlH%2BE%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"head_image":"","building_name":"1\u680b","unit_name":"1","floor_name":"1\u5c42","house_no":"104","user_name":"\u7528\u6237\u4e00","log_type":6,"user_type":1,"mobile":"13521810001","create_time":"1492056007","type_name":"\u51b0\u7bb1","describe":"","images":[],"back_images":[]}}
+
+请求返回值：
+{
+    "data": {
+        "back_images": [], 
+        "building_name": "1栋", 
+        "create_time": "1492056007", 
+        "describe": "", 
+        "floor_name": "1层", 
+        "head_image": "", 
+        "house_no": "104", 
+        "images": [], 
+        "log_type": 6, 
+        "mobile": "13521810001", 
+        "type_name": "冰箱", 
+        "unit_name": "1", 
+        "user_name": "用户一", 
+        "user_type": 1
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaRepairLists_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c25',1)">Detail</a></td>
+</tr>
+
+<tr id='pt25.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_repair_lists</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt25.1')" >
+        pass</a>
+
+    <div id='div_pt25.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt25.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt25.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/repair/lists
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"name_mobile":"18211078892","access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","site_id":1,"community_id":1,"days":1,"source":4,"version":"1.1.0","page":1,"log_type":1}
+加密后的密文： IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO+gryt5/k/w9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El/TVpRI7Ny/brlE4sWeN5H2wIVMxLozRdIG0nvoUSPH45ru7gOdmbZTNcOD1oFoNwSNmHjYUZPLn2AiaWM8qo+gn9JQc7OFzF6E45lqbYwQ7rZc/msOzK0IznZ3qoIZocyeFK5RvSU=
+get
+
+请求地址：
+http://t.efang100.cc/steward/repair/lists?param=IExxHkxv0YXEE579k8Ke23kdM7MHlbQUBITQPPJGYC4iFdO%2Bgryt5%2Fk%2Fw9Yyx97RYxPnnjSbvFjNjKrYs0dmceHDGCARirx5El%2FTVpRI7Ny%2FbrlE4sWeN5H2wIVMxLozRdIG0nvoUSPH45ru7gOdmbZTNcOD1oFoNwSNmHjYUZPLn2AiaWM8qo%2Bgn9JQc7OFzF6E45lqbYwQ7rZc%2FmsOzK0IznZ3qoIZocyeFK5RvSU%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"list":[],"page_num":0}}
+
+请求返回值：
+{
+    "data": {
+        "list": [], 
+        "page_num": 0
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaRepairLogs_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c26',1)">Detail</a></td>
+</tr>
+
+<tr id='pt26.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_guanjia_repair_logs</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt26.1')" >
+        pass</a>
+
+    <div id='div_pt26.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt26.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt26.1: 老接口00
+老接口
+完整接口地址： http://t.efang100.cc/steward/repair/logs
+获取到的最新token: RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7
+&lt;type 'dict'&gt;
+字典转成json
+&lt;type 'str'&gt;
+将json格式params去掉空格、换行:  {"access_token":"RUlIk0ZTqAT7c1uwih1EhhosIJKHjiD7","source":4,"version":"1.1.0","site_id":1,"id":1}
+加密后的密文： PwFy53E8NrjLcKW6L7rTtgL8gEG+pWRkJaoL46AWcYdx/ukwbeFf/YF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU6MFpgJ1AuwFX8NvRQEL4Os+yeuEcrlH+E=
+get
+
+请求地址：
+http://t.efang100.cc/steward/repair/logs?param=PwFy53E8NrjLcKW6L7rTtgL8gEG%2BpWRkJaoL46AWcYdx%2FukwbeFf%2FYF1qQ6klvMvB1KO8NCT8XKIxKqCe8NFRzxH11f6fwfrgTsJM2ADrU6MFpgJ1AuwFX8NvRQEL4Os%2ByeuEcrlH%2BE%3D&amp;client_id=1fobqa5ofzixluyjlum7icdufabjfo25
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":[{"create_time":"1492152662","admin_name":"","log_type_name":"\u5df2\u53d6\u6d88","remark":""},{"create_time":"1492056051","admin_name":"\u8d85\u7ea7\u7ba1\u7406\u5458","log_type_name":"\u5df2\u751f\u6210\u8ba2\u5355","remark":""},{"create_time":"1492056037","admin_name":"\u8d85\u7ea7\u7ba1\u7406\u5458","log_type_name":"\u5df2\u53d7\u7406","remark":"\u662f\u7684"},{"create_time":"1492056007","admin_name":"","log_type_name":"\u672a\u53d7\u7406","remark":""}]}
+
+请求返回值：
+{
+    "data": [
+        {
+            "admin_name": "", 
+            "create_time": "1492152662", 
+            "log_type_name": "已取消", 
+            "remark": ""
+        }, 
+        {
+            "admin_name": "超级管理员", 
+            "create_time": "1492056051", 
+            "log_type_name": "已生成订单", 
+            "remark": ""
+        }, 
+        {
+            "admin_name": "超级管理员", 
+            "create_time": "1492056037", 
+            "log_type_name": "已受理", 
+            "remark": "是的"
+        }, 
+        {
+            "admin_name": "", 
+            "create_time": "1492056007", 
+            "log_type_name": "未受理", 
+            "remark": ""
+        }
+    ], 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>26</td>
+    <td>26</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
