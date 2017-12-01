@@ -8,10 +8,14 @@ env 环境配置，
 env = 'test'   执行测试环境相关数据
 env = 'online' 执行生产环境相关数据
 """
-# ENV = 'dev_old'
-# ENV = 'dev_new'
-ENV = 'test_old'
-# ENV = 'test_new'
+# ENV_old = 'dev'
+ENV_old = 'test'
+# ENV_old = 'online'
+
+ENV_new = 'dev'
+# ENV_new = 'test'
+# ENV_new = 'online'
+
 
 
 """

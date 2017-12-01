@@ -25,6 +25,15 @@ case_guanjia_old/case21_guanjia_repair_logs.py
 case_guanjia_old/case22_guanjia_repair_handle.py
 case_guanjia_old/case23_guanjia_repair_dohandle.py
 case_guanjia_old/case24_guanjia_repair_state.py
+case_guanjia_old/case25_guanjia_urge_signing.py
+
+
+case_guanjia_new/case01_guanjia_rent_scatList.py
+case_guanjia_new/case02_guanjia_rent_centralizedList.py
+case_guanjia_new/case03_guanjia_subscribe_lists.py
+case_guanjia_new/case04_guanjia_sign_homepage.py
+
+
 
 #case_guanjia_old/
 #case_guanjia_old/
@@ -32,16 +41,7 @@ case_guanjia_old/case24_guanjia_repair_state.py
 
 
 
-#case_guanjia_new/case09_guanjia_sign_homepage.py
-
-
-
-
-
-
-
-
-
+#case_guanjia_new/case04_guanjia_sign_homepage.py
 
 
 
