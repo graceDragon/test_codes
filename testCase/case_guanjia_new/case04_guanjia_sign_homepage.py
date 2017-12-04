@@ -88,9 +88,10 @@ class GuanJiaSignHomepage(unittest.TestCase):
             yzm = configDB.MyDB().zhiyu_yzm(sql)
             data['sms_code'] = yzm
         # 获取house_id,如果excel表格里house_id为空，则取ini文件里的house_id，否则取excel里的house_id
-        if data['house_id'] == '':
-            house_id = localReadConfig.get_ini('PARAMS', 'house_id')
-            data['house_id'] = house_id
+        if 'house_id' in data:
+            if data['house_id'] == '':
+                house_id = localReadConfig.get_ini('PARAMS', 'house_id')
+                data['house_id'] = house_id
         # 获取时间戳
         time_now = common.get_time_now()
         data['timestamp'] = time_now
