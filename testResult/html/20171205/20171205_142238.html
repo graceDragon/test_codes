@@ -1,0 +1,1140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-12-05 14:22:38</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.473000</p>
+<p class='attribute'><strong>Status:</strong> Pass 2</p>
+
+<p class='description'>若要查看详细结果,请下载附件查看！</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaSignHomepage_0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_sign_homepage</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 新接口
+dev环境
+完整接口地址： http://dev.api.efang100.cc/rent/sign/index
+加密key为:  ia1Yh85O26LARD8M
+加密iv为:  1234567890123456
+加密模式为:  2
+{"source": 1, "version": "1.1.0", "site_id": 1, "house_id": 101, "timestamp": 1512454958}
+&lt;type 'str'&gt;
+将json格式params去空格、换行:  {"source":1,"version":"1.1.0","site_id":1,"house_id":101,"timestamp":1512454958}
+加密后字符串为:  YHlct7FL+r0oGSHoddfAqn4ZXmwlDB6VkV7hN2N6m+hRniAES1ue5TCnkgbogUzrrDF2wdE5e6h1H4neyPcHgrHuOip4Iz39523BqAp3P3latM7qwHSlKxg7lyhwAivo
+get
+
+请求地址：
+http://dev.api.efang100.cc/rent/sign/index?param=YHlct7FL%2Br0oGSHoddfAqn4ZXmwlDB6VkV7hN2N6m%2BhRniAES1ue5TCnkgbogUzrrDF2wdE5e6h1H4neyPcHgrHuOip4Iz39523BqAp3P3latM7qwHSlKxg7lyhwAivo
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":0,"err_msg":"success","data":{"house_id":101,"house_str":"\u98ce\u666f\u7ebf\u793e\u533a-11-1-1-106","booking":{},"min_month":1,"max_month":12,"rent_date":{},"payment_type":[{"id":1,"name":"\u6708\u4ed8"},{"id":2,"name":"\u5b63\u4ed8"},{"id":3,"name":"\u534a\u5e74\u4ed8"},{"id":4,"name":"\u5e74\u4ed8"},{"id":5,"name":"\u5206\u671f\u4ed8"}],"has_elemeter":0,"house_fee":[],"optional_fee":[{"fee_id":1,"fee_name":"\u623f\u5c4b\u79df\u91d1","lists":[{"fee_id":1,"fee_name":"\u623f\u5c4b\u79df\u91d1","has_invoice":1,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":1,"fee_name":"\u623f\u5c4b\u79df\u91d1","has_invoice":1,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"},{"fee_id":1,"fee_name":"\u623f\u5c4b\u79df\u91d1","has_invoice":1,"mode_id":"3","mode_name":"\u6284\u8868","units":"\u5143\/(\u5428\/\u5ea6)"}]},{"fee_id":4,"fee_name":"\u51b7\u6c34\u8d39","lists":[{"fee_id":4,"fee_name":"\u51b7\u6c34\u8d39","has_invoice":1,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":4,"fee_name":"\u51b7\u6c34\u8d39","has_invoice":1,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"},{"fee_id":4,"fee_name":"\u51b7\u6c34\u8d39","has_invoice":1,"mode_id":"3","mode_name":"\u6284\u8868","units":"\u5143\/(\u5428\/\u5ea6)"}]},{"fee_id":7,"fee_name":"\u7535\u8d39","lists":[{"fee_id":7,"fee_name":"\u7535\u8d39","has_invoice":1,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":7,"fee_name":"\u7535\u8d39","has_invoice":1,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"},{"fee_id":7,"fee_name":"\u7535\u8d39","has_invoice":1,"mode_id":"3","mode_name":"\u6284\u8868","units":"\u5143\/(\u5428\/\u5ea6)"}]},{"fee_id":10,"fee_name":"\u7269\u4e1a\u8d39","lists":[{"fee_id":10,"fee_name":"\u7269\u4e1a\u8d39","has_invoice":1,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":10,"fee_name":"\u7269\u4e1a\u8d39","has_invoice":1,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"},{"fee_id":10,"fee_name":"\u7269\u4e1a\u8d39","has_invoice":1,"mode_id":"3","mode_name":"\u6284\u8868","units":"\u5143\/(\u5428\/\u5ea6)"}]},{"fee_id":11,"fee_name":"\u8d85\u671f\u623f\u79df","lists":[{"fee_id":11,"fee_name":"\u8d85\u671f\u623f\u79df","has_invoice":0,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"}]},{"fee_id":12,"fee_name":"\u623f\u79df\u8865\u5dee","lists":[{"fee_id":12,"fee_name":"\u623f\u79df\u8865\u5dee","has_invoice":1,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":12,"fee_name":"\u623f\u79df\u8865\u5dee","has_invoice":1,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"}]},{"fee_id":13,"fee_name":"\u71c3\u6c14\u8d39","lists":[{"fee_id":13,"fee_name":"\u71c3\u6c14\u8d39","has_invoice":1,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":13,"fee_name":"\u71c3\u6c14\u8d39","has_invoice":1,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"},{"fee_id":13,"fee_name":"\u71c3\u6c14\u8d39","has_invoice":1,"mode_id":"3","mode_name":"\u6284\u8868","units":"\u5143\/(\u5428\/\u5ea6)"}]},{"fee_id":15,"fee_name":"\u6696\u6c14\u8d39","lists":[{"fee_id":15,"fee_name":"\u6696\u6c14\u8d39","has_invoice":0,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"}]},{"fee_id":16,"fee_name":"\u70ed\u6c34\u8d39","lists":[{"fee_id":16,"fee_name":"\u70ed\u6c34\u8d39","has_invoice":1,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":16,"fee_name":"\u70ed\u6c34\u8d39","has_invoice":1,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"}]},{"fee_id":23,"fee_name":"\u670d\u52a1\u8d39","lists":[{"fee_id":23,"fee_name":"\u670d\u52a1\u8d39","has_invoice":0,"mode_id":"1","mode_name":"\u4e00\u6b21\u6027","units":"\u5143"},{"fee_id":23,"fee_name":"\u670d\u52a1\u8d39","has_invoice":0,"mode_id":"2","mode_name":"\u5468\u671f\u8d39\u7528","units":"\u5143\/\u6708"}]}],"facility_list":[{"type_id":1,"type_name":"\u5e8a","lists":[{"id":1,"name":"1.5\u7c73\u94c1\u5e8a","units":"\u5f20","deposit":"0.00"},{"id":2,"name":"\u94c1\u5236\u9ad8\u4f4e\u5e8a","units":"\u5f20","deposit":"200.00"},{"id":3,"name":"1.2\u7c73\u5e8a","units":"\u5f20","deposit":"0.00"},{"id":4,"name":"\u6728\u5236\u9ad8\u4f4e\u5e8a","units":"\u5f20","deposit":"0.00"},{"id":5,"name":"\u5e8a\u57ab","units":"\u5f20","deposit":"0.00"},{"id":6,"name":"1.5\u7c73\u6728\u5e8a","units":"\u5f20","deposit":"0.00"},{"id":7,"name":"\u5e8a\u5934\u67dc","units":"\u4e2a","deposit":"0.00"}]},{"type_id":2,"type_name":"\u8863\u67dc","lists":[{"id":8,"name":"\u4e09\u95e8\u6728\u5236\u8863\u67dc","units":"\u5957","deposit":"11.00"},{"id":9,"name":"\u56db\u95e8\u6728\u5236\u8863\u67dc","units":"\u5957","deposit":"0.00"},{"id":10,"name":"\u56db\u95e8\u94c1\u76ae\u8863\u67dc","units":"\u5957","deposit":"0.00"},{"id":11,"name":"\u516d\u95e8\u94c1\u76ae\u8863\u67dc","units":"\u5957","deposit":"0.00"},{"id":129,"name":"\u7ebf\u4e0a\u652f\u4ed8\u6d4b\u8bd5\u8bbe\u65bd","units":"\u53f0","deposit":"1.00"}]},{"type_id":3,"type_name":"\u6d17\u8863\u673a","lists":[{"id":12,"name":"TCL\u6d17\u8863\u673a","units":"\u53f0","deposit":"0.00"}]},{"type_id":4,"type_name":"\u51b0\u7bb1","lists":[{"id":13,"name":"TCL\u53cc\u95e8\u51b0\u7bb1","units":"\u53f0","deposit":"0.00"}]},{"type_id":5,"type_name":"\u7a7a\u8c03","lists":[{"id":14,"name":"\u683c\u529b\u7a7a\u8c031.25\u5339","units":"\u53f0","deposit":"0.00"},{"id":15,"name":"\u683c\u529b\u7a7a\u8c031.5\u5339","units":"\u53f0","deposit":"0.00"},{"id":16,"name":"\u5965\u514b\u65af\u7a7a\u8c03","units":"\u53f0","deposit":"0.00"},{"id":31,"name":"\u7f8e\u7684\u7a7a\u8c03","units":"\u53f0","deposit":"0.00"}]},{"type_id":6,"type_name":"\u70ed\u6c34\u5668","lists":[{"id":17,"name":"\u7f8e\u7684\u70ed\u6c34\u5668","units":"\u53f0","deposit":"0.00"}]},{"type_id":7,"type_name":"\u6c99\u53d1","lists":[{"id":18,"name":"\u53cc\u4eba\u6c99\u53d1","units":"\u4e2a","deposit":"0.00"}]},{"type_id":8,"type_name":"\u8336\u51e0","lists":[{"id":19,"name":"\u767d\u8336\u51e0","units":"\u5f20","deposit":"0.00"}]},{"type_id":9,"type_name":"\u684c\u5b50","lists":[{"id":20,"name":"\u767d\u8272\u4e66\u684c","units":"\u5f20","deposit":"0.00"},{"id":21,"name":"\u94c1\u67b6\u6728\u677f\u684c\u5b50","units":"\u5f20","deposit":"0.00"}]},{"type_id":10,"type_name":"\u6905\u5b50","lists":[{"id":22,"name":"\u767d\u8272\u6905\u5b50","units":"\u628a","deposit":"80.00"},{"id":23,"name":"\u94c1\u67b6\u6728\u677f\u6905\u5b50","units":"\u628a","deposit":"0.00"}]},{"type_id":13,"type_name":"\u7f6e\u7269\u67b6","lists":[{"id":24,"name":"\u884c\u674e\u67b6","units":"\u5f20","deposit":"0.00"},{"id":25,"name":"\u6d17\u6f31\u67b6","units":"\u5f20","deposit":"0.00"}]},{"type_id":11,"type_name":"\u6cb9\u70df\u673a","lists":[{"id":26,"name":"\u6a31\u82b1\u6cb9\u70df\u673a","units":"\u53f0","deposit":"0.00"}]},{"type_id":12,"type_name":"\u589e\u914d\u9879","lists":[{"id":27,"name":"\u7a7a\u8c03\u9065\u63a7\u5668","units":"\u4e2a","deposit":"0.00"},{"id":28,"name":"\u95e8\u7981\u5361","units":"\u5f20","deposit":"20.00"},{"id":29,"name":"\u7535\u5361","units":"\u5f20","deposit":"0.00"},{"id":30,"name":"\u94a5\u5319","units":"\u628a","deposit":"0.00"},{"id":32,"name":"\u4e00\u5361\u901a","units":"\u5f20","deposit":"30.00"},{"id":33,"name":"\u95e8\u628a\u624b","units":"\u4e2a","deposit":"0.00"},{"id":34,"name":"\u82b1\u6d12","units":"\u5957","deposit":"1.00"}]},{"type_id":54,"type_name":"\u623f\u4e1c\u5bb6\u5177","lists":[{"id":107,"name":"\u5e8a","units":"\u4e2a","deposit":"0.00"},{"id":108,"name":"\u8863\u67dc","units":"1","deposit":"0.00"},{"id":109,"name":"\u684c\u5b50","units":"\u4e2a","deposit":"0.00"},{"id":110,"name":"\u6c99\u53d1","units":"\u4e2a","deposit":"0.00"},{"id":111,"name":"\u8336\u51e0","units":"\u4e2a","deposit":"0.00"},{"id":112,"name":"\u51b0\u7bb1","units":"\u4e2a","deposit":"0.00"},{"id":113,"name":"\u6d17\u8863\u673a","units":"\u4e2a","deposit":"0.00"},{"id":114,"name":"\u7535\u89c6","units":"\u4e2a","deposit":"0.00"},{"id":115,"name":"\u7164\u6c14\u7076","units":"\u4e2a","deposit":"0.00"},{"id":116,"name":"\u62bd\u6cb9\u70df\u673a","units":"\u4e2a","deposit":"0.00"}]},{"type_id":59,"type_name":"\u623f\u4e1c\u6d17\u8863\u673a","lists":[{"id":121,"name":"\u5c0f\u5929\u9e45\u6d17\u8863\u673a\u623f\u4e1c\u7684","units":"\u53f0","deposit":"500.00"},{"id":122,"name":"\u6d77\u5c14\u6d17\u8863\u673a\u623f\u4e1c\u7684","units":"\u53f0","deposit":"400.00"}]},{"type_id":58,"type_name":"\u623f\u4e1c\u7535\u8111","lists":[{"id":123,"name":"\u4e1c\u829d\u7535\u8111\u623f\u4e1c\u7684","units":"\u53f0","deposit":"1000.00"},{"id":124,"name":"\u534e\u7855\u7535\u8111\u623f\u4e1c\u7684","units":"\u53f0","deposit":"1500.00"}]}],"facility_house":[{"type_id":13,"type_name":"\u7f6e\u7269\u67b6","lists":[{"id":25,"name":"\u6d17\u6f31\u67b6","num":1,"units":"\u5f20","deposit":"0.00"}]}],"shop_list":[{"shop_id":4,"shop_name":"\u6c5f\u5927\u95e8\u5e97","users":[{"user_id":8,"user_name":"\u5f20\u7231\u51ac","mobile":"18253013228"},{"user_id":11960,"user_name":"\u5218\u7f8e\u5973\u7ba1\u5bb6-\u52ff\u52a8","mobile":"13554386840"},{"user_id":15686,"user_name":"18518757536","mobile":"13520207133"}]},{"shop_id":10,"shop_name":"\u6d2a\u5c71\u5bb6\u56ed\u95e8\u5e97","users":[{"user_id":6,"user_name":"\u6768\u73b0\u4f1a","mobile":"15238800037"}]},{"shop_id":11,"shop_name":"\u6cc9\u5dde\u4e09","users":[]},{"shop_id":35,"shop_name":"\u897f\u4e8c\u65d7\u4e0b\u7684\u95e8\u5e97\u4e00","users":[{"user_id":71,"user_name":"\u9500\u552e\u56db","mobile":"13521819004"},{"user_id":67,"user_name":"\u9500\u552e\u4e09","mobile":"13521817903"},{"user_id":11940,"user_name":"test0","mobile":"18848126587"}]},{"shop_id":4971,"shop_name":"A111","users":[{"user_id":11988,"user_name":"\u963f\u5c14\u6cd5","mobile":"13801232344"},{"user_id":11989,"user_name":"LKJH","mobile":"13801213245"}]},{"shop_id":4978,"shop_name":"\u6c5f\u8fbe\u95e8\u5e97","users":[]},{"shop_id":4983,"shop_name":"a211","users":[{"user_id":11997,"user_name":"\u674e\u56db","mobile":"15167678787"}]},{"shop_id":5033,"shop_name":"\u5206\u6563\u5f0f","users":[{"user_id":12036,"user_name":"\u80e1","mobile":"13517289478"}]}]}}
+
+请求返回值：
+{
+    "data": {
+        "booking": {}, 
+        "facility_house": [
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 25, 
+                        "name": "洗漱架", 
+                        "num": 1, 
+                        "units": "张"
+                    }
+                ], 
+                "type_id": 13, 
+                "type_name": "置物架"
+            }
+        ], 
+        "facility_list": [
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 1, 
+                        "name": "1.5米铁床", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "200.00", 
+                        "id": 2, 
+                        "name": "铁制高低床", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 3, 
+                        "name": "1.2米床", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 4, 
+                        "name": "木制高低床", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 5, 
+                        "name": "床垫", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 6, 
+                        "name": "1.5米木床", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 7, 
+                        "name": "床头柜", 
+                        "units": "个"
+                    }
+                ], 
+                "type_id": 1, 
+                "type_name": "床"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "11.00", 
+                        "id": 8, 
+                        "name": "三门木制衣柜", 
+                        "units": "套"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 9, 
+                        "name": "四门木制衣柜", 
+                        "units": "套"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 10, 
+                        "name": "四门铁皮衣柜", 
+                        "units": "套"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 11, 
+                        "name": "六门铁皮衣柜", 
+                        "units": "套"
+                    }, 
+                    {
+                        "deposit": "1.00", 
+                        "id": 129, 
+                        "name": "线上支付测试设施", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 2, 
+                "type_name": "衣柜"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 12, 
+                        "name": "TCL洗衣机", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 3, 
+                "type_name": "洗衣机"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 13, 
+                        "name": "TCL双门冰箱", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 4, 
+                "type_name": "冰箱"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 14, 
+                        "name": "格力空调1.25匹", 
+                        "units": "台"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 15, 
+                        "name": "格力空调1.5匹", 
+                        "units": "台"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 16, 
+                        "name": "奥克斯空调", 
+                        "units": "台"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 31, 
+                        "name": "美的空调", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 5, 
+                "type_name": "空调"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 17, 
+                        "name": "美的热水器", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 6, 
+                "type_name": "热水器"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 18, 
+                        "name": "双人沙发", 
+                        "units": "个"
+                    }
+                ], 
+                "type_id": 7, 
+                "type_name": "沙发"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 19, 
+                        "name": "白茶几", 
+                        "units": "张"
+                    }
+                ], 
+                "type_id": 8, 
+                "type_name": "茶几"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 20, 
+                        "name": "白色书桌", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 21, 
+                        "name": "铁架木板桌子", 
+                        "units": "张"
+                    }
+                ], 
+                "type_id": 9, 
+                "type_name": "桌子"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "80.00", 
+                        "id": 22, 
+                        "name": "白色椅子", 
+                        "units": "把"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 23, 
+                        "name": "铁架木板椅子", 
+                        "units": "把"
+                    }
+                ], 
+                "type_id": 10, 
+                "type_name": "椅子"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 24, 
+                        "name": "行李架", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 25, 
+                        "name": "洗漱架", 
+                        "units": "张"
+                    }
+                ], 
+                "type_id": 13, 
+                "type_name": "置物架"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 26, 
+                        "name": "樱花油烟机", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 11, 
+                "type_name": "油烟机"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 27, 
+                        "name": "空调遥控器", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "20.00", 
+                        "id": 28, 
+                        "name": "门禁卡", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 29, 
+                        "name": "电卡", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 30, 
+                        "name": "钥匙", 
+                        "units": "把"
+                    }, 
+                    {
+                        "deposit": "30.00", 
+                        "id": 32, 
+                        "name": "一卡通", 
+                        "units": "张"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 33, 
+                        "name": "门把手", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "1.00", 
+                        "id": 34, 
+                        "name": "花洒", 
+                        "units": "套"
+                    }
+                ], 
+                "type_id": 12, 
+                "type_name": "增配项"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "0.00", 
+                        "id": 107, 
+                        "name": "床", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 108, 
+                        "name": "衣柜", 
+                        "units": "1"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 109, 
+                        "name": "桌子", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 110, 
+                        "name": "沙发", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 111, 
+                        "name": "茶几", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 112, 
+                        "name": "冰箱", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 113, 
+                        "name": "洗衣机", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 114, 
+                        "name": "电视", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 115, 
+                        "name": "煤气灶", 
+                        "units": "个"
+                    }, 
+                    {
+                        "deposit": "0.00", 
+                        "id": 116, 
+                        "name": "抽油烟机", 
+                        "units": "个"
+                    }
+                ], 
+                "type_id": 54, 
+                "type_name": "房东家具"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "500.00", 
+                        "id": 121, 
+                        "name": "小天鹅洗衣机房东的", 
+                        "units": "台"
+                    }, 
+                    {
+                        "deposit": "400.00", 
+                        "id": 122, 
+                        "name": "海尔洗衣机房东的", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 59, 
+                "type_name": "房东洗衣机"
+            }, 
+            {
+                "lists": [
+                    {
+                        "deposit": "1000.00", 
+                        "id": 123, 
+                        "name": "东芝电脑房东的", 
+                        "units": "台"
+                    }, 
+                    {
+                        "deposit": "1500.00", 
+                        "id": 124, 
+                        "name": "华硕电脑房东的", 
+                        "units": "台"
+                    }
+                ], 
+                "type_id": 58, 
+                "type_name": "房东电脑"
+            }
+        ], 
+        "has_elemeter": 0, 
+        "house_fee": [], 
+        "house_id": 101, 
+        "house_str": "风景线社区-11-1-1-106", 
+        "max_month": 12, 
+        "min_month": 1, 
+        "optional_fee": [
+            {
+                "fee_id": 1, 
+                "fee_name": "房屋租金", 
+                "lists": [
+                    {
+                        "fee_id": 1, 
+                        "fee_name": "房屋租金", 
+                        "has_invoice": 1, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 1, 
+                        "fee_name": "房屋租金", 
+                        "has_invoice": 1, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }, 
+                    {
+                        "fee_id": 1, 
+                        "fee_name": "房屋租金", 
+                        "has_invoice": 1, 
+                        "mode_id": "3", 
+                        "mode_name": "抄表", 
+                        "units": "元/(吨/度)"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 4, 
+                "fee_name": "冷水费", 
+                "lists": [
+                    {
+                        "fee_id": 4, 
+                        "fee_name": "冷水费", 
+                        "has_invoice": 1, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 4, 
+                        "fee_name": "冷水费", 
+                        "has_invoice": 1, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }, 
+                    {
+                        "fee_id": 4, 
+                        "fee_name": "冷水费", 
+                        "has_invoice": 1, 
+                        "mode_id": "3", 
+                        "mode_name": "抄表", 
+                        "units": "元/(吨/度)"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 7, 
+                "fee_name": "电费", 
+                "lists": [
+                    {
+                        "fee_id": 7, 
+                        "fee_name": "电费", 
+                        "has_invoice": 1, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 7, 
+                        "fee_name": "电费", 
+                        "has_invoice": 1, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }, 
+                    {
+                        "fee_id": 7, 
+                        "fee_name": "电费", 
+                        "has_invoice": 1, 
+                        "mode_id": "3", 
+                        "mode_name": "抄表", 
+                        "units": "元/(吨/度)"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 10, 
+                "fee_name": "物业费", 
+                "lists": [
+                    {
+                        "fee_id": 10, 
+                        "fee_name": "物业费", 
+                        "has_invoice": 1, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 10, 
+                        "fee_name": "物业费", 
+                        "has_invoice": 1, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }, 
+                    {
+                        "fee_id": 10, 
+                        "fee_name": "物业费", 
+                        "has_invoice": 1, 
+                        "mode_id": "3", 
+                        "mode_name": "抄表", 
+                        "units": "元/(吨/度)"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 11, 
+                "fee_name": "超期房租", 
+                "lists": [
+                    {
+                        "fee_id": 11, 
+                        "fee_name": "超期房租", 
+                        "has_invoice": 0, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 12, 
+                "fee_name": "房租补差", 
+                "lists": [
+                    {
+                        "fee_id": 12, 
+                        "fee_name": "房租补差", 
+                        "has_invoice": 1, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 12, 
+                        "fee_name": "房租补差", 
+                        "has_invoice": 1, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 13, 
+                "fee_name": "燃气费", 
+                "lists": [
+                    {
+                        "fee_id": 13, 
+                        "fee_name": "燃气费", 
+                        "has_invoice": 1, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 13, 
+                        "fee_name": "燃气费", 
+                        "has_invoice": 1, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }, 
+                    {
+                        "fee_id": 13, 
+                        "fee_name": "燃气费", 
+                        "has_invoice": 1, 
+                        "mode_id": "3", 
+                        "mode_name": "抄表", 
+                        "units": "元/(吨/度)"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 15, 
+                "fee_name": "暖气费", 
+                "lists": [
+                    {
+                        "fee_id": 15, 
+                        "fee_name": "暖气费", 
+                        "has_invoice": 0, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 16, 
+                "fee_name": "热水费", 
+                "lists": [
+                    {
+                        "fee_id": 16, 
+                        "fee_name": "热水费", 
+                        "has_invoice": 1, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 16, 
+                        "fee_name": "热水费", 
+                        "has_invoice": 1, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }
+                ]
+            }, 
+            {
+                "fee_id": 23, 
+                "fee_name": "服务费", 
+                "lists": [
+                    {
+                        "fee_id": 23, 
+                        "fee_name": "服务费", 
+                        "has_invoice": 0, 
+                        "mode_id": "1", 
+                        "mode_name": "一次性", 
+                        "units": "元"
+                    }, 
+                    {
+                        "fee_id": 23, 
+                        "fee_name": "服务费", 
+                        "has_invoice": 0, 
+                        "mode_id": "2", 
+                        "mode_name": "周期费用", 
+                        "units": "元/月"
+                    }
+                ]
+            }
+        ], 
+        "payment_type": [
+            {
+                "id": 1, 
+                "name": "月付"
+            }, 
+            {
+                "id": 2, 
+                "name": "季付"
+            }, 
+            {
+                "id": 3, 
+                "name": "半年付"
+            }, 
+            {
+                "id": 4, 
+                "name": "年付"
+            }, 
+            {
+                "id": 5, 
+                "name": "分期付"
+            }
+        ], 
+        "rent_date": {}, 
+        "shop_list": [
+            {
+                "shop_id": 4, 
+                "shop_name": "江大门店", 
+                "users": [
+                    {
+                        "mobile": "18253013228", 
+                        "user_id": 8, 
+                        "user_name": "张爱冬"
+                    }, 
+                    {
+                        "mobile": "13554386840", 
+                        "user_id": 11960, 
+                        "user_name": "刘美女管家-勿动"
+                    }, 
+                    {
+                        "mobile": "13520207133", 
+                        "user_id": 15686, 
+                        "user_name": "18518757536"
+                    }
+                ]
+            }, 
+            {
+                "shop_id": 10, 
+                "shop_name": "洪山家园门店", 
+                "users": [
+                    {
+                        "mobile": "15238800037", 
+                        "user_id": 6, 
+                        "user_name": "杨现会"
+                    }
+                ]
+            }, 
+            {
+                "shop_id": 11, 
+                "shop_name": "泉州三", 
+                "users": []
+            }, 
+            {
+                "shop_id": 35, 
+                "shop_name": "西二旗下的门店一", 
+                "users": [
+                    {
+                        "mobile": "13521819004", 
+                        "user_id": 71, 
+                        "user_name": "销售四"
+                    }, 
+                    {
+                        "mobile": "13521817903", 
+                        "user_id": 67, 
+                        "user_name": "销售三"
+                    }, 
+                    {
+                        "mobile": "18848126587", 
+                        "user_id": 11940, 
+                        "user_name": "test0"
+                    }
+                ]
+            }, 
+            {
+                "shop_id": 4971, 
+                "shop_name": "A111", 
+                "users": [
+                    {
+                        "mobile": "13801232344", 
+                        "user_id": 11988, 
+                        "user_name": "阿尔法"
+                    }, 
+                    {
+                        "mobile": "13801213245", 
+                        "user_id": 11989, 
+                        "user_name": "LKJH"
+                    }
+                ]
+            }, 
+            {
+                "shop_id": 4978, 
+                "shop_name": "江达门店", 
+                "users": []
+            }, 
+            {
+                "shop_id": 4983, 
+                "shop_name": "a211", 
+                "users": [
+                    {
+                        "mobile": "15167678787", 
+                        "user_id": 11997, 
+                        "user_name": "李四"
+                    }
+                ]
+            }, 
+            {
+                "shop_id": 5033, 
+                "shop_name": "分散式", 
+                "users": [
+                    {
+                        "mobile": "13517289478", 
+                        "user_id": 12036, 
+                        "user_name": "胡"
+                    }
+                ]
+            }
+        ]
+    }, 
+    "err_msg": "success", 
+    "err_no": 0
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>paramunittest.GuanJiaSignHomepage_1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_sign_homepage</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 新接口
+dev环境
+完整接口地址： http://dev.api.efang100.cc/rent/sign/index
+加密key为:  ia1Yh85O26LARD8M
+加密iv为:  1234567890123456
+加密模式为:  2
+{"source": 1, "version": "1.1.0", "site_id": 1, "house_id": "16350640", "timestamp": 1512454958}
+&lt;type 'str'&gt;
+将json格式params去空格、换行:  {"source":1,"version":"1.1.0","site_id":1,"house_id":"16350640","timestamp":1512454958}
+加密后字符串为:  YHlct7FL+r0oGSHoddfAqn4ZXmwlDB6VkV7hN2N6m+hRniAES1ue5TCnkgbogUzrZBZw2f0F87cQXxHpiXccePvK2HX9aRpK3xXv+E6rh5tMNfx4ivonhEwqY6GoDcm3
+get
+
+请求地址：
+http://dev.api.efang100.cc/rent/sign/index?param=YHlct7FL%2Br0oGSHoddfAqn4ZXmwlDB6VkV7hN2N6m%2BhRniAES1ue5TCnkgbogUzrZBZw2f0F87cQXxHpiXccePvK2HX9aRpK3xXv%2BE6rh5tMNfx4ivonhEwqY6GoDcm3
+&lt;type 'unicode'&gt;
+
+请求信息：
+{"err_no":2001,"err_msg":"\u623f\u95f4\u4fe1\u606f\u4e0d\u5b58\u5728","data":[]}
+
+请求返回值：
+{
+    "data": [], 
+    "err_msg": "房间信息不存在", 
+    "err_no": 2001
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

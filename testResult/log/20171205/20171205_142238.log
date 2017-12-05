@@ -1,0 +1,7 @@
+2017-12-05 14:22:38,509 runAll.py[line:65] INFO ********测试 开始！********
+2017-12-05 14:22:38,516 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-05 14:22:38,834 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/sign/index?param=YHlct7FL%2Br0oGSHoddfAqn4ZXmwlDB6VkV7hN2N6m%2BhRniAES1ue5TCnkgbogUzrrDF2wdE5e6h1H4neyPcHgrHuOip4Iz39523BqAp3P3latM7qwHSlKxg7lyhwAivo HTTP/1.1" 200 None
+2017-12-05 14:22:38,846 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-05 14:22:38,980 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/sign/index?param=YHlct7FL%2Br0oGSHoddfAqn4ZXmwlDB6VkV7hN2N6m%2BhRniAES1ue5TCnkgbogUzrZBZw2f0F87cQXxHpiXccePvK2HX9aRpK3xXv%2BE6rh5tMNfx4ivonhEwqY6GoDcm3 HTTP/1.1" 200 None
+2017-12-05 14:22:38,984 runAll.py[line:76] INFO *********测试 结束！*********
+2017-12-05 14:22:46,006 configEmail.py[line:178] INFO 测试报告邮件发送完成.
