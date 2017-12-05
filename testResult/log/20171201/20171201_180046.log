@@ -1,0 +1,2 @@
+2017-12-01 18:00:46,759 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-01 18:00:46,865 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/common/userList?param=YHlct7FL%2Br0oGSHoddfAqn4ZXmwlDB6VkV7hN2N6m%2BiSPUWQahJLIvqvUD3mAXINHcjg7dYU%2F8NZw5gcla3%2B7jQgjdZ1ApJuWY3k7h5Fehc%3D HTTP/1.1" 200 None
