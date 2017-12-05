@@ -17,12 +17,11 @@ ENV_new = 'dev'
 # ENV_new = 'online'
 
 
-
 """
 EMAIL 环境配置
 """
-EMAIL = 'test'
-# EMAIL = 'online'
+# EMAIL = 'test'
+EMAIL = 'online'
 
 BASEPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
