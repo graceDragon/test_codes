@@ -1,0 +1,2 @@
+2017-12-06 10:40:09,332 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-06 10:40:09,430 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/booking/create?param=qsYpU4TRZTaLkFtMYdOGKDKuqmc7VLhBcpwmOdJazbgXkpENYtg1fXWU9nF2QoiiybpS9eMt799Cx5GBLNLHBgBlABm5XBNwGDr%2B86dKT7Dzg89x%2BEnOkwYRQAnwFlRqrA2tyEEf4zH3pwRZKa%2FVGA%3D%3D HTTP/1.1" 200 None

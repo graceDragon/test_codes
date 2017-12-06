@@ -93,5 +93,8 @@ class MyDB:
     def zhiyu_delete(self, sql):
         self.executeSQL(sql)
 
+    def zhiyu_run_sql(self, sql):
+        self.executeSQL(sql)
+
 
 

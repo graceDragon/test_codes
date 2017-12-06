@@ -32,6 +32,11 @@ case_guanjia_new/case01_guanjia_rent_scatList.py
 case_guanjia_new/case02_guanjia_rent_centralizedList.py
 case_guanjia_new/case03_guanjia_subscribe_lists.py
 case_guanjia_new/case04_guanjia_sign_homepage.py
+case_guanjia_new/case05_guanjia_rent_userlist.py
+case_guanjia_new/case06_guanjia_rent_book_create.py
+case_guanjia_new/case07_guanjia_rent_book_docreate.py
+case_guanjia_new/case08_guanjia_rent_sign_bill.py
+case_guanjia_new/case09_guanjia_rent_sign_submit.py
 
 
 
