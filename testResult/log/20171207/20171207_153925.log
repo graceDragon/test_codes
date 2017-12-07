@@ -1,0 +1,2 @@
+2017-12-07 15:39:25,233 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-07 15:39:25,357 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/reside/checkUser?param=qsYpU4TRZTaLkFtMYdOGKDKuqmc7VLhBcpwmOdJazbiGPEzElFJPKW3UzUF6Za0%2F9%2FZcMKUPhrhFzayLEfnY8PXm1BAvSCerk4MoCbg3opQQD8%2FhDcdpLXE6ikipGvU5 HTTP/1.1" 200 None

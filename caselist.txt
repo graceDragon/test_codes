@@ -37,6 +37,11 @@ case_guanjia_new/case06_guanjia_rent_book_create.py
 case_guanjia_new/case07_guanjia_rent_book_docreate.py
 case_guanjia_new/case08_guanjia_rent_sign_bill.py
 case_guanjia_new/case09_guanjia_rent_sign_submit.py
+case_guanjia_new/case10_guanjia_rent_reside_index.py
+case_guanjia_new/case11_guanjia_rent_reside_checkuser.py
+case_guanjia_new/case12_guanjia_rent_reside_bill.py
+case_guanjia_new/case13_guanjia_rent_reside_submit.py
+case_guanjia_new/case14_guanjia_rent_change_index.py
 
 
 

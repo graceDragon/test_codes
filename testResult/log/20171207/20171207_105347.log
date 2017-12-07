@@ -1,0 +1,2 @@
+2017-12-07 10:53:47,868 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-07 10:53:47,878 configDB.py[line:43] ERROR (2003, "Can't connect to MySQL server on '47.93.32.103' ([Errno 10065] )")
