@@ -1,0 +1,6 @@
+2017-12-11 14:21:01,595 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-11 14:21:01,765 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/change/index?param=S21kkWHB%2BB8f8V92ApNY0OmeOXAq2lvG%2BkqXRQsjtGyNeDZ4RwtumLNDquYPYIiCOwQ%2FDIzLoEwS3UdsuBmIHIWGhIpSsoLJHLU0gQ%2F7y8jaqubrR93vmpGAXrBNWoGP2svr2%2FTVU46Fa6u0gdl3aQ%3D%3D HTTP/1.1" 200 None
+2017-12-11 14:21:01,803 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-11 14:21:01,881 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/change/index?param=S21kkWHB%2BB8f8V92ApNY0N4kAFktB8Wib8jmyzHxl%2FE2Wi9zlj%2BwDoGnl%2FMVI2AMuIw3hyCtL1RKt3D8ivI%2F2N%2FAZdPQ8SaDt9uLpEa3BdczffYdUqzISZJCy%2BPdiNE2B5S%2Bac8G7AYHQXlvZOMv7A%3D%3D HTTP/1.1" 200 None
+2017-12-11 14:21:01,894 connectionpool.py[line:208] DEBUG Starting new HTTP connection (1): dev.api.efang100.cc
+2017-12-11 14:21:01,990 connectionpool.py[line:396] DEBUG http://dev.api.efang100.cc:80 "GET /rent/change/index?param=S21kkWHB%2BB8f8V92ApNY0P4J1ErqZkcbtQfMLkdHN8Cs1C%2FHu7RN7kV0c3QonNhPyx5kTvYp%2Fh0Mfn6FjSBXjfvLG9fME2GS9FSSfGhNPgAuy006TeKRCW7Au0j0566zfeXjg8bzOWR0LC8EloDDLA%3D%3D HTTP/1.1" 200 None
