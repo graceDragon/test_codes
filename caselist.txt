@@ -42,6 +42,10 @@ case_guanjia_new/case11_guanjia_rent_reside_checkuser.py
 case_guanjia_new/case12_guanjia_rent_reside_bill.py
 case_guanjia_new/case13_guanjia_rent_reside_submit.py
 case_guanjia_new/case14_guanjia_rent_change_index.py
+case_guanjia_new/case15_guanjia_rent_change_house.py
+case_guanjia_new/case16_guanjia_rent_change_bill.py
+case_guanjia_new/case17_guanjia_rent_change_check.py
+case_guanjia_new/case18_guanjia_rent_change_submit.py
 
 
 
