@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_accounts.xlsx", "guanjia_personal_info", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_order_billinfo", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaPersonalInfo(unittest.TestCase):
+class GuanJiaRentOrderBillInfo(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -65,13 +65,13 @@ class GuanJiaPersonalInfo(unittest.TestCase):
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 
-    def test_guanjia_personal_info(self):
+    def test_rent_order_billinfo(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp('scheme', 'baseurl_new')
+        self.localConfigHttp = configHttp_new.ConfigHttp()
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -115,10 +115,6 @@ class GuanJiaPersonalInfo(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
-        # 存储token,只有正确登录的时候才有token
-        if 'access_token' in self.info['data']:
-            token_temp = self.info['data']['access_token']
-            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
@@ -131,8 +127,18 @@ class GuanJiaPersonalInfo(unittest.TestCase):
         :return:
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+        # 改回房间的状态，以及房间合同
+        # sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
+        # sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
+        # sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
+        # configDB.MyDB().zhiyu_run_sql(sql)
+        # configDB.MyDB().zhiyu_run_sql(sql1)
+        # configDB.MyDB().zhiyu_run_sql(sql2)
 
 
 if __name__ == '__main__':
-    GuanJiaPersonalInfo().test_guanjia_personal_info()
+    GuanJiaRentOrderBillInfo().test_rent_order_billinfo()
+
+
+
 

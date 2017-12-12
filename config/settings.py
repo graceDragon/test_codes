@@ -12,8 +12,8 @@ env = 'online' 执行生产环境相关数据
 ENV_old = 'test'
 # ENV_old = 'online'
 
-ENV_new = 'dev'
-# ENV_new = 'test'
+# ENV_new = 'dev'
+ENV_new = 'test'
 # ENV_new = 'online'
 
 
