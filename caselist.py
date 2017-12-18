@@ -72,6 +72,8 @@ case_guanjia_new/case41_guanjia_rent_resideout_submit.py
 case_guanjia_new/case42_guanjia_rent_checkout_index.py
 case_guanjia_new/case43_guanjia_rent_checkout_bill.py
 case_guanjia_new/case44_guanjia_rent_checkout_submit.py
+case_guanjia_new/case45_guanjia_rent_home_signing.py
+case_guanjia_new/case46_guanjia_rent_repair_lists.py
 
 
 
