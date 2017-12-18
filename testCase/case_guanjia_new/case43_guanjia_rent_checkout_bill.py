@@ -64,8 +64,8 @@ class GuanJiaRentCheckoutBill(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
-        configDB.MyDB().zhiyu_run_sql(sql)
+        # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
     def test_rent_checkout_bill(self):
         """

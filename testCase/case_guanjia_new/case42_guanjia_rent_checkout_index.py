@@ -64,7 +64,7 @@ class GuanJiaRentCheckoutIndex(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
+        sql = "UPDATE ft_orders SET STATUS = '4' WHERE id = '8320';"
         configDB.MyDB().zhiyu_run_sql(sql)
 
     def test_rent_checkout_index(self):
