@@ -37,6 +37,11 @@ case_guanjia_old/case33_guanjia_lock_openlogs.py
 case_guanjia_old/case34_guanjia_lock_dynamic.py
 case_guanjia_old/case35_guanjia_lock_frozenpwd.py
 case_guanjia_old/case36_guanjia_lock_unfrozenpwd.py
+case_guanjia_old/case37_guanjia_electric_info.py
+case_guanjia_old/case38_guanjia_electric_chargelogs.py
+case_guanjia_old/case39_guanjia_electric_charge.py
+case_guanjia_old/case40_guanjia_electric_chargesubmit.py
+case_guanjia_old/case41_guanjia_electric_ordersubmit.py
 
 
 case_guanjia_new/case01_guanjia_rent_scatList.py
