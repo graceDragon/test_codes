@@ -17,7 +17,7 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_accounts.xlsx", "account_info_guanjia", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_accounts.xlsx", "account_userinfo", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
