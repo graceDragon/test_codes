@@ -89,6 +89,7 @@ class GuanJiaAccountInfoGJ(unittest.TestCase):
             token_tmp = f.readline()
             data['access_token'] = token_tmp
             print '获取到的最新token:', data['access_token']
+            print data
         # 判断是否需要获取验证码
         if 'sms_code' in data:
             sql = localReadConfig.get_sql('sql_yzm')
