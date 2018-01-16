@@ -203,6 +203,24 @@ def get_time_now():
     return time_now
 
 
+# 时间转换成时间戳
+def time_to_str(time1):
+    timeArray = time.strptime(time1, "%Y-%m-%d")
+    timestamp = time.mktime(timeArray)
+    timestamp = int(timestamp)
+    print time1, "转换成时间戳：", timestamp
+    return timestamp
+
+
+# 时间戳转换成时间
+def str_to_time(str1):
+    str1 = float(str1)
+    time_local = time.localtime(str1)
+    time1 = time.strftime("%Y-%m-%d", time_local)
+    print str1, "转换成时间：", time1
+    return time1
+
+
 if __name__ == "__main__":
     print(get_xls("login"))
     set_visitor_token_to_config()
