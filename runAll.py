@@ -21,6 +21,7 @@ class AllTest:
         on_off = localReadConfig.get_email("on_off")
         print '获取case路径...'
         self.caseListFile = os.path.join(readConfig.proDir, "caselist.txt")
+        self.caseListFile_01 = os.path.join(readConfig.proDir, "caselist.txt")
         self.caseFile = os.path.join(readConfig.proDir, "testCase")
         self.caseList = []
 
@@ -29,14 +30,23 @@ class AllTest:
         set case list
         :return:
         """
-        fb = open(self.caseListFile)
-        for line in fb.readlines():
-            line = line.strip()
-            if line != '' and not line.startswith("#"):
-                # self.caseList.append(line.replace("\n", ""))
-                self.caseList.append(line.split('/')[-1])
+        if True:  # 每次都执行caselist.txt里的case,若不执行则改为if False:
+            fb = open(self.caseListFile)
+            for line in fb.readlines():
+                line = line.strip()
+                if line != '' and not line.startswith("#"):
+                    # self.caseList.append(line.replace("\n", ""))
+                    self.caseList.append(line.split('/')[-1])
+            fb.close()
+        if False:
+            fb_01 = open(self.caseListFile_01)
+            for line in fb_01.readlines():
+                line = line.strip()
+                if line != '' and not line.startswith("#"):
+                    # self.caseList.append(line.replace("\n", ""))
+                    self.caseList.append(line.split('/')[-1])
+            fb_01.close()
         print '获取txt文件里的测试模块...:\n', self.caseList
-        fb.close()
 
     def set_case_suite(self):
         """

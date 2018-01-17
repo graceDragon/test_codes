@@ -66,6 +66,8 @@ class GuanJiaRentResideoutIndex(unittest.TestCase):
         self.logger = self.log.get_logger()
         sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
         configDB.MyDB().zhiyu_run_sql(sql)
+        sql1 = "UPDATE ft_rent_reside SET STATUS = '10' WHERE house_id = '1636343';"
+        configDB.MyDB().zhiyu_run_sql(sql1)
 
     def test_rent_resideout_index(self):
         """

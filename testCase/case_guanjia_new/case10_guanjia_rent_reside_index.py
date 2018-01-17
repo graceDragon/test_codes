@@ -64,6 +64,8 @@ class GuanJiaRentResideIndex(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
+        sql = "UPDATE ft_rent_reside SET STATUS = '-1' WHERE user_id = '566';"
+        configDB.MyDB().zhiyu_run_sql(sql)
 
     def test_rent_reside_index(self):
         """
