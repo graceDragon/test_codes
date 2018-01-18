@@ -127,7 +127,7 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
         :return:
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        sql = localReadConfig.get_ini('SQL', 'sql_reset_house_status')
+        sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
         configDB.MyDB().zhiyu_run_sql(sql)
 
 

@@ -65,7 +65,7 @@ class GuanJiaRentBookDoCreate(unittest.TestCase):
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 
-    def test_rent_book_create(self):
+    def test_rent_book_docreate(self):
         """
         test body
         :return:
