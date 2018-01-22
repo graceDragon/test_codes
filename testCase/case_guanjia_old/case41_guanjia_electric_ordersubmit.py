@@ -45,6 +45,7 @@ class GuanJiaElectricOrderSubmit(unittest.TestCase):
         self.token = int(Token)
         self.service_id = str(ServiceID)
         self.data = Data
+        print 'data的格式：', type(self.data)
         self.result = str(Result)
         self.expect_state = int(ExpectState)
         # unicode转成str类型
@@ -86,6 +87,7 @@ class GuanJiaElectricOrderSubmit(unittest.TestCase):
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
+        # self.data['content'] = json.dumps(self.data['content'])
         data = json.loads(self.data)
         # 判断是否需要token
         if self.token == 1:

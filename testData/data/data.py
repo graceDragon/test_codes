@@ -7,6 +7,8 @@
 community_id = 1017669
 community_id_jizhong = 1017634
 
+# 分散式社区三 社区id:990228  站点id:0
+
 
 # 管理员id(18211078892管理员)
 admin_id = 15658
