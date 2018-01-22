@@ -18,12 +18,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_accounts.xlsx", "urge_signing", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_accounts.xlsx", "lock_doUpPwd", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaUrgeSigning(unittest.TestCase):
+class GuanJiaLockDoUpPwd(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -73,7 +73,7 @@ class GuanJiaUrgeSigning(unittest.TestCase):
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
-    def test_guanjia_urge_signing(self):
+    def test_guanjia_lock_douppwd(self):
         """
         test body
         :return:
@@ -84,6 +84,8 @@ class GuanJiaUrgeSigning(unittest.TestCase):
         self.localConfigHttp.set_url(self.service_id)
         # set params
         data = json.loads(self.data)
+        data['start_time'] = common.time_to_str(data['start_time'])
+        data['end_time'] = common.time_to_str(data['end_time'])
         # 判断是否需要token
         if self.token == 1:
             f = open(token_fiel_path, 'r')
@@ -136,4 +138,4 @@ class GuanJiaUrgeSigning(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    GuanJiaUrgeSigning().test_guanjia_urge_signing()
+    GuanJiaLockDoUpPwd().test_guanjia_lock_douppwd()

@@ -65,6 +65,13 @@ class GuanJiaRentBookCreate(unittest.TestCase):
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 
+    def tearDown(self):
+        """
+
+        :return:
+        """
+        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+
     def test_rent_book_create(self):
         """
         test body
@@ -120,13 +127,6 @@ class GuanJiaRentBookCreate(unittest.TestCase):
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
-
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
 
 if __name__ == '__main__':
