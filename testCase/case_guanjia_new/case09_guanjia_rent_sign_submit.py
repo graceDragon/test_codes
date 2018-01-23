@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
+管家-出租-签约-提交
 """
 import unittest
 import paramunittest
@@ -127,8 +127,8 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
         :return:
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
-        configDB.MyDB().zhiyu_run_sql(sql)
+        # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
 
 if __name__ == '__main__':

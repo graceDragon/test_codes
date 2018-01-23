@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
+管家-出租-签约-首页
 """
 import unittest
 import paramunittest
@@ -67,6 +67,13 @@ class GuanJiaSignHomepage(unittest.TestCase):
         sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
         configDB.MyDB().zhiyu_run_sql(sql)
 
+    def tearDown(self):
+        """
+
+        :return:
+        """
+        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+
     def test_sign_homepage(self):
         """
         test body
@@ -122,13 +129,6 @@ class GuanJiaSignHomepage(unittest.TestCase):
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
-
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
 
 if __name__ == '__main__':

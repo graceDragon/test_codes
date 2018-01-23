@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
+管家-出租-签约-预定-提交
 """
 import unittest
 import paramunittest
@@ -70,7 +70,7 @@ class GuanJiaRentBookDoCreate(unittest.TestCase):
 
         :return:
         """
-        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+        self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
     def test_rent_book_docreate(self):
         """
@@ -83,7 +83,7 @@ class GuanJiaRentBookDoCreate(unittest.TestCase):
         self.localConfigHttp.set_url(self.service_id)
         # set params
         data = json.loads(self.data)
-        data["sign_date"] = common.time_to_str(data["sign_date"])
+        # data["sign_date"] = common.time_to_str(data["sign_date"])
         # 判断是否需要token
         if self.token == 1:
             f = open(token_fiel_path, 'r')
