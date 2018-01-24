@@ -84,6 +84,8 @@ class GuanJiaDoAddPwds(unittest.TestCase):
         self.localConfigHttp.set_url(self.service_id)
         # set params
         data = json.loads(self.data)
+        data['start_time'] = common.time_to_str(data['start_time'])
+        data['end_time'] = common.time_to_str(data['end_time'])
         # 判断是否需要token
         if self.token == 1:
             f = open(token_fiel_path, 'r')
@@ -137,3 +139,6 @@ class GuanJiaDoAddPwds(unittest.TestCase):
 
 if __name__ == '__main__':
     GuanJiaDoAddPwds().test_guanjia_doaddpwds()
+
+
+

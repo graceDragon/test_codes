@@ -64,8 +64,6 @@ class GuanJiaSignHomepage(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
-        configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
         """
