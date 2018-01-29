@@ -68,6 +68,25 @@ def des_encode(data):
     return miwen
 
 
+def des_encode_v1_5(data):
+    """ DES加密 v1.5接口"""
+    print type(data)
+    if isinstance(data, dict):
+        print '字典转成json'
+        data = json.dumps(data)
+    print type(data)
+    # data = json.dumps(data)
+    patten = re.compile("\s+")
+    data = re.sub(patten, '', data)
+    print '将json格式params去掉空格、换行: ', data
+
+    k = pyDes.des(key='3b5bf2b8', mode=pyDes.CBC, IV='3b5bf2b8', padmode=pyDes.PAD_PKCS5)
+    encodeStr = k.encrypt(data)
+    miwen = base64.b64encode(encodeStr)  # 转base64编码返回
+    print '加密后的密文：', miwen
+    return miwen
+
+
 def des_encode_new():
     pass
 

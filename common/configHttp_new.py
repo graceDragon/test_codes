@@ -35,6 +35,9 @@ class ConfigHttp:
             elif ENV_old == 'test':
                 print '老接口'
                 baseurl = 'baseurl_test_old'
+        elif env_old_new == 'v1.5':
+            print 'v1.5接口'
+            baseurl = 'baseurl_test_old_v1_5'
         self.scheme = localReadConfig.get_http('scheme')
         self.baseurl = localReadConfig.get_http(baseurl)
         port = localReadConfig.get_http("port")

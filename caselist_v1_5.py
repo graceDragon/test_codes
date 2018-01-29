@@ -1,0 +1,17 @@
+# coding:utf-8
+# V1.5的case
+
+case_v1_5/case01_v1_5_customer_login.py
+case_v1_5/case02_v1_5_clean_houselists.py
+case_v1_5/case03_v1_5_clean_lists.py
+case_v1_5/case04_v1_5_clean_info.py
+case_v1_5/case05_v1_5_clean_doinfo.py
+case_v1_5/case06_v1_5_clean_evaluate.py
+case_v1_5/case07_v1_5_clean_doevaluate.py
+case_v1_5/case08_v1_5_clean_change.py
+case_v1_5/case09_v1_5_clean_dochange.py
+case_v1_5/case10_v1_5_intelligence_houseinfo.py
+case_v1_5/case11_v1_5_user_favorite_lists.py
+case_v1_5/case12_v1_5_user_common_agreement.py
+case_v1_5/case13_v1_5_user_account_info.py
+case_v1_5/case14_v1_5_user_repair_detail.py

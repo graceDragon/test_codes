@@ -28,4 +28,9 @@ user_id = 566
 #"user_id": 21,
 #"user_name": "刘昱良"
 
+# 客户帐号
+customer = '18211076666'
+customer_pwd = '12345678'
+
+
 
