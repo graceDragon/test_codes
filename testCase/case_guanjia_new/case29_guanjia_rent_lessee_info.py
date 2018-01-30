@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
+管家-出租-房源操作-租客信息
 """
 import unittest
 import paramunittest
@@ -140,6 +140,7 @@ class GuanJiaRentLesseeInfo(unittest.TestCase):
 
 if __name__ == '__main__':
     GuanJiaRentLesseeInfo().test_rent_lessee_info()
+
 
 
 

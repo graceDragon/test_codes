@@ -32,5 +32,8 @@ user_id = 566
 customer = '18211076666'
 customer_pwd = '12345678'
 
+# 签约-退房-各种情况下的判断流程
+house_id_sign = "1636808"
+
 
 
