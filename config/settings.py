@@ -31,5 +31,8 @@ token_fiel_path = os.path.join(BASEPATH, 'config\\token.txt')
 # 临时存储测试报告的路径
 report_file_path = os.path.join(BASEPATH, 'config\\test_report_path.txt')
 
+# 临时存储trac_no邦卡跟踪单号的路径
+trac_no_path = os.path.join(BASEPATH, 'config\\trac_no.txt')
+
 
 
