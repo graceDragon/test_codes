@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-出租-房源操作-租客信息-查看房间账单等信息
+v1.5-集中分散首页-预定列表接口
 """
 import unittest
 import paramunittest
@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_lessee_info_flow", tag=tag)
+guanjia_accounts_xls = common.get_xls("v1.5.xlsx", "booking_disreserve", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentLesseeInfo(unittest.TestCase):
+class BookingMyDisreserve(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -43,6 +43,7 @@ class GuanJiaRentLesseeInfo(unittest.TestCase):
         self.token = int(Token)
         self.service_id = str(ServiceID)
         self.data = Data
+        print 'data数据类型：', type(Data)
         self.result = str(Result)
         self.expect_state = int(ExpectState)
         # unicode转成str类型
@@ -64,8 +65,6 @@ class GuanJiaRentLesseeInfo(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
-        # configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
         """
@@ -73,21 +72,14 @@ class GuanJiaRentLesseeInfo(unittest.TestCase):
         :return:
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # 改回房间的状态，以及房间合同
-        # sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
-        # sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
-        # sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
-        # configDB.MyDB().zhiyu_run_sql(sql)
-        # configDB.MyDB().zhiyu_run_sql(sql1)
-        # configDB.MyDB().zhiyu_run_sql(sql2)
 
-    def test_rent_lessee_info(self):
+    def test_booking_mydisreserve(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp()
+        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -108,14 +100,15 @@ class GuanJiaRentLesseeInfo(unittest.TestCase):
             if data['house_id'] == '':
                 house_id = localReadConfig.get_ini('PARAMS', 'house_id')
                 data['house_id'] = house_id
-        # 获取时间戳
-        time_now = common.get_time_now()
-        data['timestamp'] = time_now
+        # # 获取时间戳
+        # time_now = common.get_time_now()
+        # data['timestamp'] = time_now
         # AES加密
-        params_miwen = encryptLib.zhiyu_aes_encode(data)
+        params_miwen = encryptLib.des_encode_v1_5(data)
         # 真正的入参
         params = {
-                  'param': params_miwen
+                'client_id': '586ee968a305374e6198f6b7c293b07a',
+                'param': params_miwen
                   }
 
         self.localConfigHttp.set_params(params)
@@ -131,29 +124,19 @@ class GuanJiaRentLesseeInfo(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
+        # 存储token,只有正确登录的时候才有token
+        if 'access_token' in self.info['data']:
+            token_temp = self.info['data']['access_token']
+            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
-        # --------------断言账单金额---------------
-        #
-        total_money = self.info['data']['signing']['bill_amount']
-        wuye_fee = self.info['data']['signing']['bill_list'][0]['fee_list'][0]['amount']
-        zujin_fee = self.info['data']['signing']['bill_list'][0]['fee_list'][1]['amount']
-        yajin_fee = self.info['data']['signing']['bill_list'][0]['fee_list'][2]['amount']
-        total_money = int(float(total_money))
-        wuye_fee = int(float(wuye_fee))
-        zujin_fee = int(float(zujin_fee))
-        yajin_fee = int(float(yajin_fee))
-        self.assertEqual(total_money, 14500)
-        self.assertEqual(wuye_fee, 500)
-        self.assertEqual(zujin_fee, 7000)
-        self.assertEqual(yajin_fee, 7000)
+
 
 if __name__ == '__main__':
-    GuanJiaRentLesseeInfo().test_rent_lessee_info()
-
+    BookingMyDisreserve().test_booking_mydisreserve()
 
 
 
