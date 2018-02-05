@@ -158,6 +158,15 @@ def zhiyu_aes_encode(data):
     return aes_code
 
 
+def zhiyu_aes_encode_v1_5(data):
+    # AES加密方式
+    key = 'ia1Yh85O26LARD8M'
+    iv = '1234567890123456'
+    zhiyu_aes = AesEncode(key, iv)
+    aes_code = zhiyu_aes.aes_encode(data)
+    return aes_code
+
+
 def zhiyu_des_encode(data):
     # app,DES加密方式
     des_code = des_encode(data)

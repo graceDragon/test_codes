@@ -104,12 +104,13 @@ class CleanHouseLists(unittest.TestCase):
         # time_now = common.get_time_now()
         # data['timestamp'] = time_now
         # AES加密
-        params_miwen = encryptLib.des_encode_v1_5(data)
+        params_miwen = encryptLib.zhiyu_aes_encode_v1_5(data)
         # 真正的入参
         params = {
-                'client_id': '586ee968a305374e6198f6b7c293b07a',
-                'param': params_miwen
-                  }
+            'encrypt': 'APPAES',
+            'client_id': '586ee968a305374e6198f6b7c293b07a',
+            'param': params_miwen
+        }
 
         self.localConfigHttp.set_params(params)
         # 获取响应结果信息
