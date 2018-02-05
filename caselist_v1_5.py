@@ -25,6 +25,13 @@ case_v1_5/case21_v1_5_home_map.py
 case_v1_5/case22_v1_5_home_house_list.py
 case_v1_5/case23_v1_5_home_house_communityinfo.py
 case_v1_5/case24_v1_5_home_house_searchinfo.py
+case_v1_5/case25_v1_5_booking_disreserve.py
+case_v1_5/case26_v1_5_booking_house.py
+case_v1_5/case27_v1_5_booking_disbooking.py
+case_v1_5/case28_v1_5_booking_submit_01.py
+case_v1_5/case29_v1_5_booking_cancel_01.py
+case_v1_5/case30_v1_5_booking_submit_02.py
+case_v1_5/case31_v1_5_booking_cancel_02.py
 
 
 
