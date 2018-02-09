@@ -35,5 +35,7 @@ customer_pwd = '12345678'
 # 签约-退房-各种情况下的判断流程
 house_id_sign = "1636808"
 
+# 门店id
+shop_id = 2
 
 

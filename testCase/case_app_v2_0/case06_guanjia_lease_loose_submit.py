@@ -1,7 +1,7 @@
 # coding:utf-8
 """
 管家app2.0接口
-管家-租入-租入申请-查看（编辑、审批）
+管家-租入-房源录入-新增-提交
 """
 import unittest
 import paramunittest
@@ -18,12 +18,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("app_v2.0.xlsx", "lease_rentapply_show", tag=tag)
+guanjia_accounts_xls = common.get_xls("app_v2.0.xlsx", "lease_loose_submit", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaLeaseRentApplyShow(unittest.TestCase):
+class GuanJiaLeaseLooseDoAdd(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -77,7 +77,7 @@ class GuanJiaLeaseRentApplyShow(unittest.TestCase):
         # sql = "UPDATE ft_rent_reside SET STATUS = '10' WHERE house_id = '1636343';"
         # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_lease_rentapply_show(self):
+    def test_lease_loose_do_add(self):
         """
         test body
         :return:
@@ -135,7 +135,7 @@ class GuanJiaLeaseRentApplyShow(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    GuanJiaLeaseRentApplyShow().test_lease_rentapply_show()
+    GuanJiaLeaseLooseDoAdd().test_lease_loose_do_add()
 
 
 

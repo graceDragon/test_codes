@@ -1,7 +1,7 @@
 # coding:utf-8
 """
 管家app2.0接口
-管家-租入-租入申请-删除记录(执行删除的动作)
+管家-租入-租入申请-编辑(普通)
 """
 import unittest
 import paramunittest
@@ -18,12 +18,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("app_v2.0.xlsx", "lease_rentapply_del", tag=tag)
+guanjia_accounts_xls = common.get_xls("app_v2.0.xlsx", "lease_rentapply_edit_01", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaLeaseRentApplyDel(unittest.TestCase):
+class GuanJiaLeaseRentApplyEdit01(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -77,7 +77,7 @@ class GuanJiaLeaseRentApplyDel(unittest.TestCase):
         # sql = "UPDATE ft_rent_reside SET STATUS = '10' WHERE house_id = '1636343';"
         # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_lease_rentapply_del(self):
+    def test_lease_rentapply_edit01(self):
         """
         test body
         :return:
@@ -88,6 +88,10 @@ class GuanJiaLeaseRentApplyDel(unittest.TestCase):
         self.localConfigHttp.set_url(self.service_id)
         # set params
         data = json.loads(self.data)
+        sql = "SELECT id FROM fy_rent_apply WHERE house_id = '1637120' ORDER BY id DESC;"
+        apply_id = configDB.MyDB().zhiyu_yzm(sql)
+        data['id'] = apply_id
+        print '最新的申请编号：', data['id']
         # 判断是否需要token
         if self.token == 1:
             f = open(token_fiel_path, 'r')
@@ -135,7 +139,7 @@ class GuanJiaLeaseRentApplyDel(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    GuanJiaLeaseRentApplyDel().test_lease_rentapply_del()
+    GuanJiaLeaseRentApplyEdit01().test_lease_rentapply_edit01()
 
 
 
