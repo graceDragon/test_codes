@@ -128,9 +128,12 @@ class GuanJiaRentChangeSubmit(unittest.TestCase):
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
         # 改回房间的状态，以及房间合同
-        sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
-        sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
-        sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
+        # sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
+        # sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
+        # sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
+        sql = "update fy_house set status = '5' where id = '1636307';"
+        sql1 = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636306';"
+        sql2 = "UPDATE ft_signing SET STATUS = '1' WHERE house_id = '1636307';"
         configDB.MyDB().zhiyu_run_sql(sql)
         configDB.MyDB().zhiyu_run_sql(sql1)
         configDB.MyDB().zhiyu_run_sql(sql2)
