@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
+管家-出租-入住-首页
 """
 import unittest
 import paramunittest
