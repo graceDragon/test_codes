@@ -24,7 +24,12 @@ case_app_v2_0/case20_guanjia_lease_rentapply_edit02.py
 case_app_v2_0/case21_guanjia_lease_rentapply_doedit02.py
 case_app_v2_0/case22_guanjia_lease_rentapply_check_pass.py
 case_app_v2_0/case23_guanjia_lease_rentapply_del02.py
-case_app_v2_0/case23_guanjia_lease_rentapply_del02_2.py
+case_app_v2_0/case24_guanjia_cw_orders_lists.py
+case_app_v2_0/case25_guanjia_cw_orders_detail.py
+case_app_v2_0/case26_guanjia_cw_orders_rollback.py
+case_app_v2_0/case27_guanjia_cw_orders_handle.py
+case_app_v2_0/case28_guanjia_cw_orders_submit.py
+
 
 
 

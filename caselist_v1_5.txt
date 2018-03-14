@@ -32,6 +32,13 @@ case_v1_5/case28_v1_5_booking_submit_01.py
 case_v1_5/case29_v1_5_booking_cancel_01.py
 case_v1_5/case30_v1_5_booking_submit_02.py
 case_v1_5/case31_v1_5_booking_cancel_02.py
+case_v1_5/case32_v1_5_signing_info.py
+case_v1_5/case33_v1_5_signing_signinginfo.py
+case_v1_5/case34_v1_5_signing_subbill.py
+case_v1_5/case35_v1_5_user_getsmscode.py
+case_v1_5/case36_v1_5_user_resetpwd.py
+case_v1_5/case37_v1_5_user_verifypwd.py
+case_v1_5/case38_v1_5_user_esignauth.py
 
 
 
