@@ -6,7 +6,7 @@
 import requests
 import readConfig as readConfig
 from .Log import MyLog as Log
-from config.settings import ENV_new, ENV_old
+from config.settings import ENV_new, ENV_old, ENV_1_5
 
 
 localReadConfig = readConfig.ReadConfig()
@@ -17,7 +17,7 @@ class ConfigHttp:
     env_old_new：环境默认为新环境
                 env_old_new='new'
     """
-    def __init__(self, env_old_new='new'):
+    def __init__(self, env_old_new='new', ENV_1_5 = 'test'):
         global baseurl
         baseurl = ''
         if env_old_new == 'new':
@@ -37,7 +37,12 @@ class ConfigHttp:
                 baseurl = 'baseurl_test_old'
         elif env_old_new == 'v1.5':
             print 'v1.5接口'
-            baseurl = 'baseurl_test_old_v1_5'
+            if ENV_1_5 == 'dev':
+                baseurl = 'baseurl_dev_old_v1_5'
+                print 'dev环境'
+            elif ENV_1_5 == 'test':
+                baseurl = 'baseurl_test_old_v1_5'
+                print 'test环境'
         self.scheme = localReadConfig.get_http('scheme')
         self.baseurl = localReadConfig.get_http(baseurl)
         port = localReadConfig.get_http("port")

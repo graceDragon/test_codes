@@ -65,8 +65,8 @@ class GuanJiaLeaseRentApplyCheckHouse(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
-        # configDB.MyDB().zhiyu_run_sql(sql)
+        sql = "UPDATE fy_rent_apply SET is_del = 1 WHERE house_id = '1637120';"
+        configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
         """

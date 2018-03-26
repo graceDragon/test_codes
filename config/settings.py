@@ -16,6 +16,9 @@ ENV_old = 'test'
 ENV_new = 'test'
 # ENV_new = 'online'
 
+ENV_1_5 = 'test'
+# ENV_1_5 = 'dev'
+
 
 """
 EMAIL 环境配置

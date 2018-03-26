@@ -11,7 +11,6 @@ from common import configHttp_new
 from common import encryptLib
 from common import configDB
 import json
-import time
 from config.settings import token_fiel_path
 from config.settings import trac_no_path
 

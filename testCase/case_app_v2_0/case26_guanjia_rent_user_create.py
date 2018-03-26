@@ -1,6 +1,8 @@
 # coding:utf-8
 """
-v1.5-用户-用户账单列表
+管家app2.0接口
+管家-财务-打回-打回之后管家再次确认订单(后添加的一步)
+有问题到web端操作管家确认和财务确认
 """
 import unittest
 import paramunittest
@@ -11,19 +13,18 @@ from common import configHttp_new
 from common import encryptLib
 from common import configDB
 import json
-import time
 from config.settings import token_fiel_path
 
 
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("v1.5.xlsx", "user_bill_lists", tag=tag)
+guanjia_accounts_xls = common.get_xls("app_v2.0.xlsx", "rent_user_create", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class UserBillLists(unittest.TestCase):
+class GuanJiaCwOrdersRollback01(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -65,21 +66,28 @@ class UserBillLists(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
+        # sql1 = "UPDATE ft_orders SET rollback_status = 0 WHERE id = '10980';"
+        # configDB.MyDB().zhiyu_run_sql(sql1)
+        # sql2 = "UPDATE ft_orders SET STATUS = 1 WHERE id = '10980';"
+        # configDB.MyDB().zhiyu_run_sql(sql2)
 
     def tearDown(self):
         """
 
         :return:
         """
+        pass
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+        # sql = "UPDATE ft_rent_reside SET STATUS = '10' WHERE house_id = '1636343';"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_user_bill_lists(self):
+    def test_cw_orders_rollback01(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5', ENV_1_5='dev')
+        self.localConfigHttp = configHttp_new.ConfigHttp()
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -100,17 +108,15 @@ class UserBillLists(unittest.TestCase):
             if data['house_id'] == '':
                 house_id = localReadConfig.get_ini('PARAMS', 'house_id')
                 data['house_id'] = house_id
-        # # 获取时间戳
-        # time_now = common.get_time_now()
-        # data['timestamp'] = time_now
+        # 获取时间戳
+        time_now = common.get_time_now()
+        data['timestamp'] = time_now
         # AES加密
-        params_miwen = encryptLib.zhiyu_aes_encode_v1_5(data)
+        params_miwen = encryptLib.zhiyu_aes_encode(data)
         # 真正的入参
         params = {
-            'encrypt': 'APPAES',
-            'client_id': '586ee968a305374e6198f6b7c293b07a',
-            'param': params_miwen
-        }
+                  'param': params_miwen
+                  }
 
         self.localConfigHttp.set_params(params)
         # 获取响应结果信息
@@ -125,10 +131,6 @@ class UserBillLists(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
-        # 存储token,只有正确登录的时候才有token
-        if 'access_token' in self.info['data']:
-            token_temp = self.info['data']['access_token']
-            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
@@ -137,7 +139,7 @@ class UserBillLists(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    UserBillLists().test_user_bill_lists()
+    GuanJiaCwOrdersRollback01().test_cw_orders_rollback01()
 
 
 

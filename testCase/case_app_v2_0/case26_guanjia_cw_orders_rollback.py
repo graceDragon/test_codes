@@ -65,9 +65,9 @@ class GuanJiaCwOrdersRollback(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql1 = "UPDATE ft_orders SET rollback_status = 0 WHERE id = '10980';"
+        sql1 = "UPDATE ft_orders SET rollback_status = 0 WHERE id = '12052';"
         configDB.MyDB().zhiyu_run_sql(sql1)
-        sql2 = "UPDATE ft_orders SET STATUS = 1 WHERE id = '10980';"
+        sql2 = "UPDATE ft_orders SET STATUS = 1 WHERE id = '12052';"
         configDB.MyDB().zhiyu_run_sql(sql2)
 
     def tearDown(self):
