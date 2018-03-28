@@ -38,9 +38,11 @@ class MyDB:
             self.db = pymysql.connect(**config)
             # create cursor
             self.cursor = self.db.cursor()
-            print("Connect DB successfully!")
+            print "Connect DB successfully! 连接数据库成功！"
         except Exception as ex:
+            print "连接数据库失败"
             self.logger.error(str(ex))
+            assert True is False
 
     def executeSQL(self, sql):
         """
@@ -50,6 +52,7 @@ class MyDB:
         """
         self.connectDB()
         # executing sql
+        print "执行sql语句"
         self.cursor.execute(sql)
         # executing by committing to DB
         self.db.commit()
