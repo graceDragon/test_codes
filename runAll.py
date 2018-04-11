@@ -95,9 +95,9 @@ class AllTest:
             logger.info("*********测试 结束！*********")
             fp.close()
         # send test report by email
-        send_email = MyEmail.get_email()
         if on_off == 'on':
             print '开始发送邮件...'
+            send_email = MyEmail.get_email()
             send_email.send_email()
             print '邮件发送完成...'
         elif on_off == 'off':
