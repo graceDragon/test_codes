@@ -64,6 +64,9 @@ class GuanJiaRentChangeBill(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
+        sql1 = "UPDATE ft_signing SET STATUS = '0' WHERE house_id = '1636306';"
+        configDB.MyDB().zhiyu_run_sql(sql1)
+
 
     def test_rent_change_bill(self):
         """

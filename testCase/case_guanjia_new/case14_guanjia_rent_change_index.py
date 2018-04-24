@@ -65,8 +65,11 @@ class GuanJiaRentChangeIndex(unittest.TestCase):
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
         # 订单置为失效
-        sql = "UPDATE ft_orders SET STATUS = '3' WHERE house_id = '1636307';"
-        configDB.MyDB().zhiyu_run_sql(sql)
+        sql1 = "UPDATE ft_orders SET STATUS = '3' WHERE house_id = '1636307';"
+        configDB.MyDB().zhiyu_run_sql(sql1)
+        sql2 = "UPDATE ft_bill_list SET STATUS =  1 WHERE signing_id = '2499';"
+        configDB.MyDB().zhiyu_run_sql(sql2)
+
 
     def test_rent_change_index(self):
         """

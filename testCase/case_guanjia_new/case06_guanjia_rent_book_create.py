@@ -64,8 +64,8 @@ class GuanJiaRentBookCreate(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636559';"
-        configDB.MyDB().zhiyu_run_sql(sql)
+        sql1 = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636559';"
+        configDB.MyDB().zhiyu_run_sql(sql1)
 
     def tearDown(self):
         """

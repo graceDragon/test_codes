@@ -67,8 +67,11 @@ class GuanJiaRentReletIndex(unittest.TestCase):
         # 改回合同的状态，以及订单状态
         sql = "UPDATE ft_signing SET STATUS = '1' WHERE house_id = '1636308';"
         sql1 = "UPDATE ft_orders SET STATUS = '4' WHERE house_id = '1636308';"
+        sql2 = "UPDATE ft_bill_list SET STATUS = 1 WHERE signing_id IN " \
+               "(SELECT id FROM ft_signing WHERE house_id = '1636308');"
         configDB.MyDB().zhiyu_run_sql(sql)
         configDB.MyDB().zhiyu_run_sql(sql1)
+        configDB.MyDB().zhiyu_run_sql(sql2)
 
     def test_rent_relet_index(self):
         """
