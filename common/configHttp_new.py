@@ -125,8 +125,10 @@ class ConfigHttp:
         :return:
         """
         try:
+            # response = requests.post(self.url, data=self.params)
             response = requests.post(self.url, headers=self.headers, data=self.params, timeout=float(self.timeout))
             # response.raise_for_status()
+            print "请求url：", response
             return response
         except RuntimeError:
             self.logger.error("Time out!")

@@ -62,6 +62,7 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 

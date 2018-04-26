@@ -62,6 +62,7 @@ class GuanJiaRentBookDoCreate(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
         sql1 = "UPDATE ft_booking SET STATUS = 0 WHERE house_id = '1636559';"

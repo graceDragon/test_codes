@@ -62,6 +62,7 @@ class GuanJiaRentResideoutBill(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
         sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
