@@ -130,12 +130,12 @@ class GuanJiaRentCheckoutSubmit(unittest.TestCase):
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
         # 改回房间的状态，以及房间合同
-        sql = "UPDATE fy_house SET STATUS = '5' WHERE id = '1636343';"
-        sql1 = "UPDATE ft_signing SET STATUS = '1' WHERE house_id = '1636343';"
-        sql2 = "UPDATE ft_orders SET STATUS = '4' WHERE house_id = '1636343';"
-        configDB.MyDB().zhiyu_run_sql(sql)
-        configDB.MyDB().zhiyu_run_sql(sql1)
-        configDB.MyDB().zhiyu_run_sql(sql2)
+        # sql = "UPDATE fy_house SET STATUS = '5' WHERE id = '1636343';"
+        # sql1 = "UPDATE ft_signing SET STATUS = '1' WHERE house_id = '1636343';"
+        # sql2 = "UPDATE ft_orders SET STATUS = '4' WHERE house_id = '1636343';"
+        # configDB.MyDB().zhiyu_run_sql(sql)
+        # configDB.MyDB().zhiyu_run_sql(sql1)
+        # configDB.MyDB().zhiyu_run_sql(sql2)
 
 
 if __name__ == '__main__':

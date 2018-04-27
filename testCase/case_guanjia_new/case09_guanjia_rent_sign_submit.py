@@ -65,6 +65,8 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
+        sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
+        configDB.MyDB().zhiyu_run_sql(sql)
 
     def test_rent_sign_submit(self):
         """

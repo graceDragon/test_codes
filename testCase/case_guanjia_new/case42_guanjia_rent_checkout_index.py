@@ -62,9 +62,11 @@ class GuanJiaRentCheckoutIndex(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql = "UPDATE ft_orders SET STATUS = '4' WHERE id = '8320';"
+        # sql = "UPDATE ft_orders SET STATUS = '4' WHERE id = '8320';"
+        sql = "UPDATE ft_orders SET STATUS = '4' WHERE house_id = '1636343';"
         configDB.MyDB().zhiyu_run_sql(sql)
 
     def test_rent_checkout_index(self):

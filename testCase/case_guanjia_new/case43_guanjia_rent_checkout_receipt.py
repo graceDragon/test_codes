@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-出租-签约-预定-提交
+管家-出租-退房-提交收款
 """
 import unittest
 import paramunittest
@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_book_docreate", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_checkout_receipt", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentBookDoCreate(unittest.TestCase):
+class GuanJiaRentCheckoutReceipt(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -65,17 +65,10 @@ class GuanJiaRentBookDoCreate(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql1 = "UPDATE ft_booking SET STATUS = 0 WHERE house_id = '1636559';"
-        configDB.MyDB().zhiyu_run_sql(sql1)
+        # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-
-    def test_rent_book_docreate(self):
+    def test_rent_checkout_receipt(self):
         """
         test body
         :return:
@@ -86,7 +79,6 @@ class GuanJiaRentBookDoCreate(unittest.TestCase):
         self.localConfigHttp.set_url(self.service_id)
         # set params
         data = json.loads(self.data)
-        # data["sign_date"] = common.time_to_str(data["sign_date"])
         # 判断是否需要token
         if self.token == 1:
             f = open(token_fiel_path, 'r')
@@ -132,7 +124,15 @@ class GuanJiaRentBookDoCreate(unittest.TestCase):
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
 
+    def tearDown(self):
+        """
+
+        :return:
+        """
 
 if __name__ == '__main__':
-    GuanJiaRentBookDoCreate().test_rent_book_docreate()
+    GuanJiaRentCheckoutReceipt().test_rent_checkout_receipt()
+
+
+
 
