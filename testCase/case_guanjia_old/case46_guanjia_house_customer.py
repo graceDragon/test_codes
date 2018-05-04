@@ -29,7 +29,7 @@ class GuanJiaHouseCustomer(unittest.TestCase):
         set params
         :param case_name:
         :param method:
-        :param token:
+        :param token:1
         :param data:
         :param result:
         :param code:
