@@ -23,6 +23,7 @@ class AllTest:
         self.caseListFile = os.path.join(readConfig.proDir, "caselist.txt")
         self.caseListFile_v1_5 = os.path.join(readConfig.proDir, "caselist_v1_5.txt")
         self.caseListFile_v2_0 = os.path.join(readConfig.proDir, "caselist_v2_0.txt")
+        self.caseListFile_staging = os.path.join(readConfig.proDir, "caselist_staging.txt")
         self.caseFile = os.path.join(readConfig.proDir, "testCase")
         self.caseList = []
 
@@ -55,6 +56,14 @@ class AllTest:
                     # self.caseList.append(line.replace("\n", ""))
                     self.caseList.append(line.split('/')[-1])
             fb_v2_0.close()
+        if True:
+            fb_staging = open(self.caseListFile_staging)
+            for line in fb_staging.readlines():
+                line = line.strip()
+                if line != '' and not line.startswith("#"):
+                    # self.caseList.append(line.replace("\n", ""))
+                    self.caseList.append(line.split('/')[-1])
+            fb_staging.close()
         print '获取txt文件里的测试模块...:\n', self.caseList
 
     def set_case_suite(self):
