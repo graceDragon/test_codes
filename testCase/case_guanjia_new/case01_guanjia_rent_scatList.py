@@ -1,7 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
-管家-出租-分散式房态
+管家端_出租_实时房态-分散式房态
 """
 import unittest
 import paramunittest
@@ -63,6 +62,7 @@ class GuanJiaRentScatList(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 
