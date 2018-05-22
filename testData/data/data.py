@@ -9,6 +9,12 @@ community_id_jizhong = 1017634
 
 # 分散式社区三 社区id:990228  站点id:0
 
+# UI社区id
+community_id_ui_jizhong = 1051193
+
+# UI分散社区id
+community_id_ui_fensan = 1051205
+
 
 # 管理员id(18211078892管理员)
 admin_id = 15658
