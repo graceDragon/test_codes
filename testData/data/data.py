@@ -44,4 +44,7 @@ house_id_sign = "1636808"
 # 门店id
 shop_id = 2
 
+# 客户信息
+kh_user_liuxiaoliang = 1569  # 客户刘小良id
+
 

@@ -11,7 +11,6 @@ from common import configHttp_new
 from common import encryptLib
 from common import configDB
 import json
-import time
 from config.settings import token_fiel_path
 
 
@@ -63,6 +62,7 @@ class UserBillLease(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 
@@ -79,7 +79,7 @@ class UserBillLease(unittest.TestCase):
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5', ENV_1_5='dev')
+        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5', ENV_1_5='test')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params

@@ -49,7 +49,7 @@ case_guanjia_old/case45_guanjia_house_details.py
 case_guanjia_old/case46_guanjia_house_customer.py
 case_guanjia_old/case47_guanjia_sign_finduser.py
 case_guanjia_old/case48_guanjia_sign_add.py
-case_guanjia_old/case49_guanjia_sign_closesigning.py
+# case_guanjia_old/case49_guanjia_sign_closesigning.py
 case_guanjia_old/case50_guanjia_order_confirm.py
 case_guanjia_old/case51_guanjia_order_pending.py
 case_guanjia_old/case52_guanjia_order_houseorderadd.py
