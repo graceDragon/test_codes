@@ -2,6 +2,7 @@
 """
 管家app2.0接口
 管家-租入-租入申请-检查房间是否可用
+fy_signing 订单状态要改回来1
 """
 import unittest
 import paramunittest
@@ -67,6 +68,8 @@ class GuanJiaLeaseRentApplyCheckHouse(unittest.TestCase):
         self.logger = self.log.get_logger()
         sql = "UPDATE fy_rent_apply SET is_del = 1 WHERE house_id = '1637120';"
         configDB.MyDB().zhiyu_run_sql(sql)
+        sql1 = "UPDATE fy_signing SET STATUS = 6 WHERE house_id = '1637120';"
+        configDB.MyDB().zhiyu_run_sql(sql1)
 
     def tearDown(self):
         """
