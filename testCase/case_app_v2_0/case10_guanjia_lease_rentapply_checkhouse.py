@@ -2,7 +2,7 @@
 """
 管家app2.0接口
 管家-租入-租入申请-检查房间是否可用
-fy_signing 订单状态要改回来1
+fy_signing 订单状态要改回来
 """
 import unittest
 import paramunittest
