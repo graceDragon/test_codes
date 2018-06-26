@@ -95,6 +95,9 @@ class GuanJiaRentChangeSubmit(unittest.TestCase):
         # 获取时间戳
         time_now = common.get_time_now()
         data['timestamp'] = time_now
+        # 退房日期相关
+        time_now_date = common.str_to_time(time_now)
+        data['change_date'] = time_now_date
         # AES加密
         params_miwen = encryptLib.zhiyu_aes_encode(data)
         # 真正的入参

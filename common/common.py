@@ -5,16 +5,15 @@ import readConfig as readConfig
 import os
 from xlrd import open_workbook
 from xml.etree import ElementTree as ElementTree
-from . import configHttp
-from .Log import MyLog as Log
+# from .Log import MyLog as Log
 import json
 import time
 
 localReadConfig = readConfig.ReadConfig()
 proDir = readConfig.proDir
 # localConfigHttp = configHttp.ConfigHttp()
-log = Log.get_log()
-logger = log.get_logger()
+# log = Log.get_log()
+# logger = log.get_logger()
 
 
 caseNo = 0
@@ -200,6 +199,7 @@ def get_url_from_excel(xls_name, sheet_name):
 
 def get_time_now():
     time_now = int(time.time())
+    # 返回时间戳
     return time_now
 
 
@@ -222,5 +222,6 @@ def str_to_time(str1):
 
 
 if __name__ == "__main__":
-    print(get_xls("login"))
-    set_visitor_token_to_config()
+    # print(get_xls("login"))
+    # set_visitor_token_to_config()
+    get_time_now()

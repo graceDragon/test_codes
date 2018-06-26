@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-租入-签约-通过门店获取人员信息
+管家-租入-租入租约-通过门店获取人员信息
 """
 import unittest
 import paramunittest
@@ -23,7 +23,8 @@ print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
 class GuanJiaLeaseSignGetperson(unittest.TestCase):
-    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
+    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data,
+                      Result, ExpectState, ExpectMsg, ExpectResult):
         """
         初始化excel表格里的数据
         set params
@@ -49,6 +50,9 @@ class GuanJiaLeaseSignGetperson(unittest.TestCase):
         self.expect_msg = ExpectMsg.encode('utf-8')
         self.response = None
         self.info = None
+        self.expect_result = ExpectResult
+
+
 
     def description(self):
         """
@@ -132,6 +136,17 @@ class GuanJiaLeaseSignGetperson(unittest.TestCase):
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
+        # 断言返回具体内容
+        if self.expect_result != '':
+            data_reponse = self.info['data']
+            name_reponse = data_reponse[0]['real_name']
+            mobile_reponse = data_reponse[0]['mobile']
+
+            self.expect_result = json.loads(self.expect_result)
+            name = self.expect_result['real_name']
+            mobile = self.expect_result['mobile']
+            self.assertEqual(name_reponse, name)
+            self.assertEqual(mobile_reponse, mobile)
 
 
 if __name__ == '__main__':
