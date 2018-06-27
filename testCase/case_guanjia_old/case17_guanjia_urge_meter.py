@@ -1,6 +1,5 @@
 # coding:utf-8
 """
-最新的case模版
 费用催缴-周期抄表
 """
 import unittest
