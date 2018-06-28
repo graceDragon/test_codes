@@ -29,6 +29,7 @@ case_app_v2_0/case25_guanjia_cw_orders_detail.py
 case_app_v2_0/case26_guanjia_cw_orders_rollback.py
 case_app_v2_0/case27_guanjia_cw_orders_handle.py
 case_app_v2_0/case28_guanjia_cw_orders_submit.py
+case_app_v2_0/case29_guanjia_lease_signing_lists.py
 
 
 
