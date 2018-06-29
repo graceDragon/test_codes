@@ -133,6 +133,10 @@ case_guanjia_new/case63_guanjia_lease_sign_labeldo.py
 case_guanjia_new/case64_guanjia_lease_sign_show.py
 case_guanjia_new/case65_guanjia_lease_sign_docheck.py
 case_guanjia_new/case66_guanjia_lease_sign_close.py
+case_guanjia_new/case67_guanjia_rent_leaselist.py
+case_guanjia_new/case68_guanjia_lease_newinfo.py
+case_guanjia_new/case69_guanjia_rent_orderlist.py
+case_guanjia_new/case70_guanjia_rent_billlist.py
 
 
 
