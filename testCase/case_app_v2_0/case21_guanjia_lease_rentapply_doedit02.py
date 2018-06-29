@@ -13,6 +13,7 @@ from common import encryptLib
 from common import configDB
 import json
 from config.settings import token_fiel_path
+import time
 
 
 localReadConfig = readConfig.ReadConfig()
@@ -63,6 +64,7 @@ class GuanJiaLeaseRentApplyDoEdit02(unittest.TestCase):
 
         :return:
         """
+        time.sleep(3)
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
         # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"

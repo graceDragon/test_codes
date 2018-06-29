@@ -1,7 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
-管家-出租-集中式房态
+管家端_出租_实时房态-集中式房态-筛选
 """
 import unittest
 import paramunittest
@@ -18,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_centralizedList", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_house_centersearch", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentCentralizedList(unittest.TestCase):
+class GuanJiaRentHouseCenterSearch(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -63,10 +62,11 @@ class GuanJiaRentCentralizedList(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 
-    def test_guanjia_rent_centralizedList(self):
+    def test_guanjia_rent_centersearch(self):
         """
         test body
         :return:
@@ -116,6 +116,10 @@ class GuanJiaRentCentralizedList(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
+        # 存储token,只有正确登录的时候才有token
+        if 'access_token' in self.info['data']:
+            token_temp = self.info['data']['access_token']
+            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
@@ -131,5 +135,5 @@ class GuanJiaRentCentralizedList(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    GuanJiaRentCentralizedList().test_guanjia_rent_centralizedList()
+    GuanJiaRentHouseCenterSearch().test_guanjia_rent_centersearch()
 

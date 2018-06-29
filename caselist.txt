@@ -59,7 +59,9 @@ case_guanjia_old/case55_guanjia_order_getperiod.py
 case_guanjia_old/case56_guanjia_order_houselist.py
 
 
+case_guanjia_new/case01_guanjia_rent_house_scatsearch.py
 case_guanjia_new/case01_guanjia_rent_scatList.py
+case_guanjia_new/case02_guanjia_rent_house_centersearch.py
 case_guanjia_new/case02_guanjia_rent_centralizedList.py
 case_guanjia_new/case03_guanjia_subscribe_lists.py
 case_guanjia_new/case04_guanjia_sign_homepage.py

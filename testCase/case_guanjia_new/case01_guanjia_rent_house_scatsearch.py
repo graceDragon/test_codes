@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-租入-租入租约-关闭租约
+管家端_出租_实时房态-分散式房态-筛选
 """
 import unittest
 import paramunittest
@@ -12,20 +12,18 @@ from common import encryptLib
 from common import configDB
 import json
 from config.settings import token_fiel_path
-import time
 
 
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "lease_sign_close", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_house_scattersearch", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaLeaseSignClose(unittest.TestCase):
-    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data,
-                      Result, ExpectState, ExpectMsg, ExpectResult):
+class GuanJiaRentHouseScatSearch(unittest.TestCase):
+    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
         set params
@@ -51,7 +49,6 @@ class GuanJiaLeaseSignClose(unittest.TestCase):
         self.expect_msg = ExpectMsg.encode('utf-8')
         self.response = None
         self.info = None
-        self.expect_result = ExpectResult
 
     def description(self):
         """
@@ -65,23 +62,11 @@ class GuanJiaLeaseSignClose(unittest.TestCase):
 
         :return:
         """
-        time.sleep(3)
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
-
-    def test_lease_sign_close(self):
+    def test_guanjia_rent_scatsearch(self):
         """
         test body
         :return:
@@ -108,14 +93,9 @@ class GuanJiaLeaseSignClose(unittest.TestCase):
             if data['house_id'] == '':
                 house_id = localReadConfig.get_ini('PARAMS', 'house_id')
                 data['house_id'] = house_id
-        # 获取时间戳
+        # 获取时间戳为int型
         time_now = common.get_time_now()
         data['timestamp'] = time_now
-        # 获取最新租约id
-        if data['id']  == "":
-            sql = "SELECT id FROM fy_signing WHERE house_id = '1640616' ORDER BY id DESC;"
-            zuyue_id = configDB.MyDB().zhiyu_yzm(sql)
-            data['id'] = zuyue_id
         # AES加密
         params_miwen = encryptLib.zhiyu_aes_encode(data)
         # 真正的入参
@@ -136,25 +116,24 @@ class GuanJiaLeaseSignClose(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
+        # 存储token,只有正确登录的时候才有token
+        if 'access_token' in self.info['data']:
+            token_temp = self.info['data']['access_token']
+            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
-        # 断言返回具体内容
-        if self.expect_result != '':
-            data_reponse = self.info['data']
-            name_reponse = data_reponse[0]['real_name']
-            mobile_reponse = data_reponse[0]['mobile']
 
-            self.expect_result = json.loads(self.expect_result)
-            name = self.expect_result['real_name']
-            mobile = self.expect_result['mobile']
-            self.assertEqual(name_reponse, name)
-            self.assertEqual(mobile_reponse, mobile)
+    def tearDown(self):
+        """
+
+        :return:
+        """
+        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
 
 if __name__ == '__main__':
-    GuanJiaLeaseSignClose().test_lease_sign_close()
-
+    GuanJiaRentHouseScatSearch().test_guanjia_rent_scatsearch()
 
