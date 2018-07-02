@@ -17,8 +17,8 @@ case_guanjia_old/case13_guanjia_subscribe_detail_info.py
 case_guanjia_old/case14_guanjia_subscribe_updateLog.py
 case_guanjia_old/case15_guanjia_subscribe_handle.py
 case_guanjia_old/case16_guanjia_subscribe_dohandle.py
-case_guanjia_old/case17_guanjia_urge_meter.py
-case_guanjia_old/case18_guanjia_urge_lists.py
+# case_guanjia_old/case17_guanjia_urge_meter.py
+# case_guanjia_old/case18_guanjia_urge_lists.py
 case_guanjia_old/case19_guanjia_repair_info.py
 case_guanjia_old/case20_guanjia_repair_lists.py
 case_guanjia_old/case21_guanjia_repair_logs.py
@@ -42,11 +42,11 @@ case_guanjia_old/case26_guanjia_lock_addPwd.py
 # case_guanjia_old/case39_guanjia_electric_charge.py
 # case_guanjia_old/case40_guanjia_electric_chargesubmit.py
 # case_guanjia_old/case41_guanjia_electric_ordersubmit.py
-case_guanjia_old/case42_guanjia_house_lists.py
+# case_guanjia_old/case42_guanjia_house_lists.py
 case_guanjia_old/case43_guanjia_house_searchbyhouseno.py
 case_guanjia_old/case44_guanjia_house_status.py
-case_guanjia_old/case45_guanjia_house_details.py
-case_guanjia_old/case46_guanjia_house_customer.py
+# case_guanjia_old/case45_guanjia_house_details.py
+# case_guanjia_old/case46_guanjia_house_customer.py
 case_guanjia_old/case47_guanjia_sign_finduser.py
 case_guanjia_old/case48_guanjia_sign_add.py
 # case_guanjia_old/case49_guanjia_sign_closesigning.py
@@ -55,7 +55,7 @@ case_guanjia_old/case48_guanjia_sign_add.py
 # case_guanjia_old/case52_guanjia_order_houseorderadd.py
 case_guanjia_old/case53_guanjia_order_history.py
 # case_guanjia_old/case54_guanjia_order_add.py
-case_guanjia_old/case55_guanjia_order_getperiod.py
+# case_guanjia_old/case55_guanjia_order_getperiod.py
 case_guanjia_old/case56_guanjia_order_houselist.py
 
 
