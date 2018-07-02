@@ -57,6 +57,11 @@ case_guanjia_old/case53_guanjia_order_history.py
 # case_guanjia_old/case54_guanjia_order_add.py
 # case_guanjia_old/case55_guanjia_order_getperiod.py
 case_guanjia_old/case56_guanjia_order_houselist.py
+case_guanjia_old/case57_guanjia_user_lists.py
+case_guanjia_old/case58_guanjia_user_esignauth.py
+case_guanjia_old/case59_guanjia_user_auth.py
+case_guanjia_old/case60_guanjia_user_show.py
+case_guanjia_old/case61_guanjia_user_upd.py
 
 
 case_guanjia_new/case01_guanjia_rent_house_scatsearch.py
