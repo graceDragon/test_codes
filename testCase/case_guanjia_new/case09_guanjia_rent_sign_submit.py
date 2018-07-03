@@ -12,6 +12,7 @@ from common import encryptLib
 from common import configDB
 import json
 from config.settings import token_fiel_path
+import time
 
 
 localReadConfig = readConfig.ReadConfig()
@@ -62,13 +63,16 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
 
         :return:
         """
+        time.sleep(3)
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql1 = "UPDATE ft_signing SET STATUS = '5' WHERE house_id = '1636559';"
-        configDB.MyDB().zhiyu_run_sql(sql1)
+        # sql1 = "UPDATE ft_signing SET STATUS = '5' WHERE house_id = '1636559';"
+        # configDB.MyDB().zhiyu_run_sql(sql1)
         sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
         configDB.MyDB().zhiyu_run_sql(sql)
+        # sql2 = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636559';"
+        # configDB.MyDB().zhiyu_run_sql(sql2)
 
     def test_rent_sign_submit(self):
         """
