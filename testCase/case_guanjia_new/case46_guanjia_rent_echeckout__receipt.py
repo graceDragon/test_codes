@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-出租-签约-提交
+管家-出租-编辑退房-提交收款
 """
 import unittest
 import paramunittest
@@ -12,18 +12,17 @@ from common import encryptLib
 from common import configDB
 import json
 from config.settings import token_fiel_path
-import time
 
 
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_sign_submit", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_echeckout_receipt", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentSignSubmit(unittest.TestCase):
+class GuanJiaRentEcheckoutReceipt(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -63,24 +62,18 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
 
         :return:
         """
-        time.sleep(3)
-        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql1 = "UPDATE ft_signing SET STATUS = '5' WHERE house_id = '1636559';"
-        # configDB.MyDB().zhiyu_run_sql(sql1)
-        sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
-        configDB.MyDB().zhiyu_run_sql(sql)
-        sql2 = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636559';"
-        configDB.MyDB().zhiyu_run_sql(sql2)
+        # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_rent_sign_submit(self):
+    def test_rent_echeckout_receipt(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp()
+        self.localConfigHttp = configHttp_new.ConfigHttp(ENV_new='xsw')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -136,10 +129,18 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
         :return:
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
+        # 改回房间的状态，以及房间合同
+        # sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
+        # sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
+        # sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
         # configDB.MyDB().zhiyu_run_sql(sql)
+        # configDB.MyDB().zhiyu_run_sql(sql1)
+        # configDB.MyDB().zhiyu_run_sql(sql2)
 
 
 if __name__ == '__main__':
-    GuanJiaRentSignSubmit().test_rent_sign_submit()
+    GuanJiaRentEcheckoutReceipt().test_rent_echeckout_receipt()
+
+
+
 

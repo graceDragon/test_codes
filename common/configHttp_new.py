@@ -17,7 +17,7 @@ class ConfigHttp:
     env_old_new：环境默认为新环境
                 env_old_new='new'
     """
-    def __init__(self, env_old_new='new', ENV_1_5 = 'test'):
+    def __init__(self, env_old_new='new', ENV_new='test', ENV_1_5='test'):
         global baseurl
         baseurl = ''
         if env_old_new == 'new':
@@ -28,6 +28,9 @@ class ConfigHttp:
             elif ENV_new == 'test':
                 baseurl = 'baseurl_test_new'
                 print 'test环境'
+            elif ENV_new == 'xsw':
+                baseurl = 'baseurl_xsw_new'
+                print 'xsw环境'
         elif env_old_new == 'old':
             print '老接口00'
             if ENV_old == 'dev':
