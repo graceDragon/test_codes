@@ -63,7 +63,6 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
 
         :return:
         """
-        time.sleep(3)
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
@@ -73,6 +72,7 @@ class GuanJiaRentSignSubmit(unittest.TestCase):
         configDB.MyDB().zhiyu_run_sql(sql)
         sql2 = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636559';"
         configDB.MyDB().zhiyu_run_sql(sql2)
+        time.sleep(3)
 
     def test_rent_sign_submit(self):
         """
