@@ -48,3 +48,8 @@ shop_id = 2
 kh_user_liuxiaoliang = 1569  # 客户刘小良id
 
 
+# ------------------------各个测试环境地址-----------------
+# 管家app---test-api.efang100.com
+
+
+

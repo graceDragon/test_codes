@@ -25,7 +25,7 @@ case_guanjia_old/case21_guanjia_repair_logs.py
 case_guanjia_old/case22_guanjia_repair_handle.py
 case_guanjia_old/case23_guanjia_repair_dohandle.py
 case_guanjia_old/case24_guanjia_repair_state.py
-case_guanjia_old/case25_guanjia_urge_signing.py
+# case_guanjia_old/case25_guanjia_urge_signing.py
 case_guanjia_old/case26_guanjia_lock_addPwd.py
 # case_guanjia_old/case27_guanjia_lock_doAddPwds.py
 # case_guanjia_old/case28_guanjia_lock_upPwd.py
@@ -47,8 +47,8 @@ case_guanjia_old/case43_guanjia_house_searchbyhouseno.py
 case_guanjia_old/case44_guanjia_house_status.py
 # case_guanjia_old/case45_guanjia_house_details.py
 # case_guanjia_old/case46_guanjia_house_customer.py
-case_guanjia_old/case47_guanjia_sign_finduser.py
-case_guanjia_old/case48_guanjia_sign_add.py
+# case_guanjia_old/case47_guanjia_sign_finduser.py
+# case_guanjia_old/case48_guanjia_sign_add.py
 # case_guanjia_old/case49_guanjia_sign_closesigning.py
 # case_guanjia_old/case50_guanjia_order_confirm.py
 # case_guanjia_old/case51_guanjia_order_pending.py
