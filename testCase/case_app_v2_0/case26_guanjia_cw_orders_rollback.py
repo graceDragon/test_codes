@@ -65,9 +65,9 @@ class GuanJiaCwOrdersRollback(unittest.TestCase):
         """
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql1 = "UPDATE ft_orders SET rollback_status = 0 WHERE id = '12052';"
-        configDB.MyDB().zhiyu_run_sql(sql1)
-        sql2 = "UPDATE ft_orders SET STATUS = 1 WHERE id = '12052';"
+        # sql1 = "UPDATE ft_orders SET rollback_status = 0 WHERE id = '12052';"
+        # configDB.MyDB().zhiyu_run_sql(sql1)
+        sql2 = "UPDATE ft_orders SET STATUS = 1 WHERE id = '19671';"
         configDB.MyDB().zhiyu_run_sql(sql2)
 
     def tearDown(self):
@@ -76,8 +76,11 @@ class GuanJiaCwOrdersRollback(unittest.TestCase):
         :return:
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # sql = "UPDATE ft_rent_reside SET STATUS = '10' WHERE house_id = '1636343';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
+        sql2 = "UPDATE ft_orders SET STATUS = 1 WHERE id = '19671';"
+        configDB.MyDB().zhiyu_run_sql(sql2)
+        sql1 = "INSERT INTO ft_orders_paylog(orders_id,account_id,amount, create_time) VALUES ('19671', '1', '16400', '1528394432');"
+        configDB.MyDB().zhiyu_run_sql(sql1)
+
 
     def test_cw_orders_rollback(self):
         """
