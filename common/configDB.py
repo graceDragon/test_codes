@@ -93,6 +93,13 @@ class MyDB:
         print '读取的值：', result
         return result
 
+    def zhiyu_getone(self, sql):
+        cursor = self.executeSQL(sql)
+        result = self.get_one(cursor)  # 返回元组格式
+        result = result[0]  # 转成字符串
+        print '读取的值：', result
+        return result
+
     def zhiyu_delete(self, sql):
         self.executeSQL(sql)
 

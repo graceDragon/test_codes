@@ -14,6 +14,8 @@ community_id_ui_jizhong = 1051193
 
 # UI分散社区id
 community_id_ui_fensan = 1051205
+# 楼栋id
+loudong_id_
 
 
 # 管理员id(18211078892管理员)

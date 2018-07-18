@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家端_出租_实时房态-分散式房态
+管家-租入-楼盘字典-添加单个房间
 """
 import unittest
 import paramunittest
@@ -17,13 +17,14 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_scatList", tag=tag)
+guanjia_accounts_xls = common.get_xls("app_v2.0.xlsx", "lease_community_addonehouse", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentScatList(unittest.TestCase):
-    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
+class GuanJiaLeaseCommunityAddOneHouse(unittest.TestCase):
+    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState,
+                      ExpectMsg, ExpectRes):
         """
         初始化excel表格里的数据
         set params
@@ -49,6 +50,7 @@ class GuanJiaRentScatList(unittest.TestCase):
         self.expect_msg = ExpectMsg.encode('utf-8')
         self.response = None
         self.info = None
+        self.expect_result = ExpectRes
 
     def description(self):
         """
@@ -65,14 +67,31 @@ class GuanJiaRentScatList(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
+        # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_guanjia_rent_scatList(self):
+    def tearDown(self):
+        """
+
+        :return:
+        """
+        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+        sql_building = "DELETE FROM lp_building WHERE id = '" + str(self.building_id) + "';"
+        configDB.MyDB().zhiyu_run_sql(sql_building)
+        sql_unit = "DELETE FROM lp_unit WHERE id = '" + str(self.unit_id) + "';"
+        configDB.MyDB().zhiyu_run_sql(sql_unit)
+        sql_floor = "DELETE FROM lp_floor WHERE id = '" + str(self.floor_id) + "';"
+        configDB.MyDB().zhiyu_run_sql(sql_floor)
+        sql_house = "DELETE FROM lp_house WHERE house_no = '" + str(self.house_no) + "';"
+        configDB.MyDB().zhiyu_run_sql(sql_house)
+
+    def test_lease_community_addonehouse(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp()
+        self.localConfigHttp = configHttp_new.ConfigHttp(ENV_new='xsw')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -93,9 +112,21 @@ class GuanJiaRentScatList(unittest.TestCase):
             if data['house_id'] == '':
                 house_id = localReadConfig.get_ini('PARAMS', 'house_id')
                 data['house_id'] = house_id
-        # 获取时间戳为int型
+        # 获取时间戳
         time_now = common.get_time_now()
         data['timestamp'] = time_now
+        # 查找楼栋
+        sql = "SELECT * FROM lp_building WHERE community_id = '12873' ORDER BY id DESC;"
+        self.building_id = configDB.MyDB().zhiyu_getone(sql)
+        data['building_id'] = self.building_id
+        sql1 = "SELECT * FROM lp_unit WHERE community_id = '12873' ORDER BY id DESC;"
+        self.unit_id = configDB.MyDB().zhiyu_getone(sql1)
+        data['unit_id'] = self.unit_id
+        sql2 = "SELECT * FROM lp_floor WHERE community_id = '12873' ORDER BY id DESC;"
+        self.floor_id = configDB.MyDB().zhiyu_getone(sql2)
+        data['floor_id'] = self.floor_id
+        self.house_no = '7007'
+        data['house_no'] = self.house_no
         # AES加密
         params_miwen = encryptLib.zhiyu_aes_encode(data)
         # 真正的入参
@@ -116,24 +147,16 @@ class GuanJiaRentScatList(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
-        # 存储token,只有正确登录的时候才有token
-        if 'access_token' in self.info['data']:
-            token_temp = self.info['data']['access_token']
-            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
 
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        # self.log.build_case_line(self.case_nazme, str(self.info['err_no']), self.info['err_msg'])
-
 
 if __name__ == '__main__':
-    GuanJiaRentScatList().test_guanjia_rent_scatList()
+    GuanJiaLeaseCommunityAddOneHouse().test_lease_community_addonehouse()
+
+
+
 
