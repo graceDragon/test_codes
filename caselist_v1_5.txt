@@ -2,6 +2,7 @@
 # V1.5的case
 
 case_v1_5/case01_v1_5_customer_login.py
+case_v1_5/case01_v1_5_customer_registerlogin.py
 case_v1_5/case02_v1_5_clean_houselists.py
 case_v1_5/case03_v1_5_clean_lists.py
 case_v1_5/case04_v1_5_clean_info.py
@@ -42,6 +43,7 @@ case_v1_5/case37_v1_5_user_verifypwd.py
 case_v1_5/case38_v1_5_user_esignauth.py
 case_v1_5/case39_v1_5_user_bill_lease.py
 case_v1_5/case40_v1_5_user_bill_lists.py
+case_v1_5/case40_v1_5_user_bill_getlastbill.py
 case_v1_5/case41_v1_5_user_account_docertificates.py
 case_v1_5/case42_v1_5_account_todo.py
 case_v1_5/case43_v1_5_booking_info.py

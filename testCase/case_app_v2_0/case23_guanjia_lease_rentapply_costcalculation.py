@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-出租-编辑退房-房屋交接
+管家-租入-租入申请-业绩计算
 """
 import unittest
 import paramunittest
@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_echeckout_index", tag=tag)
+guanjia_accounts_xls = common.get_xls("app_v2.0.xlsx", "lease_rentapply_costcalculation", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentEcheckoutIndex(unittest.TestCase):
+class GuanJiaLeaseRentApplyCostCal(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -62,18 +62,28 @@ class GuanJiaRentEcheckoutIndex(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql = "UPDATE ft_orders SET STATUS = '0' WHERE id = '8320';"
-        configDB.MyDB().zhiyu_run_sql(sql)
+        # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_rent_echeckout_index(self):
+    def tearDown(self):
+        """
+
+        :return:
+        """
+        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+        # sql = "UPDATE ft_rent_reside SET STATUS = '10' WHERE house_id = '1636343';"
+        # configDB.MyDB().zhiyu_run_sql(sql)
+
+    def test_lease_rentapply_costcal(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp()
+        self.localConfigHttp = configHttp_new.ConfigHttp(ENV_new='xsw')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -123,24 +133,9 @@ class GuanJiaRentEcheckoutIndex(unittest.TestCase):
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
 
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # 改回房间的状态，以及房间合同
-        # sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
-        # sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
-        # sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
-        # configDB.MyDB().zhiyu_run_sql(sql)
-        # configDB.MyDB().zhiyu_run_sql(sql1)
-        # configDB.MyDB().zhiyu_run_sql(sql2)
-
 
 if __name__ == '__main__':
-    GuanJiaRentEcheckoutIndex().test_rent_echeckout_index()
-
+    GuanJiaLeaseRentApplyCostCal().test_lease_rentapply_costcal()
 
 
 

@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
+管家-出租-入住-账单
 """
 import unittest
 import paramunittest
@@ -62,6 +62,7 @@ class GuanJiaRentResideBill(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 

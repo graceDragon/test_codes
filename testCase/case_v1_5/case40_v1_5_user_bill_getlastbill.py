@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-出租-编辑退房-房屋交接
+v1.5-用户-获取可缴账单房间id
 """
 import unittest
 import paramunittest
@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_echeckout_index", tag=tag)
+guanjia_accounts_xls = common.get_xls("v1.5.xlsx", "user_bill_getlastbill", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentEcheckoutIndex(unittest.TestCase):
+class UserBillGetLastBill(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -62,18 +62,24 @@ class GuanJiaRentEcheckoutIndex(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        sql = "UPDATE ft_orders SET STATUS = '0' WHERE id = '8320';"
-        configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_rent_echeckout_index(self):
+    def tearDown(self):
+        """
+
+        :return:
+        """
+        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+
+    def test_user_bill_getlastbill(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp()
+        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5', ENV_1_5='test')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -94,15 +100,17 @@ class GuanJiaRentEcheckoutIndex(unittest.TestCase):
             if data['house_id'] == '':
                 house_id = localReadConfig.get_ini('PARAMS', 'house_id')
                 data['house_id'] = house_id
-        # 获取时间戳
-        time_now = common.get_time_now()
-        data['timestamp'] = time_now
+        # # 获取时间戳
+        # time_now = common.get_time_now()
+        # data['timestamp'] = time_now
         # AES加密
-        params_miwen = encryptLib.zhiyu_aes_encode(data)
+        params_miwen = encryptLib.zhiyu_aes_encode_v1_5(data)
         # 真正的入参
         params = {
-                  'param': params_miwen
-                  }
+            'encrypt': 'APPAES',
+            'client_id': '586ee968a305374e6198f6b7c293b07a',
+            'param': params_miwen
+        }
 
         self.localConfigHttp.set_params(params)
         # 获取响应结果信息
@@ -117,30 +125,19 @@ class GuanJiaRentEcheckoutIndex(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
+        # 存储token,只有正确登录的时候才有token
+        if 'access_token' in self.info['data']:
+            token_temp = self.info['data']['access_token']
+            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
 
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # 改回房间的状态，以及房间合同
-        # sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
-        # sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
-        # sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
-        # configDB.MyDB().zhiyu_run_sql(sql)
-        # configDB.MyDB().zhiyu_run_sql(sql1)
-        # configDB.MyDB().zhiyu_run_sql(sql2)
-
 
 if __name__ == '__main__':
-    GuanJiaRentEcheckoutIndex().test_rent_echeckout_index()
-
+    UserBillGetLastBill().test_user_bill_getlastbill()
 
 
 
