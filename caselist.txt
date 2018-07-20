@@ -2,6 +2,7 @@
 # 测试用例
 
 case_guanjia_old/case01_guanjia_login.py
+case_guanjia_old/case01_guanjia_quicklogin.py
 #case_guanjia_old/case02_guanjia_get_sms.py
 case_guanjia_old/case03_guanjia_modifypwd.py
 case_guanjia_old/case04_guanjia_account_info.py
