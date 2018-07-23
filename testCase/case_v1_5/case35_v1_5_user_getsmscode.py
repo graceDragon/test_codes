@@ -63,6 +63,7 @@ class UserGetSmsCode(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         time.sleep(60)  # 因为会报获取验证码太频繁的错误，所以等待10秒
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
