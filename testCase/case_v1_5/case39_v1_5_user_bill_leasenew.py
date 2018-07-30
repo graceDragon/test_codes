@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-v1.5-用户-获取可缴账单房间id
+v1.5-用户-用户租赁new
 """
 import unittest
 import paramunittest
@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("v1.5.xlsx", "user_bill_getlastbill", tag=tag)
+guanjia_accounts_xls = common.get_xls("v1.5.xlsx", "user_bill_leasenew", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class UserBillGetLastBill(unittest.TestCase):
+class UserBillLeaseNew(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -73,13 +73,13 @@ class UserBillGetLastBill(unittest.TestCase):
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
-    def test_user_bill_getlastbill(self):
+    def test_user_bill_leasenew(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5')
+        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5', ENV_1_5='test')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -137,7 +137,7 @@ class UserBillGetLastBill(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    UserBillGetLastBill().test_user_bill_getlastbill()
+    UserBillLeaseNew().test_user_bill_leasenew()
 
 
 

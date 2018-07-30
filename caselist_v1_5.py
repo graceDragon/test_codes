@@ -43,6 +43,7 @@ case_v1_5/case36_v1_5_user_resetpwd.py
 case_v1_5/case37_v1_5_user_verifypwd.py
 case_v1_5/case38_v1_5_user_esignauth.py
 case_v1_5/case39_v1_5_user_bill_lease.py
+case_v1_5/case39_v1_5_user_bill_leasenew.py
 case_v1_5/case40_v1_5_user_bill_lists.py
 case_v1_5/case40_v1_5_user_bill_getlastbill.py
 case_v1_5/case41_v1_5_user_account_docertificates.py
