@@ -15,7 +15,7 @@ import json
 from config.settings import token_fiel_path
 
 localReadConfig = readConfig.ReadConfig()
-localConfigHttp = configHttp.ConfigHttp()
+localConfigHttp = configHttp.ConfigHttp(url1='xsw')
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
 guanjia_accounts_xls = common.get_xls("guanjia_accounts.xlsx", "test_quicklogin", tag=tag)
 print '测试用例列表:\n', guanjia_accounts_xls
@@ -73,6 +73,7 @@ class GuanJiaQuickLogIn(unittest.TestCase):
 
         :return:
         """
+        print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
 

@@ -10,10 +10,13 @@ localReadConfig = readConfig.ReadConfig()
 
 class ConfigHttp:
 
-    def __init__(self):
+    def __init__(self, url1='old'):
         global scheme, host, port, timeout
         scheme = localReadConfig.get_http("scheme")
-        host = localReadConfig.get_http("baseurl_test_old")
+        if url1 == 'old':
+            host = localReadConfig.get_http("baseurl_test_old")
+        elif url1 == 'xsw':
+            host = localReadConfig.get_http("baseurl_test_old_xsw")
         port = localReadConfig.get_http("port")
         timeout = localReadConfig.get_http("timeout")
         self.log = Log.get_log()
