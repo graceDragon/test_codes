@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-最新的case模版
+管家-出租-快捷退住-提交快捷退住
 """
 import unittest
 import paramunittest
@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_checkout_bill", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_resideout_shortcut", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaRentCheckoutBill(unittest.TestCase):
+class GuanJiaRentResideoutShortcut(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -68,7 +68,7 @@ class GuanJiaRentCheckoutBill(unittest.TestCase):
         # sql = "UPDATE ft_bill_list SET orders_id = 0 WHERE id = 23;"
         # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_rent_checkout_bill(self):
+    def test_rent_resideout_shortcut(self):
         """
         test body
         :return:
@@ -131,17 +131,16 @@ class GuanJiaRentCheckoutBill(unittest.TestCase):
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
         # 改回房间的状态，以及房间合同
-        # sql = localReadConfig.get_ini('SQL', 'sql_update_house_status5')
+        sql = "UPDATE ft_rent_reside SET STATUS = '10' WHERE id = '1466';"
         # sql1 = localReadConfig.get_ini('SQL', 'sql_update_house_status2')
         # sql2 = localReadConfig.get_ini('SQL', 'sql_update_sign_status1')
-        # configDB.MyDB().zhiyu_run_sql(sql)
+        configDB.MyDB().zhiyu_run_sql(sql)
         # configDB.MyDB().zhiyu_run_sql(sql1)
         # configDB.MyDB().zhiyu_run_sql(sql2)
 
 
 if __name__ == '__main__':
-    GuanJiaRentCheckoutBill().test_rent_checkout_bill()
-
+    GuanJiaRentResideoutShortcut().test_rent_resideout_shortcut()
 
 
 
