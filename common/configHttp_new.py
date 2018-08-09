@@ -49,6 +49,9 @@ class ConfigHttp:
             elif ENV_1_5 == 'xsw':
                 baseurl = 'baseurl_xsw_old_v1_5'
                 print 'xsw环境'
+            elif ENV_1_5 == 'ccq':
+                baseurl = 'baseurl_ccq_old_v1_5'
+                print 'ccq环境'
         self.scheme = localReadConfig.get_http('scheme')
         self.baseurl = localReadConfig.get_http(baseurl)
         port = localReadConfig.get_http("port")

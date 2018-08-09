@@ -25,7 +25,7 @@ print '测试用例列表:\n', guanjia_accounts_xls
 class GuanJiaQuickLogIn(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
-        执行修改密码测试用例之前，要先执行获取验证码测试用例,也需要先获取token()
+        执行修改密码测试用例之前，要先执行获取验证码测试用例,也需要先获取token
         set params
         :param case_name:
         :param method:
