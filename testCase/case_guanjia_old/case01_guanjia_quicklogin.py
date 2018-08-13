@@ -1,7 +1,7 @@
 # coding:utf-8
 
 """
-快捷登录
+快捷登录（快捷登录放在登录前边执行-影响令牌能不能使用）
 """
 import unittest
 import paramunittest
