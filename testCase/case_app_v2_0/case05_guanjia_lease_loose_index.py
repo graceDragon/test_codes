@@ -23,7 +23,7 @@ print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaLeaseLooseHome(unittest.TestCase):
+class GuanJiaLeaseLooseIndex(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
@@ -135,7 +135,7 @@ class GuanJiaLeaseLooseHome(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    GuanJiaLeaseLooseHome().test_lease_loose_home()
+    GuanJiaLeaseLooseIndex().test_lease_loose_home()
 
 
 
