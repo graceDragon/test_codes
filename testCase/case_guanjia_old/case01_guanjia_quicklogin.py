@@ -116,10 +116,13 @@ class GuanJiaQuickLogIn(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
-        # 存储token,只有正确登录的时候才有token
-        if 'access_token' in self.info['data']:
+        # 存储token,只有正确登录的时候才存储token
+        if 'access_token' in self.info['data'] and self.info['err_msg'] == 'success':
             token_temp = self.info['data']['access_token']
-            localReadConfig.set_headers('token_temp', token_temp)
+            # localReadConfig.set_headers('token_temp', token_temp)
+            f = open(token_fiel_path, 'w')
+            f.write(token_temp)
+            print '最新token存储完成...', token_temp
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
