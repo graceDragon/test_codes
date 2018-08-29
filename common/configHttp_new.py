@@ -28,9 +28,9 @@ class ConfigHttp:
             elif ENV_new == 'test':
                 baseurl = 'baseurl_test_new'
                 print 'test环境'
-            elif ENV_new == 'xsw':
-                baseurl = 'baseurl_xsw_new'
-                print 'xsw环境'
+            elif ENV_new == 'geren':
+                baseurl = 'baseurl_geren_new'
+                print '个人环境'
         elif env_old_new == 'old':
             print '老接口00'
             if ENV_old == 'dev':
@@ -46,8 +46,8 @@ class ConfigHttp:
             elif ENV_1_5 == 'test':
                 baseurl = 'baseurl_test_old_v1_5'
                 print 'test环境'
-            elif ENV_1_5 == 'xsw':
-                baseurl = 'baseurl_xsw_old_v1_5'
+            elif ENV_1_5 == 'geren':
+                baseurl = 'baseurl_geren_old_v1_5'
                 print 'xsw环境'
             elif ENV_1_5 == 'ccq':
                 baseurl = 'baseurl_ccq_old_v1_5'

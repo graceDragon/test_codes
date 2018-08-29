@@ -40,6 +40,10 @@ user_id = 566
 customer = '18211076666'
 customer_pwd = '12345678'
 
+customer_8892 = '18211078892'
+customerId_8892 = '2320'  # 个人
+customerId_8892_company = '2373'  # 公司
+
 # 签约-退房-各种情况下的判断流程
 house_id_sign = "1636808"
 
