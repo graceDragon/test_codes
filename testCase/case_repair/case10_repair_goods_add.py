@@ -65,17 +65,15 @@ class RepairGoodsAdd(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "UPDATE ft_signing SET STATUS = '5' WHERE house_id = '1636559';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
+        # 添加项目之后删除掉
+        sql = "DELETE FROM repair_goods WHERE NAME = '空气1';"
+        configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
         """
 
         :return:
         """
-        # 添加项目之后删除掉
-        sql = "DELETE FROM repair_goods WHERE NAME = '空气1';"
-        configDB.MyDB().zhiyu_run_sql(sql)
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
     def test_repair_goods_add(self):

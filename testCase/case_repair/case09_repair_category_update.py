@@ -12,6 +12,7 @@ from common import encryptLib
 from common import configDB
 import json
 from config.settings import token_fiel_path
+import time
 
 
 localReadConfig = readConfig.ReadConfig()
@@ -62,6 +63,7 @@ class RepairCategoryUpdate(unittest.TestCase):
 
         :return:
         """
+        time.sleep(1)
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
