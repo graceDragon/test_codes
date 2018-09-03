@@ -21,6 +21,7 @@ case_repair/case11_repair_goods_list.py
 case_repair/case12_repair_goods_detail.py
 case_repair/case13_repair_goods_update.py
 case_repair/case14_repair_goods_getgoods.py
+case_repair/case15_repair_repair_list.py
 
 
 

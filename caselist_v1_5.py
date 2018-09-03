@@ -66,6 +66,13 @@ case_v1_5/case53_user_act_coupon_get.py
 case_v1_5/case54_user_act_action_use.py
 case_v1_5/case55_user_act_action_manycreate.py
 case_v1_5/case56_user_act_hx_order.py
+case_v1_5/case57_user_repair_category.py
+case_v1_5/case58_user_repair_list.py
+case_v1_5/case59_user_repair_good.py
+case_v1_5/case60_user_repair_detail1.py
+case_v1_5/case61_user_repair_cancel.py
+case_v1_5/case62_user_repair_houselist.py
+case_v1_5/case63_user_repair_add.py
 
 
 
