@@ -12,6 +12,7 @@ from common import encryptLib
 from common import configDB
 import json
 from config.settings import token_fiel_path
+import time
 
 
 localReadConfig = readConfig.ReadConfig()
@@ -65,15 +66,14 @@ class RepairGoodsAdd(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # 添加项目之后删除掉
-        sql = "DELETE FROM repair_goods WHERE NAME = '空气1';"
-        configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
         """
 
         :return:
         """
+        sql = "DELETE FROM repair_goods WHERE NAME = '空气1';"
+        configDB.MyDB().zhiyu_delete(sql)
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
 
     def test_repair_goods_add(self):
@@ -135,4 +135,5 @@ class RepairGoodsAdd(unittest.TestCase):
 
 if __name__ == '__main__':
     RepairGoodsAdd().test_repair_goods_add()
+
 

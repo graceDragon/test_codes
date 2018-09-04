@@ -52,12 +52,27 @@ class MyDB:
         """
         self.connectDB()
         # executing sql
-        print "执行sql语句"
+        print "执行sql语句", sql
         self.cursor.execute(sql)
+        print "删除的条数", self.cursor.execute(sql)  # delete语句返回删除条数
         # executing by committing to DB
         self.db.commit()
         # 返回执行的结果
         return self.cursor
+
+    def executeSQL_02(self, sql):
+        """
+        execute sql
+        :param sql:
+        :return:
+        """
+        # 没有return返回
+        self.connectDB()
+        # executing sql
+        print "执行sql语句", sql
+        self.cursor.execute(sql)
+        # executing by committing to DB
+        self.db.commit()
 
     def get_all(self, cursor):
         """

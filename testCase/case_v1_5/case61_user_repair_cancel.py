@@ -62,6 +62,8 @@ class UserRepairCancel(unittest.TestCase):
 
         :return:
         """
+        sql = 'UPDATE repair_apply SET STATUS = 1 WHERE id = 347;'
+        configDB.MyDB().executeSQL(sql)
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
