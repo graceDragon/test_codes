@@ -112,7 +112,7 @@ class GuanJiaLeaseSignClose(unittest.TestCase):
         time_now = common.get_time_now()
         data['timestamp'] = time_now
         # 获取最新租约id
-        if data['id']  == "":
+        if data['id'] == "":
             sql = "SELECT id FROM fy_signing WHERE house_id = '1640616' ORDER BY id DESC;"
             zuyue_id = configDB.MyDB().zhiyu_yzm(sql)
             data['id'] = zuyue_id
