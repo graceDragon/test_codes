@@ -24,7 +24,7 @@ print 'excel里测试用例列表:\n', guanjia_accounts_xls
 @paramunittest.parametrized(*guanjia_accounts_xls)
 class GuanJiaDecorateApplyIndex(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data,
-                      Result, ExpectState, ExpectMsg, ExpectResult):
+                      Result, ExpectState, ExpectMsg, ExpectResult, Sql):
         """
         初始化excel表格里的数据
         set params
@@ -51,6 +51,7 @@ class GuanJiaDecorateApplyIndex(unittest.TestCase):
         self.response = None
         self.info = None
         self.expect_result = ExpectResult
+        self.sql = Sql
 
     def description(self):
         """
@@ -67,8 +68,13 @@ class GuanJiaDecorateApplyIndex(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "DELETE FROM cp_decorate_template WHERE NAME = '自动化用完就删';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
+        if self.sql == 1:
+            sql = "UPDATE fy_decorate SET STATUS = 1 WHERE admin_id = 15658;"
+            configDB.MyDB().zhiyu_run_sql(sql)
+            sql1 = "DELETE FROM fy_decorate_check WHERE check_admin = 15658;"
+            configDB.MyDB().zhiyu_run_sql(sql1)
+            sql2 = "UPDATE conf_order SET decorate_status = 1 WHERE id = 28;"
+            configDB.MyDB().zhiyu_run_sql(sql2)
 
     def tearDown(self):
         """
