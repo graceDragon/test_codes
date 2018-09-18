@@ -19,7 +19,8 @@ class MyDB:
         'user': username,
         'passwd': password,
         'port': int(port),
-        'db': database
+        'db': database,
+        'charset': 'utf8'
     }
 
     def __init__(self):

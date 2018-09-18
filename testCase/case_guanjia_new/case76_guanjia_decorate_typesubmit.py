@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-装修-分类信息
+管家-装修-分类提交
 """
 import unittest
 import paramunittest
@@ -13,18 +13,22 @@ from common import configDB
 import json
 from config.settings import token_fiel_path
 
+# import sys
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
+
 
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "decorate_item_typeindex", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "decorate_item_typesubmit", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaDecorateTypeIndex(unittest.TestCase):
+class GuanJiaDecorateTypeSubmit(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data,
-                      Result, ExpectState, ExpectMsg, ExpectResult):
+                      Result, ExpectState, ExpectMsg, ExpectResult, Sql):
         """
         初始化excel表格里的数据
         set params
@@ -51,6 +55,7 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         self.response = None
         self.info = None
         self.expect_result = ExpectResult
+        self.sql = Sql
 
     def description(self):
         """
@@ -67,8 +72,9 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
+        if self.sql == 1:
+            sql = "DELETE FROM cp_decorate_type WHERE NAME = '自自动化';"
+            configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
         """
@@ -79,7 +85,7 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
         # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_rent_decorate_typeindex(self):
+    def test_rent_decorate_typesubmit(self):
         """
         test body
         :return:
@@ -148,6 +154,6 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    GuanJiaDecorateTypeIndex().test_rent_decorate_typeindex()
+    GuanJiaDecorateTypeSubmit().test_rent_decorate_typesubmit()
 
 

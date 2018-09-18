@@ -55,6 +55,7 @@ case_v1_5/case43_v1_5_booking_info.py
 case_v1_5/case44_v1_5_booking_product.py
 case_v1_5/case45_v1_5_user_order_detail.py
 case_v1_5/case45_v1_5_user_order_lists.py
+case_v1_5/case45_v1_5_user_order_confirm.py
 case_v1_5/case46_user_act_recommend_siteList.py
 case_v1_5/case47_user_act_recommend_info.py
 case_v1_5/case48_user_act_recommend_invitelist.py

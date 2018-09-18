@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-装修-分类信息
+管家-装修-验收-罚金
 """
 import unittest
 import paramunittest
@@ -17,12 +17,12 @@ from config.settings import token_fiel_path
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "decorate_item_typeindex", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "decorate_yanshou_fajin", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaDecorateTypeIndex(unittest.TestCase):
+class GuanJiaDecorateYanshouFajin(unittest.TestCase):
     def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data,
                       Result, ExpectState, ExpectMsg, ExpectResult):
         """
@@ -67,7 +67,7 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
+        # sql = "UPDATE fy_decorate SET STATUS = 1 WHERE id =28;"
         # configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
@@ -79,7 +79,7 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
         # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_rent_decorate_typeindex(self):
+    def test_rent_decorate_yanshou_fajin(self):
         """
         test body
         :return:
@@ -148,6 +148,6 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    GuanJiaDecorateTypeIndex().test_rent_decorate_typeindex()
+    GuanJiaDecorateYanshouFajin().test_rent_decorate_yanshou_fajin()
 
 

@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-装修-分类信息
+v1.5-用户-订单支付加载信息接口
 """
 import unittest
 import paramunittest
@@ -11,20 +11,20 @@ from common import configHttp_new
 from common import encryptLib
 from common import configDB
 import json
+import time
 from config.settings import token_fiel_path
 
 
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "decorate_item_typeindex", tag=tag)
+guanjia_accounts_xls = common.get_xls("v1.5.xlsx", "user_order_confirm", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaDecorateTypeIndex(unittest.TestCase):
-    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data,
-                      Result, ExpectState, ExpectMsg, ExpectResult):
+class UserOrderConfirm(unittest.TestCase):
+    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
         set params
@@ -50,7 +50,6 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         self.expect_msg = ExpectMsg.encode('utf-8')
         self.response = None
         self.info = None
-        self.expect_result = ExpectResult
 
     def description(self):
         """
@@ -67,8 +66,6 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
-        # sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
 
     def tearDown(self):
         """
@@ -76,16 +73,14 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         :return:
         """
         # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
 
-    def test_rent_decorate_typeindex(self):
+    def test_user_order_confirm(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp(ENV_new='geren')
+        self.localConfigHttp = configHttp_new.ConfigHttp(env_old_new='v1.5')
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -106,15 +101,17 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
             if data['house_id'] == '':
                 house_id = localReadConfig.get_ini('PARAMS', 'house_id')
                 data['house_id'] = house_id
-        # 获取时间戳
-        time_now = common.get_time_now()
-        data['timestamp'] = time_now
+        # # 获取时间戳
+        # time_now = common.get_time_now()
+        # data['timestamp'] = time_now
         # AES加密
-        params_miwen = encryptLib.zhiyu_aes_encode(data)
+        params_miwen = encryptLib.zhiyu_aes_encode_v1_5(data)
         # 真正的入参
         params = {
-                  'param': params_miwen
-                  }
+            'encrypt': 'APPAES',
+            'client_id': '586ee968a305374e6198f6b7c293b07a',
+            'param': params_miwen
+        }
 
         self.localConfigHttp.set_params(params)
         # 获取响应结果信息
@@ -129,25 +126,19 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         self.info = self.response.text
         # Json响应信息转成字典格式
         self.info = json.loads(self.info)
+        # 存储token,只有正确登录的时候才有token
+        if 'access_token' in self.info['data']:
+            token_temp = self.info['data']['access_token']
+            localReadConfig.set_headers('token_temp', token_temp)
         # 断言返回状态码
         self.assertEqual(self.info['err_no'], self.expect_state)
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
-        # 断言返回具体内容
-        if self.expect_result != '':
-            data_reponse = self.info['data']
-            name_reponse = data_reponse[0]['real_name']
-            mobile_reponse = data_reponse[0]['mobile']
-
-            self.expect_result = json.loads(self.expect_result)
-            name = self.expect_result['real_name']
-            mobile = self.expect_result['mobile']
-            self.assertEqual(name_reponse, name)
-            self.assertEqual(mobile_reponse, mobile)
 
 
 if __name__ == '__main__':
-    GuanJiaDecorateTypeIndex().test_rent_decorate_typeindex()
+    UserOrderConfirm().test_user_order_confirm()
+
 
 

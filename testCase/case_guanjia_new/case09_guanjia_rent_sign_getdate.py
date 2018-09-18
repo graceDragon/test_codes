@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-装修-分类信息
+管家-出租-签约-签约日期掐齐
 """
 import unittest
 import paramunittest
@@ -12,19 +12,19 @@ from common import encryptLib
 from common import configDB
 import json
 from config.settings import token_fiel_path
+import time
 
 
 localReadConfig = readConfig.ReadConfig()
 # 读取excel表格里的case
 tag = int(localReadConfig.get_setting('tag').encode('utf-8'))
-guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "decorate_item_typeindex", tag=tag)
+guanjia_accounts_xls = common.get_xls("guanjia_new.xlsx", "rent_sign_getdate", tag=tag)
 print 'excel里测试用例列表:\n', guanjia_accounts_xls
 
 
 @paramunittest.parametrized(*guanjia_accounts_xls)
-class GuanJiaDecorateTypeIndex(unittest.TestCase):
-    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data,
-                      Result, ExpectState, ExpectMsg, ExpectResult):
+class GuanJiaRentSignGetDate(unittest.TestCase):
+    def setParameters(self, CaseName, CaseDescribe, Method, Token, ServiceID, Data, Result, ExpectState, ExpectMsg):
         """
         初始化excel表格里的数据
         set params
@@ -50,7 +50,6 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         self.expect_msg = ExpectMsg.encode('utf-8')
         self.response = None
         self.info = None
-        self.expect_result = ExpectResult
 
     def description(self):
         """
@@ -67,25 +66,21 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         print "测试接口：", self.case_describe
         self.log = MyLog.get_log()
         self.logger = self.log.get_logger()
+        # sql1 = "UPDATE ft_signing SET STATUS = '5' WHERE house_id = '1636559';"
+        # configDB.MyDB().zhiyu_run_sql(sql1)
         # sql = "UPDATE ft_orders SET STATUS = '0' WHERE house_id = '1636559';"
         # configDB.MyDB().zhiyu_run_sql(sql)
+        # sql2 = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636559';"
+        # configDB.MyDB().zhiyu_run_sql(sql2)
+        # time.sleep(3)
 
-    def tearDown(self):
-        """
-
-        :return:
-        """
-        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
-        # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
-        # configDB.MyDB().zhiyu_run_sql(sql)
-
-    def test_rent_decorate_typeindex(self):
+    def test_rent_sign_getdate(self):
         """
         test body
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp(ENV_new='geren')
+        self.localConfigHttp = configHttp_new.ConfigHttp()
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
@@ -134,20 +129,17 @@ class GuanJiaDecorateTypeIndex(unittest.TestCase):
         # 断言返回message
         mes_reponse = self.info['err_msg'].encode('utf-8')
         self.assertEqual(mes_reponse, self.expect_msg)
-        # 断言返回具体内容
-        if self.expect_result != '':
-            data_reponse = self.info['data']
-            name_reponse = data_reponse[0]['real_name']
-            mobile_reponse = data_reponse[0]['mobile']
 
-            self.expect_result = json.loads(self.expect_result)
-            name = self.expect_result['real_name']
-            mobile = self.expect_result['mobile']
-            self.assertEqual(name_reponse, name)
-            self.assertEqual(mobile_reponse, mobile)
+    def tearDown(self):
+        """
+
+        :return:
+        """
+        # self.log.build_case_line(self.case_name, str(self.info['err_no']), self.info['err_msg'])
+        # sql = "UPDATE fy_house SET STATUS = '2' WHERE id = '1636562';"
+        # configDB.MyDB().zhiyu_run_sql(sql)
 
 
 if __name__ == '__main__':
-    GuanJiaDecorateTypeIndex().test_rent_decorate_typeindex()
-
+    GuanJiaRentSignGetDate().test_rent_sign_getdate()
 
