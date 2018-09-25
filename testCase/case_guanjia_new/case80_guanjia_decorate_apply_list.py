@@ -1,6 +1,6 @@
 # coding:utf-8
 """
-管家-装修-申请列表
+管家-装修-装修单列表
 """
 import unittest
 import paramunittest
@@ -85,7 +85,7 @@ class GuanJiaDecorateApplyList(unittest.TestCase):
         :return:
         """
         # 给get或者post方法配置Http地址
-        self.localConfigHttp = configHttp_new.ConfigHttp(ENV_new='geren')
+        self.localConfigHttp = configHttp_new.ConfigHttp()
         # 接口地址存储在excel文件里，读取出来
         self.localConfigHttp.set_url(self.service_id)
         # set params
