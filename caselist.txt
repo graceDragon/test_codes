@@ -175,7 +175,7 @@ case_guanjia_new/case91_guanjia_config_decorate_loglist.py
 case_guanjia_new/case92_guanjia_config_order_lists.py
 case_guanjia_new/case93_guanjia_config_order_index.py
 case_guanjia_new/case94_guanjia_config_order_feelist.py
-case_guanjia_new/case95_guanjia_config_order_submit.py
+# case_guanjia_new/case95_guanjia_config_order_submit.py # 发短信花钱，要求关掉此条case
 
 
 
